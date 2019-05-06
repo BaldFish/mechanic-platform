@@ -4,16 +4,18 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"autoAudits": false
+		"nodeModules": false,
+		"autoAudits": false,
+		"checkInvalidKey": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.6.6",
-	"appid": "wx3b6550ea27242eb7",
+	"appid": "wx168a74fe3958f4bb",
 	"projectname": "mechanic-platform",
 	"debugOptions": {
 		"hidedInDevtools": []
