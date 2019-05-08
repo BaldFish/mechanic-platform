@@ -1,4 +1,48 @@
 <!--index.wxml-->
 <view class="container">
-  
+  <swiper class='swiper'>
+    <block wx:for="{{imgUrls}}" wx:key="*this">
+      <swiper-item class='swiper-item'>
+        <image src="{{item}}" class="slide-image" mode='aspectFit' />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class='search-wrap'>
+    <view class='search'>
+      <icon class='search-icon' type='search' size='20'></icon>
+      <input class='search-input' placeholder='请输入您要搜索车型品牌名称'></input>
+    </view>
+  </view>
+  <view class='news-wrap'>
+    <image class='news-img' src='/images/new.png'></image>
+    <view class='news-text'>
+      <text class="favoree">资料受益人 </text>
+      <text class='name'>王师傅：</text>
+      <text class='news'>{{news}}</text>
+    </view>
+  </view>
+  <view class='title-wrap'>
+    <view class='brand-title'>
+      <image class='title-img' src='/images/pinpai.png'></image>
+      <text class="title-text">热门查询品牌 </text>
+    </view>
+  </view>
+  <view class='brand-list'>
+    <view class='list-item' wx:for="{{brandList}}" wx:key="item.id">
+      <image class='item-img' src='{{item.img}}'></image>
+      <text class='item-text'>{{item.name}}</text>
+    </view>
+  </view>
+	<view class='title-wrap'>
+    <view class='brand-title'>
+      <image class='title-img' src='/images/huodong.png'></image>
+      <text class="title-text">热门运营活动 </text>
+    </view>
+  </view>
+	<view class='title-wrap'>
+    <view class='brand-title'>
+      <image class='title-img' src='/images/jiangli.png'></image>
+      <text class="title-text">最新奖励情况 </text>
+    </view>
+  </view>
 </view>
