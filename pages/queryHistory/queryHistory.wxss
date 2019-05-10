@@ -1,1 +1,5 @@
 /* pages/queryHistory/queryHistory.wxss */
+.history-wrap{
+	min-height: 100%;
+	background-color: red;
+}

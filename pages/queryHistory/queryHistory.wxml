@@ -1,2 +1,5 @@
 <!--pages/queryHistory/queryHistory.wxml-->
-<text>pages/queryHistory/queryHistory.wxml</text>
+<view class='history-wrap'>
+<view>123</view>
+<view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view><view>123</view>
+</view>

@@ -1,7 +1,8 @@
 {
   "pages": [
+		"pages/queryHistory/queryHistory",
     "pages/index/index",
-    "pages/queryHistory/queryHistory",
+    
     "pages/personalCenter/personalCenter"
   ],
   "window": {

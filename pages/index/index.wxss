@@ -1,6 +1,7 @@
 /**index.wxss**/
 .container{
 	position: relative;
+	padding-bottom: 80rpx;
 }
 .swiper {
   text-align: center;
@@ -98,4 +99,56 @@ margin-bottom: 65rpx;
 .item-text{
 	font-size: 13px;
 	color: #333333;
+}
+.operation-wrap{
+	width: 630rpx;
+	padding: 40rpx 0;
+	padding-left: 50rpx;
+	background-color: #ffffff;
+	box-shadow: 0px 0px 53px 9px rgba(94, 123, 246, 0.1);
+	border-radius: 30rpx;
+	box-sizing: border-box;
+margin: 0 auto;
+}
+.operation-wrap text{
+	display: block;
+}
+.operation-title{
+	font-size: 18px;
+	color: #333333;
+	margin-bottom: 26rpx;
+}
+.operation-list{
+	font-size: 11px;
+	color: #333333;
+}
+.phoneCall-wrap{
+	margin-top: 74rpx;
+	text-align: center;
+	font-size: 15px;
+	color: #333333;
+}
+.phone{
+	color: #3a67f6;
+}
+.notice-wrap{
+	padding-top: 20rpx;
+	padding-bottom: 20rpx;
+}
+.notice{
+	display: flex;
+	align-items: center;
+	font-size: 11px;
+	line-height: 22px;
+}
+.notice-img{
+	width: 10px;
+	height: 10px;
+	margin-right: 10rpx;
+}
+.notice-name{
+	color: #333333;
+}
+.notice-result{
+	color: #999999;
 }

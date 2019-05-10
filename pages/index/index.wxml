@@ -33,16 +33,30 @@
       <text class='item-text'>{{item.name}}</text>
     </view>
   </view>
-	<view class='title-wrap'>
+  <view class='title-wrap'>
     <view class='brand-title'>
       <image class='title-img' src='/images/huodong.png'></image>
       <text class="title-text">热门运营活动 </text>
     </view>
   </view>
-	<view class='title-wrap'>
+  <view class='operation-wrap'>
+    <text class='operation-title'>快递维修资料，赚现金</text>
+    <text class='operation-list' wx:for="{{operationList}}" wx:key="index">{{index+1}}：{{item}}</text>
+  </view>
+  <view class='phoneCall-wrap'>立刻体验请联系平台客服：
+    <text class='phone' bindtap='phoneCall'>18801384334</text>
+  </view>
+  <view class='title-wrap'>
     <view class='brand-title'>
       <image class='title-img' src='/images/jiangli.png'></image>
       <text class="title-text">最新奖励情况 </text>
+    </view>
+  </view>
+  <view class='operation-wrap notice-wrap'>
+    <view class='notice' wx:for="{{noticeList}}" wx:key="index">
+      <image class='notice-img' src='/images/gonggao.png'></image>
+      <text class='notice-name'>资产受益人：</text>
+      <text class='notice-result'>{{item}}</text>
     </view>
   </view>
 </view>
