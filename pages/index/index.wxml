@@ -1,4 +1,4 @@
-<!--index.wxml-->
+<!-- index.wxml -->
 <view class="container">
   <swiper class='swiper'>
     <block wx:for="{{imgUrls}}" wx:key="*this">
@@ -16,7 +16,7 @@
   <view class='news-wrap'>
     <image class='news-img' src='/images/new.png'></image>
     <view class='news-text'>
-      <text class="favoree">资料受益人 </text>
+      <text class="favoree">资料受益人</text>
       <text class='name'>王师傅：</text>
       <text class='news'>{{news}}</text>
     </view>
@@ -24,7 +24,7 @@
   <view class='title-wrap'>
     <view class='brand-title'>
       <image class='title-img' src='/images/pinpai.png'></image>
-      <text class="title-text">热门查询品牌 </text>
+      <text class="title-text">热门查询品牌</text>
     </view>
   </view>
   <view class='brand-list'>
@@ -36,20 +36,23 @@
   <view class='title-wrap'>
     <view class='brand-title'>
       <image class='title-img' src='/images/huodong.png'></image>
-      <text class="title-text">热门运营活动 </text>
+      <text class="title-text">热门运营活动</text>
     </view>
   </view>
   <view class='operation-wrap'>
     <text class='operation-title'>快递维修资料，赚现金</text>
-    <text class='operation-list' wx:for="{{operationList}}" wx:key="index">{{index+1}}：{{item}}</text>
+    <text class='operation-list' wx:for="{{operationList}}" wx:key="index">
+      {{index+1}}：{{item}}
+    </text>
   </view>
-  <view class='phoneCall-wrap'>立刻体验请联系平台客服：
+  <view class='phoneCall-wrap'>
+    立刻体验请联系平台客服：
     <text class='phone' bindtap='phoneCall'>18801384334</text>
   </view>
   <view class='title-wrap'>
     <view class='brand-title'>
       <image class='title-img' src='/images/jiangli.png'></image>
-      <text class="title-text">最新奖励情况 </text>
+      <text class="title-text">最新奖励情况</text>
     </view>
   </view>
   <view class='operation-wrap notice-wrap'>
