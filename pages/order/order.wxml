@@ -1,0 +1,4 @@
+<!--pages/queryHistory/queryHistory.wxml-->
+<view class='history-wrap'>
+  <view>123</view>
+</view>

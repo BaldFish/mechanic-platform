@@ -1,6 +1,6 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "浏览历史",
+  "navigationBarTitleText": "订单列表",
 	"enablePullDownRefresh":true,
 	"backgroundTextStyle":"dark"
 }

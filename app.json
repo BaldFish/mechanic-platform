@@ -1,38 +1,38 @@
 {
-  "pages": [
-		"pages/queryHistory/queryHistory",
-    "pages/index/index",
-    
-    "pages/personalCenter/personalCenter"
-  ],
-  "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTextStyle": "black"
-  },
-  "tabBar": {
-    "selectedColor": "#4168f5",
-    "color": "#333333",
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "text": "首页",
-        "iconPath": "/images/home_mr.png",
-        "selectedIconPath": "/images/home_dj.png"
-      },
-      {
-        "pagePath": "pages/queryHistory/queryHistory",
-        "text": "查询历史",
-        "iconPath": "/images/chaxun_mr.png",
-        "selectedIconPath": "/images/chaxun_dj.png"
-      },
-      {
-        "pagePath": "pages/personalCenter/personalCenter",
-        "text": "个人中心",
-        "iconPath": "/images/wode_mr.png",
-        "selectedIconPath": "/images/wode_dj.png"
-      }
-    ]
-  },
-  "sitemapLocation": "sitemap.json"
+	"pages": [
+		"pages/order/order",
+		"pages/index/index",
+		"pages/personalCenter/personalCenter",
+		"pages/search/search"
+	],
+	"window": {
+		"backgroundTextStyle": "light",
+		"navigationBarBackgroundColor": "#fff",
+		"navigationBarTextStyle": "black"
+	},
+	"tabBar": {
+		"selectedColor": "#4168f5",
+		"color": "#333333",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"text": "首页",
+				"iconPath": "/images/home_mr.png",
+				"selectedIconPath": "/images/home_dj.png"
+			},
+			{
+				"pagePath": "pages/order/order",
+				"text": "订单",
+				"iconPath": "/images/chaxun_mr.png",
+				"selectedIconPath": "/images/chaxun_dj.png"
+			},
+			{
+				"pagePath": "pages/personalCenter/personalCenter",
+				"text": "个人中心",
+				"iconPath": "/images/wode_mr.png",
+				"selectedIconPath": "/images/wode_dj.png"
+			}
+		]
+	},
+	"sitemapLocation": "sitemap.json"
 }
