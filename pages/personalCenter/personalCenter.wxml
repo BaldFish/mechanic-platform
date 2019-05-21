@@ -1,2 +1,3 @@
-<!--pages/personalCenter/personalCenter.wxml-->
-<text>pages/personalCenter/personalCenter.wxml</text>
+<view class="personalCenter" hover-class="none" hover-stop-propagation="false">
+  <view class="head_wrap" hover-class="none" hover-stop-propagation="false"></view>
+</view>

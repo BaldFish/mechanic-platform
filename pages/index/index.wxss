@@ -102,8 +102,7 @@
 }
 .operation-wrap{
   width: 630rpx;
-  padding: 40rpx 0;
-  padding-left: 50rpx;
+  padding: 40rpx 0 60rpx 50rpx;
   background-color: #ffffff;
   box-shadow: 0px 0px 53px 9px rgba(94, 123, 246, 0.1);
   border-radius: 30rpx;
@@ -115,12 +114,17 @@
 }
 .operation-title{
   font-size: 18px;
-  color: #333333;
-  margin-bottom: 26rpx;
+  color: #386cff;
 }
 .operation-list{
   font-size: 11px;
   color: #333333;
+  height: 18px;
+  line-height: 18px;
+}
+.explain-list{
+  font-size: 12px;
+  color: #222222;
 }
 .phoneCall-wrap{
   margin-top: 74rpx;
