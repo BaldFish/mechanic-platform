@@ -1,6 +1,5 @@
 /* pages/personalCenter/personalCenter.wxss */
 .personalCenter{
-  
 }
 .head_wrap{
   width: 700rpx;
@@ -10,4 +9,51 @@
   border-radius: 30rpx;
   margin: 0 auto;
   margin-top: 76rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.photo_wrap{
+  width: 130rpx;
+  height: 130rpx;
+  background-color: #1b1b1b;
+  border: solid 1px #eeeeee;
+  border-radius: 50%;
+}
+.photo{
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 50%;
+}
+.info_wrap{
+  margin-left: 15rpx;
+}
+.info_up{
+  display: flex;
+  align-items: center;
+}
+.phone{
+  font-size: 16px;
+	color: #222222;
+}
+.vip_logo{
+  width: 105rpx;
+  height: 42rpx;
+  /* vertical-align: top; */
+}
+.info_down{
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: #999999;
+  margin-top: 40rpx;
+}
+.num{
+  font-size: 16px;
+	color: #386cff;
+}
+.jiantou{
+  margin-left: 30rpx;
+  width: 20rpx;
+  height: 30rpx;
 }

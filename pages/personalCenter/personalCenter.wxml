@@ -1,3 +1,19 @@
 <view class="personalCenter" hover-class="none" hover-stop-propagation="false">
-  <view class="head_wrap" hover-class="none" hover-stop-propagation="false"></view>
+  <view class="head_wrap" hover-class="none" hover-stop-propagation="false">
+    <view class="photo_wrap" hover-class="none" hover-stop-propagation="false">
+      <image class="photo" src="/images/01.png" mode="aspectFit" lazy-load="false" binderror="" bindload=""></image>
+    </view>
+    <view class="info_wrap" hover-class="none" hover-stop-propagation="false">
+      <view class="info_up" hover-class="none" hover-stop-propagation="false">
+        <text class="phone" selectable="false" space="false" decode="false">18767570875</text>
+        <image class="vip_logo" src="/images/VIP_logo.png" mode="aspectFit" lazy-load="false" binderror="" bindload=""></image>
+      </view>
+      <view class="info_down" hover-class="none" hover-stop-propagation="false">
+        距离会员过期还剩
+        <text class="num" selectable="false" space="false" decode="false">23</text>
+        天，不要忘了续费
+        <image class="jiantou" src="/images/jiantou.png" mode="aspectFit" lazy-load="false" binderror="" bindload=""></image>
+      </view>
+    </view>
+  </view>
 </view>
