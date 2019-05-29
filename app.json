@@ -1,9 +1,9 @@
 {
 	"pages": [
-    "pages/personalCenter/personalCenter",
-    "pages/index/index",
+    "pages/partner/partner",
+		"pages/index/index",
     "pages/order/order",
-		
+    "pages/personalCenter/personalCenter",
 		"pages/search/search"
 	],
 	"window": {
@@ -32,7 +32,7 @@
 				"text": "个人中心",
 				"iconPath": "/images/wode_mr.png",
 				"selectedIconPath": "/images/wode_dj.png"
-			}
+      }
 		]
 	},
 	"sitemapLocation": "sitemap.json"

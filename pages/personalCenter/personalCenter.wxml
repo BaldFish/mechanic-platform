@@ -9,9 +9,56 @@
         <image class="vip_logo" src="/images/VIP_logo.png" mode="aspectFit" lazy-load="false" binderror="" bindload=""></image>
       </view>
       <view class="info_down" hover-class="none" hover-stop-propagation="false">
-        距离会员过期还剩
-        <text class="num" selectable="false" space="false" decode="false">23</text>
-        天，不要忘了续费
+        <view class="down_text">
+          距离会员过期还剩
+          <text class="num">23</text>
+          天，不要忘了续费
+        </view>
+        <view class="nonmember" wx:if="{{false}}">
+          <text class="open">开通vip会员</text>
+          享受服务特权
+        </view>
+        <image class="jiantou" src="/images/jiantou.png" mode="aspectFit" lazy-load="false" binderror="" bindload=""></image>
+      </view>
+    </view>
+  </view>
+  <view class="myList" hover-class="none" hover-stop-propagation="false">
+    <view class="list" hover-class="none" hover-stop-propagation="false">
+      <view class="left_wrap" hover-class="none" hover-stop-propagation="false">
+        <view class="left_text">
+          我的元积分
+          <text class="num">23</text>
+        </view>
+      </view>
+      <view class="right_wrap">
+        <view class="right_text">积分明细</view>
+        <image class="jiantou" src="/images/jiantou.png" mode="aspectFit" lazy-load="false" binderror="" bindload=""></image>
+      </view>
+    </view>
+    <view class="list" hover-class="none" hover-stop-propagation="false">
+      <view class="left_wrap" hover-class="none" hover-stop-propagation="false">
+        <view class="left_text">我的订单</view>
+      </view>
+      <view class="right_wrap">
+        <view class="right_text">查看订单</view>
+        <image class="jiantou" src="/images/jiantou.png" mode="aspectFit" lazy-load="false" binderror="" bindload=""></image>
+      </view>
+    </view>
+    <view class="list" hover-class="none" hover-stop-propagation="false">
+      <view class="left_wrap" hover-class="none" hover-stop-propagation="false">
+        <view class="left_text">我的收益</view>
+      </view>
+      <view class="right_wrap">
+        <view class="right_text">查看收益</view>
+        <image class="jiantou" src="/images/jiantou.png" mode="aspectFit" lazy-load="false" binderror="" bindload=""></image>
+      </view>
+    </view>
+    <view class="list" hover-class="none" hover-stop-propagation="false">
+      <view class="left_wrap" hover-class="none" hover-stop-propagation="false">
+        <view class="left_text">了解合伙人计划</view>
+      </view>
+      <view class="right_wrap">
+        <view class="right_text">联系我们</view>
         <image class="jiantou" src="/images/jiantou.png" mode="aspectFit" lazy-load="false" binderror="" bindload=""></image>
       </view>
     </view>

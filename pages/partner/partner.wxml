@@ -1,0 +1,20 @@
+<!-- pages/partner/partner.wxml -->
+<view class="partner" hover-class="none" hover-stop-propagation="false">
+  <view class='operation-wrap'>
+    <text class='operation-title'>合伙人计划</text>
+    <text class='operation-list  explain-list' wx:for="{{explainList}}" wx:key="index">
+      {{item}}
+    </text>
+    <text class='operation-list' wx:for="{{operationList}}" wx:key="index">
+      {{index+1}}：{{item}}
+    </text>
+  </view>
+  <view class="submitPhone_wrap" hover-class="none" hover-stop-propagation="false">
+    <view class="" hover-class="none" hover-stop-propagation="false">1</view>
+    <view class="" hover-class="none" hover-stop-propagation="false">
+2
+    </view>
+    <view class="" hover-class="none" hover-stop-propagation="false">3</view>
+    <view class="" hover-class="none" hover-stop-propagation="false">4</view>
+  </view>
+</view>
