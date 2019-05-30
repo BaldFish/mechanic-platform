@@ -1,10 +1,12 @@
 {
 	"pages": [
-    "pages/partner/partner",
+		"pages/IntegralList/IntegralList",
 		"pages/index/index",
-    "pages/order/order",
-    "pages/personalCenter/personalCenter",
-		"pages/search/search"
+		"pages/order/order",
+		"pages/personalCenter/personalCenter",
+		"pages/search/search",
+    "pages/partner/partner",
+    "pages/openVip/openVip"
 	],
 	"window": {
 		"backgroundTextStyle": "light",
@@ -32,7 +34,7 @@
 				"text": "个人中心",
 				"iconPath": "/images/wode_mr.png",
 				"selectedIconPath": "/images/wode_dj.png"
-      }
+			}
 		]
 	},
 	"sitemapLocation": "sitemap.json"

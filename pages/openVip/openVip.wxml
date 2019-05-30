@@ -1,0 +1,32 @@
+<!-- pages/openVip/openVip.wxml -->
+<view class="openVip" hover-class="none" hover-stop-propagation="false">
+  <view class="img_wrap" hover-class="none" hover-stop-propagation="false">
+    <image class="img" src="/images/VIP_img.png" mode="" lazy-load="false" binderror="" bindload=""></image>
+  </view>
+  <view class="description" hover-class="none" hover-stop-propagation="false">
+    <view class="des_title" hover-class="none" hover-stop-propagation="false">
+      <view class="des">开通VIP用户海量维修资料库随查随用</view>
+      <view class="des_head">省钱又省心</view>
+    </view>
+    <view class="des_list_wrap" hover-class="none" hover-stop-propagation="false">
+      <view class="des_list list_title" hover-class="none" hover-stop-propagation="false">
+        <view class="" hover-class="none" hover-stop-propagation="false">特权</view>
+        <image class="vip_logo" src="/images/VIP_logo.png" lazy-load="false" binderror="" bindload=""></image>
+        <view class="" hover-class="none" hover-stop-propagation="false">非VIP</view>
+      </view>
+      <view class="des_list" hover-class="none" hover-stop-propagation="false">
+        <view class="" hover-class="none" hover-stop-propagation="false">查询价格</view>
+        <view class="">全部免费查询</view>
+        <view class="" hover-class="none" hover-stop-propagation="false">50元/次</view>
+      </view>
+      <view class="line1" hover-class="none" hover-stop-propagation="false"></view>
+      <view class="des_list" hover-class="none" hover-stop-propagation="false">
+        <view class="" hover-class="none" hover-stop-propagation="false">查询时间</view>
+        <view class="">一年有效期</view>
+        <view class="" hover-class="none" hover-stop-propagation="false">7天查询期</view>
+      </view>
+    </view>
+  </view>
+  <view class="vip_btn" hover-class="none" hover-stop-propagation="false" wx:if="{{!open}}">立即开通</view>
+  <view class="vip_btn" hover-class="none" hover-stop-propagation="false" wx:if="{{open}}">立即续费</view>
+</view>

@@ -1,0 +1,11 @@
+<!-- pages/IntegralList/IntegralList.wxml -->
+<view class="integralList" hover-class="none" hover-stop-propagation="false">
+  <view class="title_num" hover-class="none" hover-stop-propagation="false">
+    <image class="head_bg" src="/images/head_bg.png"></image>
+    <view class="num_text" hover-class="none" hover-stop-propagation="false">
+      <view class="num" hover-class="none" hover-stop-propagation="false">{{number}}</view>
+      <view class="text" hover-class="none" hover-stop-propagation="false">元积分</view>
+    </view>
+  </view>
+  <view class="" hover-class="none" hover-stop-propagation="false"></view>
+</view>

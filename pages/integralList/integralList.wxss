@@ -1,0 +1,35 @@
+/* pages/IntegralList/IntegralList.wxss */
+page{
+  height: 100%;
+}
+.integralList{
+  min-height: 100%;
+}
+.title_num{
+  width: 680rpx;
+  height: 200rpx;
+  margin: 0 auto;
+  margin-top:34rpx;
+  position: relative; 
+}
+.head_bg{
+  width: 680rpx;
+  height: 200rpx;
+}
+.num_text{
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top:42rpx;
+}
+.num{
+  font-size: 38px;
+  color: #ffffff;
+  line-height: 38px;
+}
+.text{
+  font-size: 15px;
+  line-height: 15px;
+  color: #ffffff;
+  margin-top: 20rpx;
+}

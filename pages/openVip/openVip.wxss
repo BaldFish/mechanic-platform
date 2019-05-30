@@ -1,0 +1,76 @@
+/* pages/openVip/openVip.wxss */
+.openVip{}
+.img_wrap{
+  text-align: center;
+}
+.img{
+  width: 734rpx;
+  height: 554rpx;
+}
+.description{
+  width: 630rpx;
+  margin: 0 auto;
+	background-color: #ffffff;
+	box-shadow: 0rpx 0rpx 53rpx 9rpx 	rgba(94, 123, 246, 0.1);
+  border-radius: 30rpx;
+  padding: 40rpx 0;
+}
+.des_title{
+text-align: center;
+}
+.des{
+  font-size: 13px;
+  color: #999999;
+}
+.des_head{
+  margin-top: 14rpx;
+  font-size: 24px;
+  color: #333333;
+}
+.des_list_wrap{
+  width: 530rpx;
+  margin: 0 auto;
+  margin-top: 40rpx; 
+	background-color: #f5f7fb;
+  border-radius: 10rpx;
+  padding: 0 35rpx;
+  box-sizing: border-box;
+  padding-bottom:36rpx;
+}
+.list_title{
+  padding: 7px 0 12px;
+  font-size: 13px;
+  line-height: 21px;
+  color: #333333; 
+}
+.des_list{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  line-height: 29px;
+  color: #666666;
+  text-align: center;
+}
+.vip_logo{
+  width: 105rpx;
+  height: 42rpx;
+}
+.line1{
+  height: 1px;
+	background-color: #e2e8f3;
+}
+.vip_btn{
+  text-align: center;
+  width: 630rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  margin: 0 auto;
+	background-color: #386cff;
+	box-shadow: 0rpx 14rpx 61rpx 12rpx rgba(56, 108, 255, 0.24);
+  border-radius: 45rpx;
+  font-size: 18px;
+  color: #ffffff;
+  margin-top: 63rpx;
+  margin-bottom: 97rpx;
+}

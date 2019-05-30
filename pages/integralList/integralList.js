@@ -1,22 +1,11 @@
-// pages/partner/partner.js
+// pages/IntegralList/IntegralList.js
 Page({
 
 	/**
 	 * 页面的初始数据
 	 */
 	data: {
-    explainList: [
-      "提供维修资料，成为平台合伙人",
-      "获得永久收益权，",
-      "轻松赚现金！！！"
-    ],
-    operationList: [
-      "全程匿名，无需担忧隐私风险；",
-      "平台收取20%服务费，其余收益实时到账；",
-      "收益清晰透明，实时查询交易记录；",
-    ],
-    focus: false,
-    inputValue: '',
+    number: 45622,
 	},
 
 	/**

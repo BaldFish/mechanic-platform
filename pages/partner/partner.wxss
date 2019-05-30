@@ -30,11 +30,53 @@
 }
 .submitPhone_wrap{
   width: 700rpx;
-  height: 400rpx;
   background-color: #ffffff;
-  box-shadow: 0px 0px 53px 9px rgba(94, 123, 246, 0.1);
+  box-shadow: 0rpx 0rpx 53rpx 9rpx rgba(94, 123, 246, 0.1);
   border-radius: 30rpx;
   box-sizing: border-box;
   margin: 0 auto;
   margin-top: 28px;
+  text-align: center;
+  padding-top: 50rpx;
+  padding-bottom: 40rpx;
+}
+.contact_title{
+  font-size: 18px;
+  color: #333333;
+}
+.contact_phone{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  color: #333333;
+  margin-top: 60rpx;
+}
+.phone_input{
+  width: 360rpx;
+  height: 51rpx;
+  line-height: 51rpx;
+  box-sizing: border-box;
+	border-radius: 10rpx;
+  border: solid 1px #e0e8ff;
+  font-size: 13px;
+  color: #333333;
+  padding-left:25rpx;
+  text-align: left; 
+}
+.submit_btn{
+  width: 478rpx;
+	height: 64rpx;
+	background-color: #386cff;
+  border-radius: 30rpx;
+  margin: 0 auto;
+  font-size: 16px;
+	line-height: 64rpx;
+  color: #ffffff;
+  margin-top: 54rpx;
+}
+.contact_tip{
+  margin-top:20rpx; 
+  font-size: 11px;
+	color: #999999;
 }

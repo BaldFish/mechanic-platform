@@ -10,11 +10,16 @@
     </text>
   </view>
   <view class="submitPhone_wrap" hover-class="none" hover-stop-propagation="false">
-    <view class="" hover-class="none" hover-stop-propagation="false">1</view>
-    <view class="" hover-class="none" hover-stop-propagation="false">
-2
+    <view class="contact_title" hover-class="none" hover-stop-propagation="false">
+      立即开始赚钱，请联系我们
     </view>
-    <view class="" hover-class="none" hover-stop-propagation="false">3</view>
-    <view class="" hover-class="none" hover-stop-propagation="false">4</view>
+    <view class="contact_phone" hover-class="none" hover-stop-propagation="false">
+      手机号：
+      <input class="phone_input" value="{{inputValue}}" type="text" confirm-type="done" maxlength="11" focus="{{focus}}" bindinput="" bindfocus="" bindblur="" bindconfirm=""></input>
+    </view>
+    <view class="submit_btn" hover-class="none" hover-stop-propagation="false">提交</view>
+    <view class="contact_tip" hover-class="none" hover-stop-propagation="false">
+      提交联系方式后，我们会马上与您取得联系
+    </view>
   </view>
 </view>
