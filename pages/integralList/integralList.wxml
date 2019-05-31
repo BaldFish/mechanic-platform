@@ -7,5 +7,20 @@
       <view class="text" hover-class="none" hover-stop-propagation="false">元积分</view>
     </view>
   </view>
-  <view class="" hover-class="none" hover-stop-propagation="false"></view>
+  <view class="detail_wrap" hover-class="none" hover-stop-propagation="false">
+    <view class="detail_title" hover-class="none" hover-stop-propagation="false">
+      ---
+      <text class="">积分明细</text>
+      ---
+    </view>
+    <view class="detail_list" hover-class="none" hover-stop-propagation="false" wx:for="{{10}}" wx:key="*this">
+      <view class="list_left" hover-class="none" hover-stop-propagation="false">
+        <view class="left_up" hover-class="none" hover-stop-propagation="false">成功支付订单</view>
+        <view class="left_down" hover-class="none" hover-stop-propagation="false">
+          2019.02.08 11:23
+        </view>
+      </view>
+      <view class="list_right" hover-class="none" hover-stop-propagation="false">+20</view>
+    </view>
+  </view>
 </view>

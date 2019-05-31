@@ -1,0 +1,26 @@
+/* pages/carSeries/carSeries.wxss */
+.carSeries{
+  padding-left: 36rpx;
+  padding-right: 43rpx;
+  padding-top:10rpx;
+}
+.list{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 124rpx;
+  box-sizing: border-box;
+  border-bottom: 1px solid #eeeeee
+}
+.left_text{
+  font-family: PingFangSC-Medium;
+	font-size: 15px;
+	color: #222222;
+}
+.right_img{
+  width: 10px;
+  height: 15px;
+}
+.list:last-child{
+border-bottom: none;
+}

@@ -1,16 +1,20 @@
 {
 	"pages": [
-		"pages/IntegralList/IntegralList",
 		"pages/index/index",
 		"pages/order/order",
 		"pages/personalCenter/personalCenter",
 		"pages/search/search",
-    "pages/partner/partner",
-    "pages/openVip/openVip"
+		"pages/partner/partner",
+		"pages/openVip/openVip",
+		"pages/integralList/integralList",
+    "pages/carData/carData",
+    "pages/carSeries/carSeries",
+    "pages/carType/carType"
+		
 	],
 	"window": {
 		"backgroundTextStyle": "light",
-		"navigationBarBackgroundColor": "#fff",
+		"navigationBarBackgroundColor": "#f1f1f1",
 		"navigationBarTextStyle": "black"
 	},
 	"tabBar": {

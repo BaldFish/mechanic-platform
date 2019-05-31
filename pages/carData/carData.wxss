@@ -1,0 +1,60 @@
+/* pages/carData/carData.wxss */
+.carData{
+  text-align: center;
+  padding-top:33rpx;
+}
+.handbook,.diagram{
+  position: relative;
+}
+.img_bg{
+  width: 740rpx;
+  height: 470rpx;
+}
+.info_wrap{
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  top:140rpx;
+}
+.demio{
+  font-size: 14px;
+  color: #000033;
+  line-height: 28rpx;
+}
+.title{
+  margin-top: 22rpx;
+  font-size: 11px;
+  line-height: 22rpx;
+  color: #000033;
+}
+.pay_btn{
+  width: 481rpx;
+  height: 58rpx;
+  line-height: 58rpx;
+	background-color: #386cff;
+  border-radius: 29rpx;
+  margin: 0 auto;
+  font-family: PingFangSC-Light;
+  font-size: 12px;
+  color: #ffffff;
+  margin-top: 69rpx;
+}
+.num{
+  font-family: PingFangSC-Medium;
+  font-size: 16px;
+}
+.look{
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+}
+.owner_wrap{
+  font-family: PingFangSC-Light;
+  font-size: 12px;
+  line-height: 24px;
+  color: #999999;
+  margin-top: 19rpx;
+}
+.owner{
+  font-family: PingFangSC-Medium;
+  color: #333333;
+}

@@ -1,0 +1,35 @@
+<!-- pages/carData/carData.wxml -->
+<view class="carData" hover-class="none" hover-stop-propagation="false">
+  <view class="handbook" hover-class="none" hover-stop-propagation="false">
+    <image class="img_bg" src="/images/weixiu.png" mode="" lazy-load="false" binderror="" bindload=""></image>
+    <view class="info_wrap" hover-class="none" hover-stop-propagation="false">
+      <view class="demio" hover-class="none" hover-stop-propagation="false">上海大众—凌度</view>
+      <view class="title" hover-class="none" hover-stop-propagation="false">维修手册</view>
+      <view class="pay_btn" hover-class="none" hover-stop-propagation="false">
+        <text class="num" selectable="false" space="false" decode="false">花费50元</text>
+        (可积分抵扣)
+        <text class="look" selectable="false" space="false" decode="false">查看详情</text>
+      </view>
+      <view class="owner_wrap" hover-class="none" hover-stop-propagation="false">
+        资料贡献人：
+        <text class="owner">王师傅</text>
+      </view>
+    </view>
+  </view>
+  <view class="diagram" hover-class="none" hover-stop-propagation="false">
+    <image class="img_bg" src="/images/diantu.png" mode="" lazy-load="false" binderror="" bindload=""></image>
+    <view class="info_wrap" hover-class="none" hover-stop-propagation="false">
+      <view class="demio" hover-class="none" hover-stop-propagation="false">上海大众—凌度</view>
+      <view class="title" hover-class="none" hover-stop-propagation="false">电路图</view>
+      <view class="pay_btn" hover-class="none" hover-stop-propagation="false">
+        <text class="num" selectable="false" space="false" decode="false">花费50元</text>
+        (可积分抵扣)
+        <text class="look" selectable="false" space="false" decode="false">查看详情</text>
+      </view>
+      <view class="owner_wrap" hover-class="none" hover-stop-propagation="false">
+        资料贡献人：
+        <text class="owner">王师傅</text>
+      </view>
+    </view>
+  </view>
+</view>
