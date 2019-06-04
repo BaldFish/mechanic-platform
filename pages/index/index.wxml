@@ -10,7 +10,7 @@
   <view class='search-wrap'>
     <view class='search'>
       <icon class='search-icon' type='search' size='20'></icon>
-      <input class='search-input' placeholder='请输入您要搜索车型品牌名称'></input>
+      <input class='search-input' placeholder='请输入您要搜索车型品牌名称' type="text" confirm-type="search"></input>
     </view>
   </view>
   <view class='news-wrap'>

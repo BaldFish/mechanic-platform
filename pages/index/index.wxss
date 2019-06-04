@@ -1,5 +1,5 @@
 /**index.wxss**/
-.container{
+.home{
   position: relative;
   padding-bottom: 80rpx;
 }
