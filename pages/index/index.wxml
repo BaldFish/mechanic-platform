@@ -1,5 +1,5 @@
 <!-- index.wxml -->
-<view class="container">
+<view class="home">
   <swiper class='swiper'>
     <block wx:for="{{imgUrls}}" wx:key="*this">
       <swiper-item class='swiper-item'>
