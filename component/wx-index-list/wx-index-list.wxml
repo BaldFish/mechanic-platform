@@ -2,7 +2,7 @@
   <!-- 搜索框 -->
   <view wx:if="{{config.search}}" class='list-search' style="height:{{config.searchHeight}}px">
     <view class='list-search-box'>
-      <icon type="search" size="15" />
+      <icon type="search" size="20" />
       <input placeholder="输入您要搜索的城市" bindinput='input' type="text" confirm-type="search"/>
     </view>
     <!-- <button class='search-button' catchtap='searchMt'>搜索</button> -->

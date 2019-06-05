@@ -1,25 +1,33 @@
 <!-- pages/search/search.wxml -->
 <view class="searchPage" hover-class="none" hover-stop-propagation="false">
-  <!-- <view class='search_wrap'>
+  <view class='search_wrap'>
     <view class='search'>
       <icon class='search_icon' type='search' size='20'></icon>
       <input class='search_input' placeholder='请输入您要搜索车型品牌名称' type="text" confirm-type="search"></input>
     </view>
-  </view> -->
-    <!-- 1.需要给组件提供一个父元素并指定高度,组件高度由父元素控制。否则将出现问题
-  2.如果需要下拉刷新 ，请不要使用本组件
-
-  参数说明:
-  data [Object] : 列表所需要的数据
-  my-city [String]: 是否开启我的定位 ，默认为false ，传入城市名称。不写或者空，为关闭
-  config [Object] : 配置项
-        horizontal:   默认值 true, // 第一个选项是否横排显示（一般第一个数据选项为 热门城市，常用城市之类 ，开启看需求）
-        animation: 默认值 true, // 过渡动画是否开启
-        search: 默认值 true, // 是否开启搜索
-        searchHeight: 默认值 45 // 搜索条高度 ，建议不要修改别的高度
-        suctionTop:默认值 true // 是否开启标题吸顶 -->
-  <!-- 外部搜索 -->
-  <view class='wrapper'>
-    <list-html data="{{city}}" binddetail="bindtap" config="{{config}}"></list-html>
   </view>
+  <block wx:if="{{list.length != 0 }}">
+    <!-- 主体内容显示 -->
+    <scroll-view class="list_scroll" scroll-y="true" scroll-into-view="{{jumpNum}}" scroll-with-animation="true" bindscroll="scroll">
+      <view class="hot" id="{{'index'+index}}" wx:for="{{list}}" wx:key="index" wx:if="{{item.title==='热门品牌'}}">
+        <view class='hot_list_title'>{{item.title}}</view>
+        <view class="hot_list_name" wx:for="{{item.item}}" wx:for-item="city" wx:for-index="idx" wx:key="city" data-detail="{{city}}" catchtap='detailMt'>
+          <image class="hot_list_img" src="/images/baoma.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
+          {{city.name}}
+        </view>
+      </view>
+      <view id="{{'index'+index}}" wx:for="{{list}}" wx:key="index" wx:if="{{item.title!=='热门品牌'}}">
+        <view class='list_title'>{{item.title}}</view>
+        <view class="list_name" wx:for="{{item.item}}" wx:for-item="city" wx:for-index="idx" wx:key="city" data-detail="{{city}}" catchtap='detailMt'>
+          {{city.name}}
+        </view>
+      </view>
+    </scroll-view>
+    <!-- 右侧索引显示 -->
+    <view class='list_right_wrapper'>
+      <view class='right_item {{listIndex == index?"active":""}}' wx:for="{{rightArr}}" wx:key="rightArr" data-id="{{'index'+index}}" catchtap='jumpMt'>
+        {{rightArr[index]}}
+      </view>
+    </view>
+  </block>
 </view>

@@ -1,6 +1,4 @@
 {
-  "usingComponents": {
-    "list-html": "/component/wx-index-list/wx-index-list"
-  },
+  "usingComponents": {},
   "navigationBarTitleText": "品牌"
 }

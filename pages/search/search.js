@@ -6,15 +6,80 @@ Page({
 	 * 页面的初始数据
 	 */
   data: {
-    city: [],
-    config: {
-      horizontal: true, // 第一个选项是否横排显示（一般第一个数据选项为 热门城市，常用城市之类 ，开启看需求）
-      animation: true, // 过渡动画是否开启
-      search: true, // 是否开启搜索
-      searchHeight: 45, // 搜索条高度
-      suctionTop: false // 是否开启标题吸顶
+    list: [],
+    jumpNum: "index0",
+    rightArr: [],
+    listIndex: 0,
+    moveDistance: 0,
+  },
+  /**
+   * 数据重新渲染
+   */
+  resetRight(data) {
+    if (data.length != 0) {
+      let rightArr = [];
+      for (let i in data) {
+        rightArr.push(data[i].title.substr(0, 1));
+      };
+      this.setData({
+        rightArr
+      }, () => {
+        this.queryMultipleNodes();
+        })
     }
   },
+  /**
+   * 获取节点信息
+   */
+  queryMultipleNodes() {
+    let self = this
+    const query = wx.createSelectorQuery().in(this);
+    query.selectAll('.list-title').boundingClientRect((res) => {
+      res.forEach(function (rect) {
+        rect.top // 节点的上边界坐标
+      })
+    }).exec((e) => {
+      let arr = []
+      e[0].forEach((rect) => {
+        let num = 0
+        if (rect.top !== 0) {
+          num = rect.top - (self.data.config.search ? self.data.config.searchHeight : 0)
+        }
+        arr.push(num)
+      })
+      this.setData({
+        topGroup: arr
+      })
+    })
+  },
+  /**
+   * 右侧字母点击事件
+   */
+  jumpMt(e) {
+    let jumpNum = e.currentTarget.dataset.id;
+    this.setData({
+      jumpNum
+    });
+  },
+  /**
+   * 列表点击事件
+   */
+  detailMt(e) {
+    let detail = e.currentTarget.dataset.detail;
+    let myEventOption = {
+      bubbles: false, //事件是否冒泡
+      composed: false, //事件是否可以穿越组件边界
+      capturePhase: false //事件是否拥有捕获阶段
+    } // 触发事件的选项
+    this.triggerEvent('detail', detail, myEventOption)
+  },
+
+
+
+
+
+
+
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
@@ -23,22 +88,18 @@ Page({
       title: '加载数据中...',
     })
     //模拟服务器请求异步加载数据
-    setTimeout(()=>{
-    this.setData({
-      city: city
-    })
+    setTimeout(() => {
+      this.setData({
+        list: city,
+      })
+      this.resetRight(this.data.list)
       wx.hideLoading()
-    },2000)
+    }, 2000)
   },
-  bindtap(e) {
-    console.log(e.detail)
-  },
-
 	/**
 	 * 生命周期函数--监听页面初次渲染完成
 	 */
   onReady: function () {
-
   },
 
 	/**

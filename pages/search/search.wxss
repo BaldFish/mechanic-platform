@@ -1,10 +1,23 @@
 /* pages/search/search.wxss */
-.searchPage{}
+page{
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+.searchPage{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding-top: 20rpx;
+}
 .search_wrap {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 22rpx;
+  position: absolute;
+  top: 20rpx;
+  left: 0;
 }
 .search {
   box-sizing: border-box;
@@ -23,58 +36,83 @@
   color: #999999;
   width: 500rpx;
 }
-.wrapper {
-  height: 100vh;
+.content{
+  width: 750rpx;
+  margin: 0 auto;
+  display: flex;
+  /* align-items: center; */
+
 }
-/* 关闭滚动条  */
+.list_scroll{
+  width: 700rpx;
+  height: 100%;
+  box-sizing: border-box;
+  padding-top: 90rpx;
+}
+/* 关闭滚动条 */
 ::-webkit-scrollbar{
   width: 0;
   height: 0;
   color: transparent;
 }
-
-.list-search {
+.hot{
+  padding-bottom: 48rpx;
+}
+.hot_list_title{
+  width: 700rpx;
+	height: 30px;
+  background-color: #ffffff;
+  padding-left:30rpx;
+  font-size: 18px;
+  color: #222222;
+  box-sizing: border-box;
+}
+.hot_list_name{
+  text-align: center;
+  width: 25%;
+  display: inline-block;
+  font-size: 13px;
+	color: #666666;
+}
+.hot_list_img{
+  display: block;
+  width: 146rpx;
+  height: 146rpx;
+  margin: 0 auto;
+}
+.list_title{
+  width: 700rpx;
+	height: 30px;
+  background-color: #f3f3f3;
+  padding-left:30rpx;
+  font-size: 18px;
+  color: #666666;
+  box-sizing: border-box;
+}
+.list_name{
+  margin-left:30rpx;
+  text-indent: 18rpx;
+  height: 100rpx;
+  box-sizing: border-box;
+  border-bottom:1px solid #eeeeee;
+  font-size: 15px;
+	line-height: 100rpx;
+	color: #222222;
+}
+.list_name:last-child{
+  border-bottom:none;
+}
+.list_right_wrapper{
+  width: 50rpx;
   position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 90rpx;
-  padding: 10rpx 30rpx;
+  top: 240rpx;
+  right: 0rpx;
+  padding: 20rpx 0;
   box-sizing: border-box;
-  z-index: 20;
-  background: #FFF;
+  z-index: 999;
 }
-
-.search-title {
-  flex-shrink: 0;
-  font-size: 28rpx;
-  padding-right: 10rpx;
-}
-
-.list-search-box {
-  display: flex;
-  align-items: center;
-  padding: 0 30rpx;
-  width: 100%;
-  height: 70rpx;
-  background: #f5f5f5;
-  border-radius: 90rpx;
-  font-size: 28rpx;
-  box-sizing: border-box;
-}
-
-.list-search-box input {
-  width: 100%;
-  padding-left: 10rpx;
-}
-
-.search-button {
-  /* width: 100rpx; */
-  flex-shrink: 0;
-  height: 60rpx;
-  line-height: 60rpx;
-  font-size: 28rpx;
-  margin-left: 10rpx;
+.right_item{
+  text-align: center;
+  font-size: 12px;
+	color: #222222;
 }

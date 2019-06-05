@@ -1,7 +1,7 @@
 
 var city = [
   {
-    title:"热门城市",
+    title:"热门品牌",
     type:'hot',
     item: [
 
@@ -39,24 +39,6 @@ var city = [
         "name": "杭州",
         "key": "热门"
       },
-      {
-        "name": "南京",
-        "key": "热门"
-      },
-      {
-        "name": "苏州",
-        "key": "热门"
-      },
-      {
-        "name": "武汉",
-        "key": "热门"
-      },
-
-      {
-        "name": "西安",
-        "key": "热门"
-      }
-
     ]
   }, {
     title:"A",
