@@ -1,0 +1,53 @@
+/* pages/cashOut/cashOut.wxss */
+.container{
+  width: 550rpx;
+	height: 450rpx;
+	background-color: #ffffff;
+	box-shadow: 0 0 53rpx 8rpx rgba(94, 123, 247, 0.1);
+	border-radius: 30rpx;
+  margin: 0 auto;
+  margin-top: 48rpx;
+  padding: 0 40rpx
+}
+.container .title{
+  font-size: 36rpx;
+	color: #333333;
+  padding-top: 60rpx;
+  display: block
+}
+.input-box{
+  height: 70rpx;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1rpx solid #e2e8f3;
+  margin: 70rpx 0;
+  justify-content: space-between;
+}
+.input-box .input-box-left{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start
+}
+.input-box .icon{
+  font-size: 26rpx;
+	color: #333333;
+  margin: 10rpx 30rpx 0 0;
+}
+.input-box input{
+  font-size: 24rpx;
+}
+.input-box .input-box-right{
+	font-size: 26rpx;
+	color: #386cff;
+  margin-top: 10rpx
+}
+.sub-btn{
+  width: 550rpx;
+	height: 88rpx;
+	background-color: #386cff;
+	border-radius: 40rpx;
+  line-height: 88rpx;
+  color: #ffffff;
+  text-align: center;
+  font-size: 36rpx;
+}

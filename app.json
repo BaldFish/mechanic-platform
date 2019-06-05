@@ -10,8 +10,8 @@
 		"pages/integralList/integralList",
     "pages/carData/carData",
     "pages/carSeries/carSeries",
-    "pages/carType/carType"
-		
+    "pages/carType/carType",
+    "pages/cashOut/cashOut"
 	],
 	"window": {
 		"backgroundTextStyle": "light",
