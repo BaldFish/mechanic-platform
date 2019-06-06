@@ -1,0 +1,77 @@
+<!-- pages/myAsset/myAsset.wxml -->
+<view class="myAsset" hover-class="none" hover-stop-propagation="false">
+  <view class="asset_head_wrap" hover-class="none" hover-stop-propagation="false">
+    <view class="head_title" hover-class="none" hover-stop-propagation="false">
+      赚取金额
+      <text class="title_text">（元）</text>
+    </view>
+    <view class="head_num" hover-class="none" hover-stop-propagation="false">
+      ¥
+      <text class="num" selectable="false" space="false" decode="false">671</text>
+    </view>
+    <view class="head_btn" hover-class="none" hover-stop-propagation="false">提现</view>
+  </view>
+  <view class="record_wrap" hover-class="none" hover-stop-propagation="false">
+    <view class="tabs_wrap" hover-class="none" hover-stop-propagation="false">
+      <view class="tab" hover-class="none" hover-stop-propagation="false" wx:for="{{tabs}}" wx:key="*this" data-index="{{index}}" bindtap='tabs'>
+        <image class="tab_img" src="{{nowIndex===index?item.url_dj:item.url_mr}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
+        <view class="tab_text {{nowIndex===index?'active':''}}" selectable="false" space="false" decode="false">
+          {{item.text}}
+        </view>
+      </view>
+    </view>
+    <view class="exchange" hover-class="none" hover-stop-propagation="false">
+      <view class="record" hover-class="none" hover-stop-propagation="false" wx:if="{{nowIndex===0}}">
+        <view class="left" hover-class="none" hover-stop-propagation="false">
+          <view class="up" hover-class="none" hover-stop-propagation="false">2019.03.29 17:30</view>
+          <view class="down" hover-class="none" hover-stop-propagation="false">
+            您贡献的2018款上海大众凌度维修手册被王师傅购买
+          </view>
+        </view>
+        <view class="right" hover-class="none" hover-stop-propagation="false">+20</view>
+      </view>
+      <view class="record" hover-class="none" hover-stop-propagation="false" wx:if="{{nowIndex===0}}">
+        <view class="left" hover-class="none" hover-stop-propagation="false">
+          <view class="up" hover-class="none" hover-stop-propagation="false">2019.03.29 17:30</view>
+          <view class="down" hover-class="none" hover-stop-propagation="false">
+            您贡献的2018款上海大众凌度维修手册被王师傅购买
+          </view>
+        </view>
+        <view class="right" hover-class="none" hover-stop-propagation="false">+20</view>
+      </view>
+      <view class="record" hover-class="none" hover-stop-propagation="false" wx:if="{{nowIndex===0}}">
+        <view class="left" hover-class="none" hover-stop-propagation="false">
+          <view class="up" hover-class="none" hover-stop-propagation="false">2019.03.29 17:30</view>
+          <view class="down" hover-class="none" hover-stop-propagation="false">
+            您贡献的2018款上海大众凌度维修手册被王师傅购买
+          </view>
+        </view>
+        <view class="right" hover-class="none" hover-stop-propagation="false">+20</view>
+      </view>
+      <view class="record" hover-class="none" hover-stop-propagation="false" wx:if="{{nowIndex===0}}">
+        <view class="left" hover-class="none" hover-stop-propagation="false">
+          <view class="up" hover-class="none" hover-stop-propagation="false">2019.03.29 17:30</view>
+          <view class="down" hover-class="none" hover-stop-propagation="false">
+            您贡献的2018款上海大众凌度维修手册被王师傅购买
+          </view>
+        </view>
+        <view class="right" hover-class="none" hover-stop-propagation="false">+20</view>
+      </view>
+    </view>
+    <view class="withdraw" hover-class="none" hover-stop-propagation="false">
+      <view class="record out" hover-class="none" hover-stop-propagation="false" wx:if="{{nowIndex===1}}">
+        <view class="left" hover-class="none" hover-stop-propagation="false">
+          <view class="up" hover-class="none" hover-stop-propagation="false">账户提现</view>
+          <view class="down" hover-class="none" hover-stop-propagation="false">
+            2019.03.29 17:30
+          </view>
+        </view>
+        <view class="right" hover-class="none" hover-stop-propagation="false">-20</view>
+      </view>
+    </view>
+    <view class="more" hover-class="none" hover-stop-propagation="false">
+      查看更多
+      <image class="more_img" src="/images/zhankai.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
+    </view>
+  </view>
+</view>

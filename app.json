@@ -1,46 +1,47 @@
 {
-	"pages": [
-    
-		"pages/index/index",
-		"pages/order/order",
-		"pages/personalCenter/personalCenter",
+  "pages": [
+    "pages/myAsset/myAsset",
+    "pages/index/index",
+    "pages/order/order",
+    "pages/personalCenter/personalCenter",
     "pages/search/search",
-		"pages/partner/partner",
-		"pages/openVip/openVip",
-		"pages/integralList/integralList",
+    "pages/partner/partner",
+    "pages/openVip/openVip",
+    "pages/integralList/integralList",
     "pages/carData/carData",
     "pages/carSeries/carSeries",
     "pages/carType/carType",
     "pages/cashOut/cashOut"
-	],
-	"window": {
-		"backgroundTextStyle": "light",
-		"navigationBarBackgroundColor": "#f1f1f1",
-		"navigationBarTextStyle": "black"
-	},
-	"tabBar": {
-		"selectedColor": "#4168f5",
-		"color": "#333333",
-		"list": [
-			{
-				"pagePath": "pages/index/index",
-				"text": "首页",
-				"iconPath": "/images/home_mr.png",
-				"selectedIconPath": "/images/home_dj.png"
-			},
-			{
-				"pagePath": "pages/order/order",
-				"text": "订单",
-				"iconPath": "/images/chaxun_mr.png",
-				"selectedIconPath": "/images/chaxun_dj.png"
-			},
-			{
-				"pagePath": "pages/personalCenter/personalCenter",
-				"text": "个人中心",
-				"iconPath": "/images/wode_mr.png",
-				"selectedIconPath": "/images/wode_dj.png"
-			}
-		]
-	},
-	"sitemapLocation": "sitemap.json"
+  
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#f1f1f1",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#4168f5",
+    "color": "#333333",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/images/home_mr.png",
+        "selectedIconPath": "/images/home_dj.png"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "text": "订单",
+        "iconPath": "/images/chaxun_mr.png",
+        "selectedIconPath": "/images/chaxun_dj.png"
+      },
+      {
+        "pagePath": "pages/personalCenter/personalCenter",
+        "text": "个人中心",
+        "iconPath": "/images/wode_mr.png",
+        "selectedIconPath": "/images/wode_dj.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
 }

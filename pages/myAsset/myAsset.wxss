@@ -1,0 +1,135 @@
+/* pages/myAsset/myAsset.wxss */
+.asset_head_wrap{
+  width: 630rpx;
+	height: 145px;
+	background-color: #ffffff;
+	box-shadow: 0px 0px 53px 9px rgba(94, 123, 246, 0.1);
+  border-radius: 30px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top:48rpx; 
+  box-sizing: border-box;
+  padding-top:14px;
+  margin-bottom: 48rpx;
+}
+.head_title{
+  font-size: 12px;
+  line-height: 12px;
+  color: #999999;
+  margin-bottom: 14px; 
+}
+.title_text{
+  font-size: 10px;
+}
+.head_num{
+  font-size: 13px;
+  color: #333333;
+  margin-bottom: 16px;
+}
+.num{
+  display: inline-block;
+  font-size: 35px;
+  line-height: 35px;
+}
+.head_btn{
+  width: 220rpx;
+  height: 30px;
+  line-height: 30px;
+	background-color: #386cff;
+  border-radius: 29rpx;
+  margin: 0 auto;
+  color: #ffffff;
+  font-size: 16px;
+}
+
+.record_wrap{
+  width: 630rpx;
+  min-height: 700rpx;
+  box-sizing: border-box;
+	background-color: #ffffff;
+	box-shadow: 0rpx 0rpx 53rpx 9rpx	rgba(94, 123, 246, 0.1);
+  border-radius: 30rpx;
+  margin: 0 auto;
+  margin-bottom:50rpx; 
+  position: relative;
+  padding-bottom: 100rpx;
+}
+.tabs_wrap{
+  padding: 0 55rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center
+}
+.tab{
+  margin-top:47rpx; 
+  display: flex;
+  align-items: center;
+}
+.tab_img{
+  width: 22px;
+  height: 22px;
+  margin-right: 18rpx;
+}
+.tab_text{
+  font-size: 13px;
+  color: #333333;
+}
+.active{
+  color: #386cff;
+}
+.record{
+  box-sizing: border-box;
+  width: 580rpx;
+  margin: 0 auto;
+  border-bottom: 1px solid #e2e8f3;
+  display: flex;
+  justify-content: space-between;
+  padding-top:66rpx;
+  padding-bottom: 34rpx;
+}
+.record:last-child{
+  border-bottom:none;
+}
+.left{}
+.up{
+  font-size: 12px;
+  line-height: 12px;
+	color: #333333;
+}
+.down{
+  font-size: 11px;
+  line-height: 11px;
+  color: #666666;
+  padding-top:29rpx;
+}
+.right{
+  font-size: 14px;
+	color: #d30d0d;
+}
+.more{
+  width: 100%;
+  position: absolute;
+  bottom: 25rpx;
+  text-align: center;
+  font-size: 11px;
+	color: #999999;
+}
+.more_img{
+  display: block;
+  width: 11px;
+  height: 10px;
+  margin: 0 auto;
+}
+.out .up{
+  font-size: 15px;
+  line-height: 15px;
+	color: #333333;
+}
+.out .down{
+  font-size: 10px;
+  line-height: 10px;
+  color: #999999;
+}
+.out .right{
+  color: #00ae42;
+}
