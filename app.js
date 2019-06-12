@@ -1,6 +1,10 @@
 //app.js
+let util = require('utils/util.js')
 App({
-
+  util: { //这里配置我们需要的方法
+    formatTime: util.formatTime,
+    request: util.request
+  },
   /**
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
    */

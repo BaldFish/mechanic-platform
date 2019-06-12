@@ -7,6 +7,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    userId: "",
+    token:"",
+    isBindPhone: false,
+    searchValue:"",
     imgUrls: ["/images/01.png"],
     news: "提供2016款上海上海大众大海大众大海大众大动款维修手维修手",
     brandList: [{
@@ -61,9 +65,12 @@ Page({
       "收益清晰透明，实时查询交易记录；",
     ],
     noticeList: [
-      "王师傅  已累积赚取10340元",
-      "李师傅 已累积赚取280042元",
-      "高师傅 已累积赚取3843元"
+      "1师傅 已累积赚取10340元",
+      "2师傅 已累积赚取280042元",
+      "3师傅 已累积赚取3843元",
+      "4师傅 已累积赚取10340元",
+      "5师傅 已累积赚取280042元",
+      "6师傅 已累积赚取3843元"
     ]
   },
 
@@ -71,13 +78,69 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.login({
+      success: (res) => {
+        if (res.code) {
+          //发起网络请求
+          app.util.request('POST', '/v1/rrd-wx-app/user/login', 'application/x-www-form-urlencoded', { code: res.code }, '', (res) => {
+            let data = res.data.data;
+            if (!data.is_bind_phone) {
+              wx.hideTabBar({});
+              this.setData({
+                isBindPhone: true
+              })
+            } else {
+              wx.setStorageSync("token", data.session_info.token);
+              wx.setStorageSync("userId", data.session_info.user_id);
+              this.data.userId = wx.getStorageSync('userId')
+              this.data.token = wx.getStorageSync('token')
+             }
+          })
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
   },
   phoneCall() {
     wx.makePhoneCall({
       phoneNumber: '18801384334',
     })
   },
+  getPhoneNumber(e) {
+    wx.login({
+      success: (res) => {
+        if (res.code) {
+          let data = {
+            code: res.code,
+            iv: e.detail.iv,
+            encrypted_data: e.detail.encryptedData
+          }
+          //发起网络请求
+          app.util.request('POST', '/v1/rrd-wx-app/user/weixin/phone', 'application/x-www-form-urlencoded', data, '', (res) => {
+            let data = res.data.data;
+            wx.setStorageSync("token", data.session_info.token);
+            wx.setStorageSync("userId", data.session_info.user_id);
+            this.data.userId = wx.getStorageSync('userId')
+            this.data.token = wx.getStorageSync('token')
+            this.setData({
+              isBindPhone: false
+            });
+            wx.showTabBar({});
+          })
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
+  },
+  search(e) {
+    let data = e.detail.value || '本田';
+    console.log(data)
+    app.util.request('GET', `/v1/rrd-wx-app/car/brand/search?cond=${data}`, 'application/json', '', this.data.token, (res) => {
+      console.log(res)
+    })
+   },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -5,16 +5,18 @@
     </view>
     <view class="info_wrap" hover-class="none" hover-stop-propagation="false">
       <view class="info_up" hover-class="none" hover-stop-propagation="false">
-        <text class="phone" selectable="false" space="false" decode="false">18767570875</text>
-        <image class="vip_logo" src="/images/VIP_logo.png" mode="aspectFit" lazy-load="false" binderror="" bindload=""></image>
+        <text class="phone" selectable="false" space="false" decode="false">
+          {{userInfo.user_phone}}
+        </text>
+        <image class="vip_logo" src="/images/VIP_logo.png" mode="aspectFit" lazy-load="false" binderror="" bindload="" wx:if="{{userInfo.isvip}}"></image>
       </view>
-      <view class="info_down" hover-class="none" hover-stop-propagation="false">
-        <view class="down_text">
+      <view class="info_down" hover-class="none" hover-stop-propagation="false" bindtap="openVip" data-userInfo="{{userInfo}}">
+        <view class="down_text" wx:if="{{userInfo.isvip}}">
           距离会员过期还剩
-          <text class="num">23</text>
+          <text class="num">{{userInfo.day}}</text>
           天，不要忘了续费
         </view>
-        <view class="nonmember" wx:if="{{false}}">
+        <view class="nonmember" wx:else>
           <text class="open">开通vip会员</text>
           享受服务特权
         </view>
@@ -27,7 +29,7 @@
       <view class="left_wrap" hover-class="none" hover-stop-propagation="false">
         <view class="left_text">
           我的元积分
-          <text class="num">23</text>
+          <text class="num">{{userInfo.points_value}}</text>
         </view>
       </view>
       <view class="right_wrap">

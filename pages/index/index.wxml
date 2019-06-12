@@ -2,67 +2,74 @@
 <view class="home">
   <swiper class='swiper'>
     <block wx:for="{{imgUrls}}" wx:key="*this">
-      <swiper-item class='swiper-item'>
-        <image src="{{item}}" class="slide-image" mode='aspectFit' />
+      <swiper-item class='swiper_item'>
+        <image src="{{item}}" class="slide_image" mode='aspectFit' />
       </swiper-item>
     </block>
   </swiper>
-  <view class='search-wrap'>
+  <view class='search_wrap'>
     <view class='search'>
-      <icon class='search-icon' type='search' size='20'></icon>
-      <input class='search-input' placeholder='请输入您要搜索车型品牌名称' type="text" confirm-type="search"></input>
+      <icon class='search_icon' type='search' size='20'></icon>
+      <input class='search_input' placeholder='请输入您要搜索车型品牌名称' type="text" confirm-type="search" bindtap="search"></input>
     </view>
   </view>
-  <view class='news-wrap'>
-    <image class='news-img' src='/images/new.png'></image>
-    <view class='news-text'>
+  <view class='news_wrap'>
+    <image class='news_img' src='/images/new.png'></image>
+    <view class='news_text'>
       <text class="favoree">资料受益人</text>
       <text class='name'>王师傅：</text>
       <text class='news'>{{news}}</text>
     </view>
   </view>
-  <view class='title-wrap'>
-    <view class='brand-title'>
-      <image class='title-img' src='/images/pinpai.png'></image>
-      <text class="title-text">热门查询品牌</text>
+  <view class='title_wrap'>
+    <view class='brand_title'>
+      <image class='title_img' src='/images/pinpai.png'></image>
+      <text class="title_text">热门查询品牌</text>
     </view>
   </view>
-  <view class='brand-list'>
-    <view class='list-item' wx:for="{{brandList}}" wx:key="item.id">
-      <image class='item-img' src='{{item.img}}'></image>
-      <text class='item-text'>{{item.name}}</text>
+  <view class='brand_list'>
+    <view class='list_item' wx:for="{{brandList}}" wx:key="item.id">
+      <image class='item_img' src='{{item.img}}'></image>
+      <text class='item_text'>{{item.name}}</text>
     </view>
   </view>
-  <view class='title-wrap'>
-    <view class='brand-title'>
-      <image class='title-img' src='/images/huodong.png'></image>
-      <text class="title-text">热门运营活动</text>
+  <view class='title_wrap'>
+    <view class='brand_title'>
+      <image class='title_img' src='/images/huodong.png'></image>
+      <text class="title_text">热门运营活动</text>
     </view>
   </view>
-  <view class='operation-wrap'>
-    <text class='operation-title'>合伙人计划</text>
-    <text class='operation-list  explain-list' wx:for="{{explainList}}" wx:key="index">
+  <view class='operation_wrap'>
+    <text class='operation_title'>合伙人计划</text>
+    <text class='operation_list  explain_list' wx:for="{{explainList}}" wx:key="index">
       {{item}}
     </text>
-    <text class='operation-list' wx:for="{{operationList}}" wx:key="index">
+    <text class='operation_list' wx:for="{{operationList}}" wx:key="index">
       {{index+1}}：{{item}}
     </text>
   </view>
-  <view class='phoneCall-wrap'>
+  <view class='phoneCall_wrap'>
     立刻开始赚钱，
     <text class='phone' bindtap='phoneCall'>请点击此处联系我们</text>
   </view>
-  <view class='title-wrap'>
-    <view class='brand-title'>
-      <image class='title-img' src='/images/jiangli.png'></image>
-      <text class="title-text">最新奖励情况</text>
+  <view class='title_wrap'>
+    <view class='brand_title'>
+      <image class='title_img' src='/images/jiangli.png'></image>
+      <text class="title_text">最新奖励情况</text>
     </view>
   </view>
-  <view class='operation-wrap notice-wrap'>
-    <view class='notice' wx:for="{{noticeList}}" wx:key="index">
-      <image class='notice-img' src='/images/gonggao.png'></image>
-      <text class='notice-name'>资产受益人：</text>
-      <text class='notice-result'>{{item}}</text>
-    </view>
+  <view class='operation_wrap notice_wrap'>
+    <swiper class='notice_swiper'  vertical="true" interval="2000"  autoplay="true"  circular="true"  display-multiple-items="3">
+      <block wx:for="{{noticeList}}" wx:key="*this">
+        <swiper-item class='notice'>
+          <image class='notice_img' src='/images/gonggao.png'></image>
+          <text class='notice_name'>资产受益人：</text>
+          <text class='notice_result'>{{item}}</text>
+        </swiper-item>
+      </block>
+    </swiper>
   </view>
 </view>
+<button bindgetphonenumber="getPhoneNumber"  open-type="getPhoneNumber" open-type="getUserInfo"  bindgetuserinfo="getUserInfo" class='login_type' type="primary" wx:if="{{isBindPhone}}">
+  微信一键登录
+</button>

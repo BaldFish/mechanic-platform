@@ -8,12 +8,12 @@
   height: 320rpx;
 }
 
-.slide-image {
+.slide_image {
   width: 750rpx;
   height: 320rpx;
 }
 
-.search-wrap {
+.search_wrap {
   width: 100%;
   position: absolute;
   top:30rpx;
@@ -31,13 +31,13 @@
   opacity: 0.9;
   padding-left: 40rpx;
 }
-.search-input{
+.search_input{
   padding-left: 25rpx;
   font-size: 12px;
   color: #999999;
   width: 500rpx;
 }
-.news-wrap{
+.news_wrap{
   width: 100%;
   height: 130rpx;
   display: flex;
@@ -46,13 +46,13 @@
   background-color: #ffffff;
   box-shadow: 1px 4px 53px 9px rgba(94, 123, 246, 0.1);
 }
-.news-img{
+.news_img{
   width: 94rpx;
   height: 100rpx;
   margin-left: 40rpx;
   margin-right: 35rpx;
 }
-.news-text{
+.news_text{
   width: 523rpx;
   color: #333333;
 }
@@ -62,24 +62,24 @@
 .name{
   color: #999999;
 }
-.title-wrap{
+.title_wrap{
   display: flex;
   align-items: center;
   margin-top: 70rpx;
   margin-bottom: 65rpx;
 }
-.title-img{
+.title_img{
   width: 50rpx;
   height: 50rpx;
   margin-left: 30rpx;
   margin-right: 25rpx;
   vertical-align: middle;
 }
-.title-text{
+.title_text{
   font-size: 19px;
   color: #333333;
 }
-.brand-list{
+.brand_list{
   width: 750rpx;
   display: flex;
   flex-wrap: wrap;
@@ -87,20 +87,20 @@
   padding: 0 75rpx;
   box-sizing: border-box;
 }
-.list-item{
+.list_item{
   display: flex;
   align-items: center;
   flex-direction: column;
 }
-.item-img{
+.item_img{
   width: 146rpx;
   height: 146rpx;
 }
-.item-text{
+.item_text{
   font-size: 13px;
   color: #333333;
 }
-.operation-wrap{
+.operation_wrap{
   width: 630rpx;
   padding: 40rpx 0 60rpx 50rpx;
   background-color: #ffffff;
@@ -109,24 +109,24 @@
   box-sizing: border-box;
   margin: 0 auto;
 }
-.operation-wrap text{
+.operation_wrap text{
   display: block;
 }
-.operation-title{
+.operation_title{
   font-size: 18px;
   color: #386cff;
 }
-.operation-list{
+.operation_list{
   font-size: 11px;
   color: #333333;
   height: 18px;
   line-height: 18px;
 }
-.explain-list{
+.explain_list{
   font-size: 12px;
   color: #222222;
 }
-.phoneCall-wrap{
+.phoneCall_wrap{
   margin-top: 74rpx;
   text-align: center;
   font-size: 15px;
@@ -135,24 +135,39 @@
 .phone{
   color: #3a67f6;
 }
-.notice-wrap{
-  padding-top: 20rpx;
-  padding-bottom: 20rpx;
+.notice_wrap{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.notice_swiper{
+  height: 60px;
 }
 .notice{
   display: flex;
   align-items: center;
   font-size: 11px;
-  line-height: 22px;
+  line-height: 20px;
+  height: 20px!important
 }
-.notice-img{
+.notice_img{
   width: 10px;
   height: 10px;
   margin-right: 10rpx;
 }
-.notice-name{
+.notice_name{
   color: #333333;
 }
-.notice-result{
+.notice_result{
   color: #999999;
+}
+.login_type{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  color: #3a67f6;
+  font-size:14px;
+  border-radius:0; 
+}
+.login_type::after{ /*button的边框样式是通过::after方式实现的*/
+  border:none;
 }
