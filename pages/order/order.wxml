@@ -1,64 +1,35 @@
 <!-- pages/queryHistory/queryHistory.wxml -->
-<view class='order-wrap'>
-  <view class="list-wrap">
-    <view class="order-num">
-      <text class="text">订单号：yz294485553</text>
+<view class='order_wrap'>
+  <view class="list_wrap" wx:for="{{ordrList}}" wx:key="item.order_id">
+    <view class="order_num">
+      <text class="text">订单号：{{item.order_id}}</text>
     </view>
-    <view class="title-wrap">
-      <view class="img-wrap">
-        <image class="title-img" src="/images/weixiu2.png" mode="aspectFit"></image>
+    <view class="title_wrap">
+      <view class="img_wrap">
+        <image class="title_img" src="{{item.url}}" mode="aspectFit"></image>
       </view>
-      <text class="title-text">维修手册</text>
+      <text class="title_text">{{item.typeName}}</text>
     </view>
-    <view class="time-wrap">
+    <view class="time_wrap">
       订单时间：
-      <text class="time">2019.10.03 15:34</text>
+      <text class="time">{{item.created_at}}</text>
     </view>
-    <view class="integral-wrap">
+    <view class="integral_wrap">
       实付
-      <text class="integral">40</text>
+      <text class="integral">{{item.cash_amount}}</text>
       元积分抵扣
-      <text class="integral">10</text>
+      <text class="integral">{{item.total_amount-item.cash_amount}}</text>
       元
     </view>
-    <view class="person-wrap">
+    <view class="person_wrap">
       资料贡献人：
-      <text class="person">王师傅</text>
+      <text class="person">{{item.user_name}}</text>
     </view>
-    <view class="btn-wrap">
-      <text class="btn-text">查看资料</text>
+    <view class="btn_wrap" wx:if="{{item.can_read}}">
+      <text class="btn_text">查看资料</text>
     </view>
-    <view class="btn-wrap btn-wrap-no">
-      <text class="btn-text">查看资料</text>
-    </view>
-  </view>
-  <view class="list-wrap">
-    <view class="order-num">
-      <text class="text">订单号：yz294485553</text>
-    </view>
-    <view class="title-wrap">
-      <view class="img-wrap">
-        <image class="title-img" src="/images/weixiu2.png" mode="aspectFit"></image>
-      </view>
-      <text class="title-text">维修手册</text>
-    </view>
-    <view class="time-wrap">
-      订单时间：
-      <text class="time">2019.10.03 15:34</text>
-    </view>
-    <view class="integral-wrap">
-      实付
-      <text class="integral">40</text>
-      元积分抵扣
-      <text class="integral">10</text>
-      元
-    </view>
-    <view class="person-wrap">
-      资料贡献人：
-      <text class="person">王师傅</text>
-    </view>
-    <view class="btn-wrap btn-wrap-no">
-      <text class="btn-text">查看资料</text>
+    <view class="btn_wrap btn_wrap_no" wx:else>
+      <text class="btn_text">查看资料</text>
     </view>
   </view>
 </view>
