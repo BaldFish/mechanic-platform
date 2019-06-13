@@ -76,6 +76,10 @@ page{
   font-size: 17px;
 	color: #d90024;
 }
+.list_right_out{
+  font-size: 17px;
+	color: #00ae42;
+}
 .detail_list:last-child{
   border-bottom:none;
 }

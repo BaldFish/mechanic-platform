@@ -32,7 +32,7 @@
           <text class="num">{{userInfo.points_value}}</text>
         </view>
       </view>
-      <view class="right_wrap">
+      <view class="right_wrap" bindtap="turnPage" data-page="1">
         <view class="right_text">积分明细</view>
         <image class="jiantou" src="/images/jiantou.png" mode="aspectFit" lazy-load="false" binderror="" bindload=""></image>
       </view>
@@ -41,7 +41,7 @@
       <view class="left_wrap" hover-class="none" hover-stop-propagation="false">
         <view class="left_text">我的订单</view>
       </view>
-      <view class="right_wrap">
+      <view class="right_wrap" bindtap="turnPage" data-page="2">
         <view class="right_text">查看订单</view>
         <image class="jiantou" src="/images/jiantou.png" mode="aspectFit" lazy-load="false" binderror="" bindload=""></image>
       </view>
@@ -50,7 +50,7 @@
       <view class="left_wrap" hover-class="none" hover-stop-propagation="false">
         <view class="left_text">我的收益</view>
       </view>
-      <view class="right_wrap">
+      <view class="right_wrap" bindtap="turnPage" data-page="3">
         <view class="right_text">查看收益</view>
         <image class="jiantou" src="/images/jiantou.png" mode="aspectFit" lazy-load="false" binderror="" bindload=""></image>
       </view>
@@ -59,7 +59,7 @@
       <view class="left_wrap" hover-class="none" hover-stop-propagation="false">
         <view class="left_text">了解合伙人计划</view>
       </view>
-      <view class="right_wrap">
+      <view class="right_wrap" bindtap="turnPage" data-page="4">
         <view class="right_text">联系我们</view>
         <image class="jiantou" src="/images/jiantou.png" mode="aspectFit" lazy-load="false" binderror="" bindload=""></image>
       </view>

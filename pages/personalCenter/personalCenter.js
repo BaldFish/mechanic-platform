@@ -11,10 +11,31 @@ Page({
     userInfo: {},
   },
 
-  openVip(e) { 
+  openVip(e) {
     wx.navigateTo({
       url: `/pages/openVip/openVip?open=${e.currentTarget.dataset.userinfo.isvip}`
     })
+  },
+  turnPage(e) {
+    let page = e.currentTarget.dataset.page;
+    switch (page) {
+      case "1": wx.navigateTo({
+        url: `/pages/integralList/integralList`
+      })
+        break;
+      case "2": wx.switchTab({
+        url: `/pages/order/order`
+      })
+        break;
+      case "3": wx.navigateTo({
+        url: `/pages/myAsset/myAsset`
+      })
+        break;
+      case "4": wx.navigateTo({
+        url: `/pages/partner/partner`
+      })
+        break;
+    }
   },
 
   /**
@@ -25,11 +46,12 @@ Page({
     this.data.token = wx.getStorageSync('token')
     //获取用户信息
     app.util.request('GET', `/v1/rrd-wx-app/user/info/${this.data.userId}`, 'application/json', '', `${this.data.token}`, (res) => {
-      let userInfo = res.data.data
+      let userInfo = res.data.data;
       if (userInfo.isvip) {
-        userInfo.day = Math.ceil(789797787881 / 86400000)
+        userInfo.day = Math.ceil((userInfo.expire_time - userInfo.server_time) / 86400000);
       }
-      userInfo.user_phone = userInfo.user_phone.slice(3)
+      userInfo.user_phone = userInfo.user_phone.slice(3);
+      wx.setStorageSync("address", userInfo.address);
       this.setData({
         userInfo: userInfo
       })

@@ -3,7 +3,7 @@
   <view class="title_num" hover-class="none" hover-stop-propagation="false">
     <image class="head_bg" src="/images/head_bg.png"></image>
     <view class="num_text" hover-class="none" hover-stop-propagation="false">
-      <view class="num" hover-class="none" hover-stop-propagation="false">{{number}}</view>
+      <view class="num" hover-class="none" hover-stop-propagation="false">{{balance}}</view>
       <view class="text" hover-class="none" hover-stop-propagation="false">元积分</view>
     </view>
   </view>
@@ -13,14 +13,16 @@
       <text class="">积分明细</text>
       ---
     </view>
-    <view class="detail_list" hover-class="none" hover-stop-propagation="false" wx:for="{{10}}" wx:key="*this">
+    <view class="detail_list" hover-class="none" hover-stop-propagation="false" wx:for="{{integralList}}" wx:key="*this">
       <view class="list_left" hover-class="none" hover-stop-propagation="false">
-        <view class="left_up" hover-class="none" hover-stop-propagation="false">成功支付订单</view>
+        <view class="left_up" hover-class="none" hover-stop-propagation="false">{{item.rule}}</view>
         <view class="left_down" hover-class="none" hover-stop-propagation="false">
-          2019.02.08 11:23
+          {{item.updated_at}}
         </view>
       </view>
-      <view class="list_right" hover-class="none" hover-stop-propagation="false">+20</view>
+      <view class="{{item.value<0?'list_right_out':'list_right'}}" hover-class="none" hover-stop-propagation="false">
+        {{item.value}}
+      </view>
     </view>
   </view>
 </view>
