@@ -171,3 +171,53 @@
 .login_type::after{ /*button的边框样式是通过::after方式实现的*/
   border:none;
 }
+
+.close-modal{
+  width: 26rpx;
+	height: 26rpx;
+  margin: 20rpx 30rpx 0 0;
+  float: right;
+  position: relative;
+  top: -56rpx
+}
+.phone-box{
+  margin-left: 48rpx;
+  margin-bottom: 60rpx;
+  margin-top: 70rpx;
+}
+.phone-box text{
+	font-size: 30rpx;
+	color: #333333;
+  padding-top: 10rpx;
+  width: 120rpx;
+  display: inline-block;
+  float: left
+}
+.phone-box input{
+  width: 310rpx;
+	height: 50rpx;
+	border-radius: 10rpx;
+	border: solid 1rpx #e0e8ff;
+  font-size: 24rpx;
+  text-align: left;
+  padding-left: 20rpx
+}
+.modal-content{
+  height: 326rpx;
+}
+.modal-content .modal-btn{
+  width: 478rpx;
+	height: 64rpx;
+  line-height: 64rpx;
+	background-color: #386cff;
+	border-radius: 30rpx;
+  margin: 0 auto;
+  color: #ffffff;
+  font-size: 32rpx;
+}
+.modal-content .btn-tips{
+  font-size: 22rpx;
+	color: #999999;
+  margin-top: 20rpx;
+  padding-bottom: 40rpx;
+}

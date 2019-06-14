@@ -82,7 +82,8 @@ Page({
         "name": "孙师傅",
         "balance": "4.11"
       },
-    ]
+    ],
+    showModal: false, // 显示modal弹窗
   },
 
   /**
@@ -123,6 +124,20 @@ Page({
       phoneNumber: '18801384334',
     })
   },
+
+  //打开modal
+  openModal(e) {
+    this.setData({
+      showModal: true
+    })
+  },
+  //关闭modal
+  closeModal(e) {
+    this.setData({
+      showModal: false
+    })
+  },
+
   getPhoneNumber(e) {
     wx.login({
       success: (res) => {

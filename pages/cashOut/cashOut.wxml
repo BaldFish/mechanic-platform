@@ -10,37 +10,3 @@
   </view>
   <view class="sub-btn" bindtap='openModal'>确认提现</view>
 </view>
-
-<!-- modal弹窗-->
-  <modal-cmp show="{{showModal}}">
-    <view class='modal-content'>
-      <scroll-view scroll-y class='main-content'>
-        <image src='/images/close.png' class='close-modal' bindtap='closeModal'></image>
-        <view class='money'>
-          <text>50</text>
-          <text>元</text>
-        </view>
-        <radio-group class='radio-group'>
-          <label>
-            <radio value='1'></radio>
-            <view>元积分余额10</view>
-            <text>使用积分抵扣10元</text>
-          </label>
-          <label>
-            <radio value='2'></radio>
-            <view>微信支付</view>
-          </label>
-        </radio-group>
-        <view class='notice'>
-          支付 <text>40</text> 元 + 元积分抵扣 <text>10</text> 元
-        </view>
-        <view class='phone-box'>
-          <text>手机号：</text>
-          <input placeholder="请输入手机号" auto-focus/>
-        </view>
-        <view class='modal-btn' bindtap='closeModal'>支付</view>
-        <text class='btn-tips'>提交联系方式后，我们会马上与您取得联系</text>
-      </scroll-view>
-    </view>
-  </modal-cmp>
-

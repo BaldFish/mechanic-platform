@@ -6,6 +6,7 @@ Page({
 	 */
 	data: {
     open: "false",
+    showModal: false, // 显示modal弹窗
 	},
 
 	/**
@@ -17,6 +18,19 @@ Page({
     })
 	},
 
+  //打开modal
+  openModal(e) {
+    this.setData({
+      showModal: true
+    })
+  },
+  //关闭modal
+  closeModal(e) {
+    this.setData({
+      showModal: false
+    })
+  },
+  
 	/**
 	 * 生命周期函数--监听页面初次渲染完成
 	 */

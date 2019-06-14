@@ -58,3 +58,94 @@
   font-family: PingFangSC-Medium;
   color: #333333;
 }
+
+.close-modal{
+  width: 26rpx;
+	height: 26rpx;
+  margin: 20rpx 30rpx 0 0;
+  float: right;
+  position: relative;
+  top: -40rpx
+}
+.main-content .money{
+  margin: 56rpx 0 32rpx 90rpx
+}
+.main-content .money text:nth-child(1){
+	font-size: 72rpx;
+	color: #000000;
+}
+.main-content .money text:nth-child(2){
+	font-size: 30rpx;
+	color: #000000;
+}
+/* 修改radio默认样式 */
+radio{
+  border-radius: 50%;
+  width: 40rpx;/* 最好是4的倍数，不然会不在中间 */
+  height: 40rpx;
+  border: 2rpx solid #386cff;/* 设置边框（外圆） */
+  font-size: 0;/* 让边框重合 */
+}
+radio .wx-radio-input{
+   border-radius: 50%;
+   width: 40rpx;
+   height: 40rpx; 
+   border: none;/* 替换边框（隐藏原有边框） */
+}
+radio .wx-radio-input.wx-radio-input-checked{
+  background-color: #ffffff !important;
+}
+radio .wx-radio-input.wx-radio-input-checked::before{
+   border-radius: 50%;
+   width: 24rpx; 
+   height: 24rpx; 
+   text-align: center;
+   font-size:0rpx; /* 对勾大小 去掉 */
+   background-color: #386cff; 
+   transform:translate(-50%, -50%) scale(1);
+   -webkit-transform:translate(-50%, -50%) scale(1);
+}
+/* ------ */
+.radio-group{
+  font-size: 24rpx;
+	color: #000000;
+  text-align: left;
+  margin-left: 90rpx;
+}
+.radio-group label{
+  width:478rpx;
+  height: 40rpx;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 22rpx;
+  vertical-align: baseline
+}
+.radio-group view{
+  margin-left: 16rpx;
+  padding-top: 10rpx
+}
+.radio-group text{
+  font-size: 20rpx;
+	color: #333333;
+  padding: 12rpx
+}
+.notice{
+  font-size: 22rpx;
+	color: #666666;
+  margin-bottom: 26rpx;
+}
+.notice text{
+  font-size: 24rpx;
+	color: #386cff;
+}
+.modal-content .modal-btn{
+  width: 478rpx;
+	height: 64rpx;
+  line-height: 64rpx;
+	background-color: #386cff;
+	border-radius: 30rpx;
+  margin: 0 auto;
+  color: #ffffff;
+  font-size: 32rpx;
+  margin-bottom: 42rpx
+}

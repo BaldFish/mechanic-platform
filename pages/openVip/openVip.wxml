@@ -27,6 +27,34 @@
       </view>
     </view>
   </view>
-  <view class="vip_btn" hover-class="none" hover-stop-propagation="false" wx:if="{{open==='false'}}">立即开通</view>
-  <view class="vip_btn" hover-class="none" hover-stop-propagation="false" wx:if="{{open==='true'}}">立即续费</view>
+  <view class="vip_btn" hover-class="none" hover-stop-propagation="false" wx:if="{{open==='false'}}" bindtap='openModal'>立即开通</view>
+  <view class="vip_btn" hover-class="none" hover-stop-propagation="false" wx:if="{{open==='true'}}"    bindtap='openModal'>立即续费</view>
 </view>
+
+<!-- modal弹窗-->
+<modal-cmp show="{{showModal}}">
+  <view class='modal-content'>
+    <scroll-view scroll-y class='main-content'>
+      <image src='/images/close.png' class='close-modal' bindtap='closeModal'></image>
+      <view class='money'>
+        <text>499</text>
+        <text>元</text>
+      </view>
+      <radio-group class='radio-group'>
+        <label>
+          <radio value='1'></radio>
+          <view>元积分余额10</view>
+          <text>使用积分抵扣10元</text>
+        </label>
+        <label>
+          <radio value='2'></radio>
+          <view>微信支付</view>
+        </label>
+      </radio-group>
+      <view class='notice'>
+        支付 <text>40</text> 元 + 元积分抵扣 <text>10</text> 元
+      </view>
+      <view class='modal-btn' bindtap='closeModal'>支付</view>
+    </scroll-view>
+  </view>
+</modal-cmp>

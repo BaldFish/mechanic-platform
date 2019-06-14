@@ -1,6 +1,4 @@
 {
-  "usingComponents": {
-    "modal-cmp": "/component/modal/modal"
-  },
+  "usingComponents": {},
   "navigationBarTitleText": "微信提现"
 }

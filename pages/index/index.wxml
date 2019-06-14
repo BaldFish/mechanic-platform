@@ -50,7 +50,7 @@
   </view>
   <view class='phoneCall_wrap'>
     立刻开始赚钱，
-    <text class='phone' bindtap='phoneCall'>请点击此处联系我们</text>
+    <text class='phone' bindtap='openModal'>请点击此处联系我们</text>
   </view>
   <view class='title_wrap'>
     <view class='brand_title'>
@@ -73,3 +73,18 @@
 <button bindgetphonenumber="getPhoneNumber"  open-type="getPhoneNumber" open-type="getUserInfo"  bindgetuserinfo="getUserInfo" class='login_type' type="primary" wx:if="{{isBindPhone}}">
   微信一键登录
 </button>
+
+<!-- modal弹窗-->
+<modal-cmp show="{{showModal}}">
+  <view class='modal-content'>
+    <scroll-view class='main-content'>
+      <image src='/images/close.png' class='close-modal' bindtap='closeModal'></image>
+      <view class='phone-box'>
+        <text>手机号：</text>
+        <input placeholder="请输入手机号" auto-focus/>
+      </view>
+      <view class='modal-btn' bindtap='closeModal'>提交</view>
+      <text class='btn-tips'>提交联系方式后，我们会马上与您取得联系</text>
+    </scroll-view>
+  </view>
+</modal-cmp>
