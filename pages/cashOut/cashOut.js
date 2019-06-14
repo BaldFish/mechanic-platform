@@ -5,24 +5,35 @@ Page({
    * 页面的初始数据
    */
   data: {
+    value: "",
+    tips: "",
+    balance: "0",
     showModal: false, // 显示modal弹窗
+  },
+  b(e) {
+    this.setData({
+      value: this.data.balance
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      tips: `本次最多可提出${options.balance}元`,
+      balance: options.balance
+    })
   },
 
   //打开modal
-  openModal(e){
+  openModal(e) {
     this.setData({
       showModal: true
     })
   },
   //关闭modal
-  closeModal(e){
+  closeModal(e) {
     this.setData({
       showModal: false
     })

@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    limit:6,
     userId: "",
     token:"",
     isBindPhone: false,
@@ -65,12 +66,22 @@ Page({
       "收益清晰透明，实时查询交易记录；",
     ],
     noticeList: [
-      "1师傅 已累积赚取10340元",
-      "2师傅 已累积赚取280042元",
-      "3师傅 已累积赚取3843元",
-      "4师傅 已累积赚取10340元",
-      "5师傅 已累积赚取280042元",
-      "6师傅 已累积赚取3843元"
+      {
+        "name": "高师傅",
+        "balance": "18"
+      },
+      {
+        "name": "李师傅",
+        "balance": "4.11"
+      },
+      {
+        "name": "王师傅",
+        "balance": "20.78"
+      },
+      {
+        "name": "孙师傅",
+        "balance": "4.11"
+      },
     ]
   },
 
@@ -101,6 +112,11 @@ Page({
         }
       }
     })
+    // app.util.request('GET', `/v1/rrd-wx-app/partner/latest-reward?limit=${this.data.limit}`, 'application/json', '', ``, (res) => {
+    //   this.setData({
+    //     noticeList: res.data.data
+    //   })
+    // })
   },
   phoneCall() {
     wx.makePhoneCall({
@@ -145,14 +161,18 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    app.util.request('GET', `/v1/rrd-wx-app/partner/latest-reward?limit=${this.data.limit}`, 'application/json', '', ``, (res) => {
+      this.setData({
+        noticeList: res.data.data
+      })
+    })
   },
 
   /**

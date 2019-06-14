@@ -59,12 +59,12 @@
     </view>
   </view>
   <view class='operation_wrap notice_wrap'>
-    <swiper class='notice_swiper'  vertical="true" interval="2000"  autoplay="true"  circular="true"  display-multiple-items="3">
+    <swiper class='notice_swiper'  vertical="true" interval="5000"  autoplay="true"  circular="true"  display-multiple-items="3">
       <block wx:for="{{noticeList}}" wx:key="*this">
         <swiper-item class='notice'>
           <image class='notice_img' src='/images/gonggao.png'></image>
           <text class='notice_name'>资产受益人：</text>
-          <text class='notice_result'>{{item}}</text>
+          <text class='notice_result'>{{item.name}} 已累积赚取{{item.balance}}元</text>
         </swiper-item>
       </block>
     </swiper>

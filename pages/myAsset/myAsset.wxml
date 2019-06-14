@@ -7,9 +7,9 @@
     </view>
     <view class="head_num" hover-class="none" hover-stop-propagation="false">
       ¥
-      <text class="num" selectable="false" space="false" decode="false">671</text>
+      <text class="num" selectable="false" space="false" decode="false">{{balance}}</text>
     </view>
-    <view class="head_btn" hover-class="none" hover-stop-propagation="false">提现</view>
+    <view class="head_btn" hover-class="none" hover-stop-propagation="false" bindtap="turnWithdraw" data-balance="{{balance}}">提现</view>
   </view>
   <view class="record_wrap" hover-class="none" hover-stop-propagation="false">
     <view class="tabs_wrap" hover-class="none" hover-stop-propagation="false">
@@ -20,56 +20,29 @@
         </view>
       </view>
     </view>
-    <view class="exchange" hover-class="none" hover-stop-propagation="false">
-      <view class="record" hover-class="none" hover-stop-propagation="false" wx:if="{{nowIndex===0}}">
+    <view class="exchange" hover-class="none" hover-stop-propagation="false" wx:if="{{nowIndex===0}}">
+      <view class="record" hover-class="none" hover-stop-propagation="false"  wx:for="{{exchangeList}}" wx:key="{{item.ID}}">
         <view class="left" hover-class="none" hover-stop-propagation="false">
-          <view class="up" hover-class="none" hover-stop-propagation="false">2019.03.29 17:30</view>
+          <view class="up" hover-class="none" hover-stop-propagation="false">{{item.created_at}}</view>
           <view class="down" hover-class="none" hover-stop-propagation="false">
-            您贡献的2018款上海大众凌度维修手册被王师傅购买
+            {{item.year}}{{item.brand}}{{item.series}}{{item.typeName}}
           </view>
         </view>
-        <view class="right" hover-class="none" hover-stop-propagation="false">+20</view>
-      </view>
-      <view class="record" hover-class="none" hover-stop-propagation="false" wx:if="{{nowIndex===0}}">
-        <view class="left" hover-class="none" hover-stop-propagation="false">
-          <view class="up" hover-class="none" hover-stop-propagation="false">2019.03.29 17:30</view>
-          <view class="down" hover-class="none" hover-stop-propagation="false">
-            您贡献的2018款上海大众凌度维修手册被王师傅购买
-          </view>
-        </view>
-        <view class="right" hover-class="none" hover-stop-propagation="false">+20</view>
-      </view>
-      <view class="record" hover-class="none" hover-stop-propagation="false" wx:if="{{nowIndex===0}}">
-        <view class="left" hover-class="none" hover-stop-propagation="false">
-          <view class="up" hover-class="none" hover-stop-propagation="false">2019.03.29 17:30</view>
-          <view class="down" hover-class="none" hover-stop-propagation="false">
-            您贡献的2018款上海大众凌度维修手册被王师傅购买
-          </view>
-        </view>
-        <view class="right" hover-class="none" hover-stop-propagation="false">+20</view>
-      </view>
-      <view class="record" hover-class="none" hover-stop-propagation="false" wx:if="{{nowIndex===0}}">
-        <view class="left" hover-class="none" hover-stop-propagation="false">
-          <view class="up" hover-class="none" hover-stop-propagation="false">2019.03.29 17:30</view>
-          <view class="down" hover-class="none" hover-stop-propagation="false">
-            您贡献的2018款上海大众凌度维修手册被王师傅购买
-          </view>
-        </view>
-        <view class="right" hover-class="none" hover-stop-propagation="false">+20</view>
+        <view class="right" hover-class="none" hover-stop-propagation="false">+{{item.amount}}</view>
       </view>
     </view>
-    <view class="withdraw" hover-class="none" hover-stop-propagation="false">
-      <view class="record out" hover-class="none" hover-stop-propagation="false" wx:if="{{nowIndex===1}}">
+    <view class="withdraw" hover-class="none" hover-stop-propagation="false" wx:if="{{nowIndex===1}}">
+      <view class="record out" hover-class="none" hover-stop-propagation="false" wx:for="{{withdrawList}}" wx:key="{{item.ID}}">
         <view class="left" hover-class="none" hover-stop-propagation="false">
           <view class="up" hover-class="none" hover-stop-propagation="false">账户提现</view>
           <view class="down" hover-class="none" hover-stop-propagation="false">
-            2019.03.29 17:30
+            {{item.created_at}}
           </view>
         </view>
-        <view class="right" hover-class="none" hover-stop-propagation="false">-20</view>
+        <view class="right" hover-class="none" hover-stop-propagation="false">-{{item.amount}}</view>
       </view>
     </view>
-    <view class="more" hover-class="none" hover-stop-propagation="false">
+    <view class="more" hover-class="none" hover-stop-propagation="false" bindtap="getMoreList">
       查看更多
       <image class="more_img" src="/images/zhankai.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
     </view>

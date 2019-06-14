@@ -23,7 +23,7 @@ Page({
     this.data.address = wx.getStorageSync('address');
     //获取积分明细和余额
     app.util.request('GET', `/v1/rrd-wx-app/user/points/details/${this.data.address}?page=${this.data.page}&limit=${this.data.limit}`, 'application/json', '', `${this.data.token}`, (res) => {
-      if (res.data.data.res_list !== []) {
+      if (res.data.data.res_list.length !== 0) {
         res.data.data.res_list.forEach((item) => {
           item.updated_at = app.util.formatTime(new Date(item.updated_at))
         })
@@ -69,7 +69,7 @@ Page({
 	 * 页面相关事件处理函数--监听用户下拉动作
 	 */
   onPullDownRefresh: function () {
-
+console.log(1)
   },
 
 	/**
@@ -78,10 +78,16 @@ Page({
   onReachBottom: function () {
     if (this.data.lastResCount < this.data.limit) {
       app.util.request('GET', `/v1/rrd-wx-app/user/points/details/${this.data.address}?page=${this.data.page}&limit=${this.data.limit}`, 'application/json', '', `${this.data.token}`, (res) => {
-        if (res.data.data.res_list !== []) {  
+        if (res.data.data.res_list.length !== 0) {  
           this.data.integralList.splice(this.data.integralList.length - this.data.lastResCount, this.data.lastResCount)
           res.data.data.res_list.forEach((item) => {
             item.updated_at = app.util.formatTime(new Date(item.updated_at))
+          })
+        } else {
+          wx.showToast({
+            title: '没有更多数据',
+            icon: 'none',
+            duration: 2000
           })
         }
         this.setData({
@@ -93,9 +99,15 @@ Page({
       })
     } else {
       app.util.request('GET', `/v1/rrd-wx-app/user/points/details/${this.data.address}?page=${++this.data.page}&limit=${this.data.limit}`, 'application/json', '', `${this.data.token}`, (res) => {
-        if (res.data.data.res_list !== []) {
+        if (res.data.data.res_list.length !== 0) {
           res.data.data.res_list.forEach((item) => {
             item.updated_at = app.util.formatTime(new Date(item.updated_at))
+          })
+        } else {
+          wx.showToast({
+            title: '没有更多数据',
+            icon: 'none',
+            duration: 2000
           })
         }
         this.setData({
