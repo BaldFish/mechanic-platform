@@ -1,9 +1,9 @@
 <!-- index.wxml -->
 <view class="home">
-  <swiper class='swiper'>
-    <block wx:for="{{imgUrls}}" wx:key="*this">
+  <swiper class='swiper'  indicator-dots="true"  autoplay="true"  circular="true">
+    <block wx:for="{{imgUrls}}" wx:key="item.id">
       <swiper-item class='swiper_item'>
-        <image src="{{item}}" class="slide_image" mode='aspectFit' />
+        <image src="{{item.url}}" class="slide_image" mode='aspectFit' />
       </swiper-item>
     </block>
   </swiper>
@@ -17,8 +17,8 @@
     <image class='news_img' src='/images/new.png'></image>
     <view class='news_text'>
       <text class="favoree">资料受益人</text>
-      <text class='name'>王师傅：</text>
-      <text class='news'>{{news}}</text>
+      <text class='name'>{{news[0].user_name}}：</text>
+      <text class='news'>{{news[0].year+news[0].brand+news[0].series}}</text>
     </view>
   </view>
   <view class='title_wrap'>
@@ -28,9 +28,9 @@
     </view>
   </view>
   <view class='brand_list'>
-    <view class='list_item' wx:for="{{brandList}}" wx:key="item.id">
-      <image class='item_img' src='{{item.img}}'></image>
-      <text class='item_text'>{{item.name}}</text>
+    <view class='list_item' wx:for="{{hotBrandList}}" wx:key="item.id">
+      <image class='item_img' src='{{item.url}}'></image>
+      <text class='item_text'>{{item.brand_name}}</text>
     </view>
   </view>
   <view class='title_wrap'>

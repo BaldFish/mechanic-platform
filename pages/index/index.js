@@ -12,47 +12,65 @@ Page({
     token:"",
     isBindPhone: false,
     searchValue:"",
-    imgUrls: ["/images/01.png"],
-    news: "提供2016款上海上海大众大海大众大海大众大动款维修手维修手",
-    brandList: [{
+    imgUrls: [{
+      "id": "1",
+      "updated_at": "2018-11-29T10:33:47+08:00",
+      "name": "维修资料",
+      "url": "/images/01.png",
+      "type": 1
+    },],
+    news: [{
+      "id": "1",
+      "brand": "上海大众",
+      "series": "维修手册",
+      "year": "提供2016款",
+      "type": 5,
+      "first_menu": "第一章",
+      "first_page": "1.gif",
+      "total_page": 20,
+      "user_id": "",
+      "user_name": "郑师傅",
+      "updated_at": "2019-05-18T08:57:12+08:00"
+    }],
+    hotBrandList: [{
       id: 1,
-      img: "/images/dazhong.png",
-      name: "大众"
+      url: "/images/dazhong.png",
+      brand_name: "大众"
     },
     {
       id: 2,
-      img: "/images/benchi.png",
-      name: "奔驰"
+      url: "/images/benchi.png",
+      brand_name: "奔驰"
     },
     {
       id: 3,
-      img: "/images/baoma.png",
-      name: "宝马"
+      url: "/images/baoma.png",
+      brand_name: "宝马"
     },
     {
       id: 4,
-      img: "/images/aodi.png",
-      name: "奥迪"
+      url: "/images/aodi.png",
+      brand_name: "奥迪"
     },
     {
       id: 5,
-      img: "/images/fengtian.png",
-      name: "丰田"
+      url: "/images/fengtian.png",
+      brand_name: "丰田"
     },
     {
       id: 6,
-      img: "/images/bentian.png",
-      name: "本田"
+      url: "/images/bentian.png",
+      brand_name: "本田"
     },
     {
       id: 7,
-      img: "/images/fute.png",
-      name: "福特"
+      url: "/images/fute.png",
+      brand_name: "福特"
     },
     {
       id: 8,
-      img: "/images/bieke.png",
-      name: "别克"
+      url: "/images/bieke.png",
+      brand_name: "别克"
     },
     ],
     explainList: [
@@ -85,11 +103,35 @@ Page({
     ],
     showModal: false, // 显示modal弹窗
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+  getBannerList() { 
+    app.util.request('GET', `/v1/rrd-wx-app/slider`, 'application/json', '', '', (res) => {
+      this.setData({
+        imgUrls: res.data.data
+      })
+    })
+  },
+  getNews() { 
+    app.util.request('GET', `/v1/rrd-wx-app/car/latest-update?limit=1`, 'application/json', '', '', (res) => {
+      this.setData({
+        news: res.data.data
+      })
+    })
+  },
+  getHotBrandList() {
+    app.util.request('GET', `/v1/rrd-wx-app/car/popular-brands`, 'application/json', '', '', (res) => {
+      this.setData({
+        hotBrandList: res.data.data
+      })
+    })
+  },
+  getNoticeList() { 
+    app.util.request('GET', `/v1/rrd-wx-app/partner/latest-reward?limit=${this.data.limit}`, 'application/json', '', ``, (res) => {
+      this.setData({
+        noticeList: res.data.data
+      })
+    })
+  },
+  login() { 
     wx.login({
       success: (res) => {
         if (res.code) {
@@ -106,22 +148,21 @@ Page({
               wx.setStorageSync("userId", data.session_info.user_id);
               this.data.userId = wx.getStorageSync('userId')
               this.data.token = wx.getStorageSync('token')
-             }
+            }
           })
         } else {
-          console.log('登录失败！' + res.errMsg)
+          wx.showToast({
+            title: res.errMsg,
+            icon: 'none',
+            image: '',
+            duration: 2000,
+            mask: false,
+            success: (result) => { },
+            fail: () => { },
+            complete: () => { }
+          })
         }
       }
-    })
-    // app.util.request('GET', `/v1/rrd-wx-app/partner/latest-reward?limit=${this.data.limit}`, 'application/json', '', ``, (res) => {
-    //   this.setData({
-    //     noticeList: res.data.data
-    //   })
-    // })
-  },
-  phoneCall() {
-    wx.makePhoneCall({
-      phoneNumber: '18801384334',
     })
   },
 
@@ -171,7 +212,15 @@ Page({
     app.util.request('GET', `/v1/rrd-wx-app/car/brand/search?cond=${data}`, 'application/json', '', this.data.token, (res) => {
       console.log(res)
     })
-   },
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    this.getBannerList();
+    this.login();
+  },
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -183,11 +232,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    app.util.request('GET', `/v1/rrd-wx-app/partner/latest-reward?limit=${this.data.limit}`, 'application/json', '', ``, (res) => {
-      this.setData({
-        noticeList: res.data.data
-      })
-    })
+    this.getNews();
+    this.getNoticeList();
+    
   },
 
   /**

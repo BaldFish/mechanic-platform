@@ -39,7 +39,6 @@ Page({
     }
   },
   turnWithdraw(e) { 
-    console.log(e.currentTarget.dataset.balance)
     wx.navigateTo({
       url: `/pages/cashOut/cashOut?balance=${e.currentTarget.dataset.balance}`
     })

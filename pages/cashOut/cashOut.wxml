@@ -4,9 +4,9 @@
   <view class="input-box">
     <view class="input-box-left">
       <text class="icon">¥</text>
-      <input placeholder="{{tips}}" auto-focus value="{{value}}" bindinput="a"/>
+      <input placeholder="{{tips}}" auto-focus value="{{value}}" bindinput="input"/>
     </view>
-    <text class="input-box-right" bindtap="b">全部提现</text>
+    <text class="input-box-right" bindtap="all">全部提现</text>
   </view>
-  <view class="sub-btn" bindtap='openModal'>确认提现</view>
+  <view class="sub-btn" bindtap='affirm'>确认提现</view>
 </view>

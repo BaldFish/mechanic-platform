@@ -37,14 +37,8 @@ Page({
         break;
     }
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    this.data.userId = wx.getStorageSync('userId')
-    this.data.token = wx.getStorageSync('token')
-    //获取用户信息
+  //获取用户信息
+  getUserInfo() { 
     app.util.request('GET', `/v1/rrd-wx-app/user/info/${this.data.userId}`, 'application/json', '', `${this.data.token}`, (res) => {
       let userInfo = res.data.data;
       if (userInfo.isvip) {
@@ -56,6 +50,15 @@ Page({
         userInfo: userInfo
       })
     })
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    this.data.userId = wx.getStorageSync('userId');
+    this.data.token = wx.getStorageSync('token');
+    this.getUserInfo();
+    
   },
 
   /**
