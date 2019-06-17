@@ -17,13 +17,13 @@
   top:140rpx;
 }
 .demio{
-  font-size: 14px;
+  font-size: 11px;
   color: #000033;
   line-height: 28rpx;
 }
 .title{
   margin-top: 22rpx;
-  font-size: 11px;
+  font-size: 14px;
   line-height: 22rpx;
   color: #000033;
 }

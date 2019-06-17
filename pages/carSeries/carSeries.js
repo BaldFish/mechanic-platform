@@ -1,6 +1,5 @@
 // pages/carSeries/carSeries.js
 const app = getApp();
-
 Page({
 
 	/**
@@ -9,7 +8,30 @@ Page({
   data: {
     seriesList: [],
   },
-
+  turnCarType(e) {
+    let data = e.currentTarget.dataset.value;
+    app.util.request('GET', `/v1/rrd-wx-app/car/year?brand=${data.brand}&series=${data.series}`, 'application/json', '', app.data.token, (res) => {
+      if (res.data.data.length) {
+        app.data.brand = data.brand
+        app.data.series = data.series
+        app.data.carYears = res.data.data
+        wx.navigateTo({
+          url: `/pages/carType/carType`
+        })
+      } else {
+        wx.showToast({
+          title: '没有相关数据',
+          icon: 'none',
+          image: '',
+          duration: 2000,
+          mask: false,
+          success: (result) => { },
+          fail: () => { },
+          complete: () => { }
+        })
+      }
+    })
+  },
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
