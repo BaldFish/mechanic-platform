@@ -1,7 +1,7 @@
 <!-- pages/carSeries/carSeries.wxml -->
 <view class="carSeries" hover-class="none" hover-stop-propagation="false">
-  <view class="list" hover-class="none" hover-stop-propagation="false" wx:for="{{10}}" wx:key="*this">
-    <view class="left_text" hover-class="none" hover-stop-propagation="false">帕萨特</view>
+  <view class="list" hover-class="none" hover-stop-propagation="false" wx:for="{{seriesList}}" wx:key="*this">
+    <view class="left_text" hover-class="none" hover-stop-propagation="false">{{item.series}}</view>
     <image class="right_img" src="/images/jiantou.png"></image>
   </view>
 </view>

@@ -1,4 +1,6 @@
 // pages/search/search.js
+const app = getApp();
+
 let city = require('../../utils/allcity.js');
 Page({
 
@@ -25,7 +27,7 @@ Page({
         rightArr
       }, () => {
         this.queryMultipleNodes();
-        })
+      })
     }
   },
   /**
@@ -73,28 +75,56 @@ Page({
     } // 触发事件的选项
     this.triggerEvent('detail', detail, myEventOption)
   },
+  getList() {
+    wx.showLoading({
+      title: '加载数据中...',
+    })
+    app.util.request('GET', `/v1/rrd-wx-app/car/list`, 'application/json', '', `${app.data.token}`, (res) => {
+      this.setData({
+        list: res.data.data
+      })
+      this.resetRight(this.data.list)
+      wx.hideLoading()
+    })
+  },
+  search(e) {
+    if (app.data.token) {
+      let data = e.detail.value || e.currentTarget.dataset.value || '';
+      app.util.request('GET', `/v1/rrd-wx-app/car/brand/search?cond=${data}`, 'application/json', '', app.data.token, (res) => {
+        console.log(res.data.data)
+        //app.data.brand = res.data.data.brand
+
+        if (res.data.data.length) {
+          app.data.seriesList = res.data.data
+          wx.navigateTo({
+            url: `/pages/carSeries/carSeries`
+          })
+        } else {
+          wx.navigateTo({
+            url: `/pages/search/search`
+          })
+        }
+      })
+    } else {
+      wx.showToast({
+        title: '请登录后重试',
+        icon: 'none',
+        image: '',
+        duration: 2000,
+        mask: false,
+        success: (result) => { },
+        fail: () => { },
+        complete: () => { }
+      })
+    }
 
 
-
-
-
-
-
+  },
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
   onLoad: function (options) {
-    wx.showLoading({
-      title: '加载数据中...',
-    })
-    //模拟服务器请求异步加载数据
-    setTimeout(() => {
-      this.setData({
-        list: city,
-      })
-      this.resetRight(this.data.list)
-      wx.hideLoading()
-    }, 2000)
+    this.getList();
   },
 	/**
 	 * 生命周期函数--监听页面初次渲染完成

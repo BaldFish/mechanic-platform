@@ -7,11 +7,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    limit:6,
+    limit: 6,
     userId: "",
-    token:"",
+    token: "",
     isBindPhone: false,
-    searchValue:"",
+    searchValue: "",
     imgUrls: [{
       "id": "1",
       "updated_at": "2018-11-29T10:33:47+08:00",
@@ -103,14 +103,14 @@ Page({
     ],
     showModal: false, // 显示modal弹窗
   },
-  getBannerList() { 
+  getBannerList() {
     app.util.request('GET', `/v1/rrd-wx-app/slider`, 'application/json', '', '', (res) => {
       this.setData({
         imgUrls: res.data.data
       })
     })
   },
-  getNews() { 
+  getNews() {
     app.util.request('GET', `/v1/rrd-wx-app/car/latest-update?limit=1`, 'application/json', '', '', (res) => {
       this.setData({
         news: res.data.data
@@ -124,14 +124,14 @@ Page({
       })
     })
   },
-  getNoticeList() { 
+  getNoticeList() {
     app.util.request('GET', `/v1/rrd-wx-app/partner/latest-reward?limit=${this.data.limit}`, 'application/json', '', ``, (res) => {
       this.setData({
         noticeList: res.data.data
       })
     })
   },
-  login() { 
+  login() {
     wx.login({
       success: (res) => {
         if (res.code) {
@@ -144,10 +144,12 @@ Page({
                 isBindPhone: true
               })
             } else {
-              wx.setStorageSync("token", data.session_info.token);
               wx.setStorageSync("userId", data.session_info.user_id);
-              this.data.userId = wx.getStorageSync('userId')
-              this.data.token = wx.getStorageSync('token')
+              wx.setStorageSync("token", data.session_info.token);
+              this.data.userId = data.session_info.user_id
+              this.data.token = data.session_info.token
+              app.data.userId = data.session_info.user_id
+              app.data.token = data.session_info.token
             }
           })
         } else {
@@ -191,27 +193,64 @@ Page({
           //发起网络请求
           app.util.request('POST', '/v1/rrd-wx-app/user/weixin/phone', 'application/x-www-form-urlencoded', data, '', (res) => {
             let data = res.data.data;
-            wx.setStorageSync("token", data.session_info.token);
             wx.setStorageSync("userId", data.session_info.user_id);
-            this.data.userId = wx.getStorageSync('userId')
-            this.data.token = wx.getStorageSync('token')
+            wx.setStorageSync("token", data.session_info.token);
+            this.data.userId = data.session_info.user_id
+            this.data.token = data.session_info.token
+            app.data.userId = data.session_info.user_id
+            app.data.token = data.session_info.token
             this.setData({
               isBindPhone: false
             });
             wx.showTabBar({});
           })
         } else {
-          console.log('登录失败！' + res.errMsg)
+          wx.showToast({
+            title: res.errMsg,
+            icon: 'none',
+            image: '',
+            duration: 2000,
+            mask: false,
+            success: (result) => { },
+            fail: () => { },
+            complete: () => { }
+          })
         }
       }
     })
   },
   search(e) {
-    let data = e.detail.value || '本田';
-    console.log(data)
-    app.util.request('GET', `/v1/rrd-wx-app/car/brand/search?cond=${data}`, 'application/json', '', this.data.token, (res) => {
-      console.log(res)
-    })
+    if (app.data.token) {
+      let data = e.detail.value || e.currentTarget.dataset.value || '';
+      app.util.request('GET', `/v1/rrd-wx-app/car/brand/search?cond=${data}`, 'application/json', '', this.data.token, (res) => {
+        console.log(res.data.data)
+        //app.data.brand = res.data.data.brand
+        
+        if (res.data.data.length) {
+          app.data.seriesList = res.data.data
+          wx.navigateTo({
+            url: `/pages/carSeries/carSeries`
+          })
+        } else { 
+          wx.navigateTo({
+            url: `/pages/search/search`
+          })
+        }
+      })
+    } else {
+      wx.showToast({
+        title: '请登录后重试',
+        icon: 'none',
+        image: '',
+        duration: 2000,
+        mask: false,
+        success: (result) => { },
+        fail: () => { },
+        complete: () => { }
+      })
+    }
+
+
   },
   /**
    * 生命周期函数--监听页面加载
@@ -220,12 +259,12 @@ Page({
     this.getBannerList();
     this.login();
   },
-  
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+
   },
 
   /**
@@ -234,7 +273,7 @@ Page({
   onShow: function () {
     this.getNews();
     this.getNoticeList();
-    
+
   },
 
   /**

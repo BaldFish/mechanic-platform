@@ -10,7 +10,7 @@
   <view class='search_wrap'>
     <view class='search'>
       <icon class='search_icon' type='search' size='20'></icon>
-      <input class='search_input' placeholder='请输入您要搜索车型品牌名称' type="text" confirm-type="search" bindtap="search"></input>
+      <input class='search_input' placeholder='请输入您要搜索车型品牌名称' type="text" confirm-type="search" bindconfirm="search"></input>
     </view>
   </view>
   <view class='news_wrap'>
@@ -28,7 +28,7 @@
     </view>
   </view>
   <view class='brand_list'>
-    <view class='list_item' wx:for="{{hotBrandList}}" wx:key="item.id">
+    <view class='list_item' wx:for="{{hotBrandList}}" wx:key="item.id" data-value="{{item.brand_name}}" bindtap="search">
       <image class='item_img' src='{{item.url}}'></image>
       <text class='item_text'>{{item.brand_name}}</text>
     </view>
@@ -70,7 +70,7 @@
     </swiper>
   </view>
 </view>
-<button bindgetphonenumber="getPhoneNumber"  open-type="getPhoneNumber" open-type="getUserInfo"  bindgetuserinfo="getUserInfo" class='login_type' type="primary" wx:if="{{isBindPhone}}">
+<button bindgetphonenumber="getPhoneNumber"  open-type="getPhoneNumber" class='login_type' type="primary" wx:if="{{isBindPhone}}">
   微信一键登录
 </button>
 

@@ -3,23 +3,23 @@
   <view class='search_wrap'>
     <view class='search'>
       <icon class='search_icon' type='search' size='20'></icon>
-      <input class='search_input' placeholder='请输入您要搜索车型品牌名称' type="text" confirm-type="search"></input>
+      <input class='search_input' placeholder='请输入您要搜索车型品牌名称' type="text" confirm-type="search" bindconfirm="search"></input>
     </view>
   </view>
   <block wx:if="{{list.length != 0 }}">
     <!-- 主体内容显示 -->
     <scroll-view class="list_scroll" scroll-y="true" scroll-into-view="{{jumpNum}}" scroll-with-animation="true" bindscroll="scroll">
-      <view class="hot" id="{{'index'+index}}" wx:for="{{list}}" wx:key="index" wx:if="{{item.title==='热门品牌'}}">
-        <view class='hot_list_title'>{{item.title}}</view>
-        <view class="hot_list_name" wx:for="{{item.item}}" wx:for-item="city" wx:for-index="idx" wx:key="city" data-detail="{{city}}" catchtap='detailMt'>
-          <image class="hot_list_img" src="/images/baoma.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
-          {{city.name}}
+      <view class="hot" id="{{'index'+index}}" wx:for="{{list}}" wx:key="index" wx:if="{{item.title==='热'}}">
+        <view class='hot_list_title'>{{item.title+'门品牌'}}</view>
+        <view class="hot_list_name" wx:for="{{item.list}}" wx:for-item="list" wx:for-index="idx" wx:key="list" data-detail="{{list}}" catchtap='detailMt'>
+          <image class="hot_list_img" src="{{list.icon}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
+          {{list.name}}
         </view>
       </view>
-      <view id="{{'index'+index}}" wx:for="{{list}}" wx:key="index" wx:if="{{item.title!=='热门品牌'}}">
+      <view id="{{'index'+index}}" wx:for="{{list}}" wx:key="index" wx:if="{{item.title!=='热'}}">
         <view class='list_title'>{{item.title}}</view>
-        <view class="list_name" wx:for="{{item.item}}" wx:for-item="city" wx:for-index="idx" wx:key="city" data-detail="{{city}}" catchtap='detailMt'>
-          {{city.name}}
+        <view class="list_name" wx:for="{{item.list}}" wx:for-item="list" wx:for-index="idx" wx:key="list" data-detail="{{list}}" catchtap='detailMt'>
+          {{list.name}}
         </view>
       </view>
     </scroll-view>

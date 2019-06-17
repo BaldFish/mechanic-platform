@@ -5,6 +5,12 @@ App({
     formatTime: util.formatTime,
     request: util.request
   },
+  data: {
+    userId: "",
+    token: "",
+    brand:"",
+    seriesList:[]
+  },
   /**
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
    */
