@@ -266,10 +266,7 @@ Page({
   search(e) {
     if (app.data.token) {
       let data = e.detail.value || e.currentTarget.dataset.value || '';
-      app.util.request('GET', `/v1/rrd-wx-app/car/brand/search?cond=${data}`, 'application/json', '', this.data.token, (res) => {
-        console.log(res.data.data)
-        //app.data.brand = res.data.data.brand
-        
+      app.util.request('GET', `/v1/rrd-wx-app/car/brand/search?cond=${data}`, 'application/json', '', app.data.token, (res) => {
         if (res.data.data.length) {
           app.data.seriesList = res.data.data
           wx.navigateTo({

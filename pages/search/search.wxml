@@ -11,14 +11,14 @@
     <scroll-view class="list_scroll" scroll-y="true" scroll-into-view="{{jumpNum}}" scroll-with-animation="true" bindscroll="scroll">
       <view class="hot" id="{{'index'+index}}" wx:for="{{list}}" wx:key="index" wx:if="{{item.title==='热'}}">
         <view class='hot_list_title'>{{item.title+'门品牌'}}</view>
-        <view class="hot_list_name" wx:for="{{item.list}}" wx:for-item="list" wx:for-index="idx" wx:key="list" data-detail="{{list}}" catchtap='detailMt'>
+        <view class="hot_list_name" wx:for="{{item.list}}" wx:for-item="list" wx:for-index="idx" wx:key="list" data-value="{{list.name}}" catchtap='search'>
           <image class="hot_list_img" src="{{list.icon}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
           {{list.name}}
         </view>
       </view>
       <view id="{{'index'+index}}" wx:for="{{list}}" wx:key="index" wx:if="{{item.title!=='热'}}">
         <view class='list_title'>{{item.title}}</view>
-        <view class="list_name" wx:for="{{item.list}}" wx:for-item="list" wx:for-index="idx" wx:key="list" data-detail="{{list}}" catchtap='detailMt'>
+        <view class="list_name" wx:for="{{item.list}}" wx:for-item="list" wx:for-index="idx" wx:key="list" data-value="{{list.name}}" catchtap='turnSeries'>
           {{list.name}}
         </view>
       </view>

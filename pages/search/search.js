@@ -1,7 +1,5 @@
 // pages/search/search.js
 const app = getApp();
-
-let city = require('../../utils/allcity.js');
 Page({
 
 	/**
@@ -63,18 +61,6 @@ Page({
       jumpNum
     });
   },
-  /**
-   * 列表点击事件
-   */
-  detailMt(e) {
-    let detail = e.currentTarget.dataset.detail;
-    let myEventOption = {
-      bubbles: false, //事件是否冒泡
-      composed: false, //事件是否可以穿越组件边界
-      capturePhase: false //事件是否拥有捕获阶段
-    } // 触发事件的选项
-    this.triggerEvent('detail', detail, myEventOption)
-  },
   getList() {
     wx.showLoading({
       title: '加载数据中...',
@@ -91,9 +77,6 @@ Page({
     if (app.data.token) {
       let data = e.detail.value || e.currentTarget.dataset.value || '';
       app.util.request('GET', `/v1/rrd-wx-app/car/brand/search?cond=${data}`, 'application/json', '', app.data.token, (res) => {
-        console.log(res.data.data)
-        //app.data.brand = res.data.data.brand
-
         if (res.data.data.length) {
           app.data.seriesList = res.data.data
           wx.navigateTo({
@@ -117,8 +100,41 @@ Page({
         complete: () => { }
       })
     }
-
-
+  },
+  turnSeries(e) {
+    if (app.data.token) {
+      let data = e.currentTarget.dataset.value;
+      app.util.request('GET', `/v1/rrd-wx-app/car/series?brand=${data}`, 'application/json', '', app.data.token, (res) => {
+        if (res.data.data.length) {
+          app.data.seriesList = res.data.data
+          wx.navigateTo({
+            url: `/pages/carSeries/carSeries`
+          })
+        } else {
+          wx.showToast({
+            title: '没有相关数据',
+            icon: 'none',
+            image: '',
+            duration: 2000,
+            mask: false,
+            success: (result) => { },
+            fail: () => { },
+            complete: () => { }
+          })
+        }
+      })
+    } else {
+      wx.showToast({
+        title: '请登录后重试',
+        icon: 'none',
+        image: '',
+        duration: 2000,
+        mask: false,
+        success: (result) => { },
+        fail: () => { },
+        complete: () => { }
+      })
+    }
   },
 	/**
 	 * 生命周期函数--监听页面加载
