@@ -81,9 +81,9 @@
       <image src='/images/close.png' class='close-modal' bindtap='closeModal'></image>
       <view class='phone-box'>
         <text>手机号：</text>
-        <input placeholder="请输入手机号" auto-focus/>
+        <input placeholder="请输入手机号" bindinput="getValue" value='{{inputValue}}' auto-focus/>
       </view>
-      <view class='modal-btn' bindtap='closeModal'>提交</view>
+      <view class='modal-btn' bindtap='joinPartner' data-value="{{inputValue}}">提交</view>
       <text class='btn-tips'>提交联系方式后，我们会马上与您取得联系</text>
     </scroll-view>
   </view>

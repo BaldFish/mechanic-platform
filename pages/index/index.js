@@ -102,6 +102,7 @@ Page({
       },
     ],
     showModal: false, // 显示modal弹窗
+    inputValue: ""
   },
   getBannerList() {
     app.util.request('GET', `/v1/rrd-wx-app/slider`, 'application/json', '', '', (res) => {
@@ -177,8 +178,51 @@ Page({
   //关闭modal
   closeModal(e) {
     this.setData({
-      showModal: false
+      showModal: false,
+      inputValue: ""
     })
+  },
+  //获取modal中inout输入值
+  getValue(e) {
+    this.setData({
+      inputValue: e.detail.value
+    })
+  },
+  //加入合作者
+  joinPartner(e) {
+    if (!/^1\d{10}$/.test(e.currentTarget.dataset.value)) {
+      wx.showToast({
+        title: "手机号不正确",
+        icon: 'none',
+        image: '',
+        duration: 2000,
+        mask: true,
+        success: (result) => {
+
+        },
+        fail: () => { },
+        complete: () => { }
+      });
+    } else {
+      let data = {
+        user_id: this.data.userId,
+        phone: "+86" + this.data.inputValue
+      }
+      app.util.request('POST', `/v1/rrd-wx-app/partner`, 'application/x-www-form-urlencoded', data, `${this.data.token}`, (res) => {
+        //关闭modal
+        this.closeModal(e);
+        wx.showToast({
+          title: res.data.message,
+          icon: 'none',
+          image: '',
+          duration: 2000,
+          mask: true,
+          success: (result) => { },
+          fail: () => { },
+          complete: () => { }
+        });
+      })
+    }
   },
 
   getPhoneNumber(e) {
