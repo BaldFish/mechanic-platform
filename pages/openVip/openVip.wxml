@@ -40,21 +40,21 @@
         <text>499</text>
         <text>元</text>
       </view>
-      <radio-group class='radio-group'>
+      <radio-group class='radio-group' bindchange="radioChange">
         <label>
-          <radio value='1'></radio>
-          <view>元积分余额10</view>
-          <text>使用积分抵扣10元</text>
+          <radio value='1' checked='true'></radio>
+          <view>元积分余额{{pointsBalance}}</view>
+          <text>使用积分抵扣{{pointsBalance>=1000?100:pointsBalance/10}}元</text>
         </label>
         <label>
           <radio value='2'></radio>
           <view>微信支付</view>
         </label>
       </radio-group>
-      <view class='notice'>
-        支付 <text>40</text> 元 + 元积分抵扣 <text>10</text> 元
+      <view class='notice' wx:if="{{seleted==1}}">
+        支付 <text>{{pointsBalance>=1000?399:(4990-pointsBalance)/10}}</text> 元 + 元积分抵扣 <text>{{pointsBalance>=1000?100:pointsBalance/10}}</text> 元
       </view>
-      <view class='modal-btn' bindtap='closeModal'>支付</view>
+      <view class='modal-btn' bindtap='toPay'>支付</view>
     </scroll-view>
   </view>
 </modal-cmp>

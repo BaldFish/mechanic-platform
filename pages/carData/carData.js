@@ -15,7 +15,8 @@ Page({
     address: "",
     pointsBalance: "0",
     manual_id: "",
-    seleted: "1"
+    seleted: "1",
+    order_id: ""
   },
 
 	/**
@@ -48,11 +49,20 @@ Page({
       showModal: true,
       manual_id: e.currentTarget.dataset.manual_id
     })
+    //获取用户积分余额
+    this.getPointsBalance()
   },
   //关闭modal
   closeModal(e) {
     this.setData({
       showModal: false
+    })
+    //取消订单
+    let data = {
+      order_id: this.data.order_id
+    }
+    app.util.request('POST', `/v1/rrd-wx-app/order/cancel`, 'application/x-www-form-urlencoded', data, `${app.data.token}`, (res) => {
+      console.log(res)
     })
   },
   //radio选择
@@ -83,6 +93,9 @@ Page({
       data.points_amount = this.data.pointsBalance >= 500 ? 500 : this.data.pointsBalance
     }
     app.util.request('POST', `/v1/rrd-wx-app/order`, 'application/x-www-form-urlencoded', data, `${app.data.token}`, (res) => {
+      this.setData({
+        order_id: res.data.data.raw.order_id
+      })
       //关闭modal
       this.closeModal(e);
       if (!res.data.data){
