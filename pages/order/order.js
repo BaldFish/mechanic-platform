@@ -12,7 +12,12 @@ Page({
     token: "",
     ordrList: [],
   },
-
+  turnRead(e) {
+    app.data.manualId = e.currentTarget.dataset.value;
+    wx.navigateTo({
+      url: `/pages/read/read`
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

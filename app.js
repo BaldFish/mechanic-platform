@@ -8,6 +8,7 @@ App({
   data: {
     userId: "",
     token: "",
+    manualId:"",
     brand: "",
     series:"",
     seriesList: [],

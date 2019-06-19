@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/read/read",
+    
     "pages/order/order",
     "pages/personalCenter/personalCenter",
     "pages/search/search",
@@ -12,6 +14,7 @@
     "pages/carType/carType",
     "pages/cashOut/cashOut",
     "pages/myAsset/myAsset"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
