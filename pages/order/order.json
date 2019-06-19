@@ -1,7 +1,6 @@
 {
   "usingComponents": {},
   "navigationBarTitleText": "订单列表",
-	"enablePullDownRefresh":true,
   "backgroundTextStyle":"dark",
   "onReachBottomDistance":60
 }

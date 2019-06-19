@@ -140,6 +140,8 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
   onLoad: function (options) {
+    app.data.userId = wx.getStorageSync('userId')
+    app.data.token = wx.getStorageSync('token')
     this.getList();
   },
 	/**

@@ -45,7 +45,7 @@ Page({
   },
   getMoreList(e) { 
     if (this.data.nowIndex === 0) { 
-      app.util.request('GET', `/v1/rrd-wx-app/partner/income/record/${this.data.userId}?start=${this.data.exchangeList.length}&limit=${this.data.limit}`, 'application/json', '', `${this.data.token}`, (res) => {
+      app.util.request('GET', `/v1/rrd-wx-app/partner/income/record/${app.data.userId}?start=${this.data.exchangeList.length}&limit=${this.data.limit}`, 'application/json', '', `${app.data.token}`, (res) => {
         if (res.data.data.res_list.length!==0) {
           res.data.data.res_list.forEach((item) => {
             item.created_at = app.util.formatTime(new Date(item.created_at))
@@ -69,7 +69,7 @@ Page({
         }
       })
     } else if (this.data.nowIndex === 1) { 
-      app.util.request('GET', `/v1/rrd-wx-app/partner/withdraw/record/${this.data.userId}?start=${this.data.withdrawList.length}&limit=${this.data.limit}`, 'application/json', '', `${this.data.token}`, (res) => {
+      app.util.request('GET', `/v1/rrd-wx-app/partner/withdraw/record/${app.data.userId}?start=${this.data.withdrawList.length}&limit=${this.data.limit}`, 'application/json', '', `${app.data.token}`, (res) => {
         if (res.data.data.res_list.length !== 0) {
           res.data.data.res_list.forEach((item) => {
             item.created_at = app.util.formatTime(new Date(item.created_at))
@@ -98,9 +98,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.data.userId = wx.getStorageSync('userId')
-    this.data.token = wx.getStorageSync('token')
-    app.util.request('GET', `/v1/rrd-wx-app/partner/income/record/${this.data.userId}?start=${this.data.exchangeList.length}&limit=${this.data.limit}`, 'application/json', '', `${this.data.token}`, (res) => {
+    app.data.userId = wx.getStorageSync('userId')
+    app.data.token = wx.getStorageSync('token')
+    app.util.request('GET', `/v1/rrd-wx-app/partner/income/record/${app.data.userId}?start=${this.data.exchangeList.length}&limit=${this.data.limit}`, 'application/json', '', `${app.data.token}`, (res) => {
       if (res.data.data.res_list.length !== 0) {
         res.data.data.res_list.forEach((item) => {
           item.created_at = app.util.formatTime(new Date(item.created_at))
@@ -117,7 +117,7 @@ Page({
         })
       }
     });
-    app.util.request('GET', `/v1/rrd-wx-app/partner/withdraw/record/${this.data.userId}?start=${this.data.withdrawList.length}&limit=${this.data.limit}`, 'application/json', '', `${this.data.token}`, (res) => {
+    app.util.request('GET', `/v1/rrd-wx-app/partner/withdraw/record/${app.data.userId}?start=${this.data.withdrawList.length}&limit=${this.data.limit}`, 'application/json', '', `${app.data.token}`, (res) => {
       if (res.data.data.res_list.length !== 0) {
         res.data.data.res_list.forEach((item) => {
           item.created_at = app.util.formatTime(new Date(item.created_at))

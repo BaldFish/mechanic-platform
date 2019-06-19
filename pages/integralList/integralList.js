@@ -19,10 +19,11 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
   onLoad: function (options) {
-    this.data.token = wx.getStorageSync('token')
-    this.data.address = wx.getStorageSync('address');
+    app.data.userId = wx.getStorageSync('userId')
+    app.data.token = wx.getStorageSync('token')
+    app.data.address = wx.getStorageSync('address');
     //获取积分明细和余额
-    app.util.request('GET', `/v1/rrd-wx-app/user/points/details/${this.data.address}?page=${this.data.page}&limit=${this.data.limit}`, 'application/json', '', `${this.data.token}`, (res) => {
+    app.util.request('GET', `/v1/rrd-wx-app/user/points/details/${app.data.address}?page=${this.data.page}&limit=${this.data.limit}`, 'application/json', '', `${app.data.token}`, (res) => {
       if (res.data.data.res_list.length !== 0) {
         res.data.data.res_list.forEach((item) => {
           item.updated_at = app.util.formatTime(new Date(item.updated_at))
@@ -77,7 +78,7 @@ console.log(1)
 	 */
   onReachBottom: function () {
     if (this.data.lastResCount < this.data.limit) {
-      app.util.request('GET', `/v1/rrd-wx-app/user/points/details/${this.data.address}?page=${this.data.page}&limit=${this.data.limit}`, 'application/json', '', `${this.data.token}`, (res) => {
+      app.util.request('GET', `/v1/rrd-wx-app/user/points/details/${app.data.address}?page=${this.data.page}&limit=${this.data.limit}`, 'application/json', '', `${app.data.token}`, (res) => {
         if (res.data.data.res_list.length !== 0) {  
           this.data.integralList.splice(this.data.integralList.length - this.data.lastResCount, this.data.lastResCount)
           res.data.data.res_list.forEach((item) => {
@@ -98,7 +99,7 @@ console.log(1)
 
       })
     } else {
-      app.util.request('GET', `/v1/rrd-wx-app/user/points/details/${this.data.address}?page=${++this.data.page}&limit=${this.data.limit}`, 'application/json', '', `${this.data.token}`, (res) => {
+      app.util.request('GET', `/v1/rrd-wx-app/user/points/details/${app.data.address}?page=${++this.data.page}&limit=${this.data.limit}`, 'application/json', '', `${app.data.token}`, (res) => {
         if (res.data.data.res_list.length !== 0) {
           res.data.data.res_list.forEach((item) => {
             item.updated_at = app.util.formatTime(new Date(item.updated_at))

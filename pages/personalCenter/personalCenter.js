@@ -39,7 +39,7 @@ Page({
   },
   //获取用户信息
   getUserInfo() { 
-    app.util.request('GET', `/v1/rrd-wx-app/user/info/${this.data.userId}`, 'application/json', '', `${this.data.token}`, (res) => {
+    app.util.request('GET', `/v1/rrd-wx-app/user/info/${app.data.userId}`, 'application/json', '', `${app.data.token}`, (res) => {
       let userInfo = res.data.data;
       if (userInfo.isvip) {
         userInfo.day = Math.ceil((userInfo.expire_time - userInfo.server_time) / 86400000);
@@ -55,8 +55,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.data.userId = wx.getStorageSync('userId');
-    this.data.token = wx.getStorageSync('token');
+    app.data.userId = wx.getStorageSync('userId');
+    app.data.token = wx.getStorageSync('token');
     this.getUserInfo();
     
   },

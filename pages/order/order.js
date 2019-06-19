@@ -22,9 +22,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.data.userId = wx.getStorageSync('userId')
-    this.data.token = wx.getStorageSync('token')
-    app.util.request('GET', `/v1/rrd-wx-app/order/list/${this.data.userId}?start=${this.data.ordrList.length}&limit=${this.data.limit}`, 'application/json', '', `${this.data.token}`, (res) => {
+    app.data.userId = wx.getStorageSync('userId')
+    app.data.token = wx.getStorageSync('token')
+    app.util.request('GET', `/v1/rrd-wx-app/order/list/${app.data.userId}?start=${this.data.ordrList.length}&limit=${this.data.limit}`, 'application/json', '', `${app.data.token}`, (res) => {
       if (res.data.data.res_list.length !== 0) {
         res.data.data.res_list.forEach((item) => {
           item.created_at = app.util.formatTime(new Date(item.created_at))
@@ -81,7 +81,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    app.util.request('GET', `/v1/rrd-wx-app/order/list/${this.data.userId}?start=0&limit=${this.data.limit}`, 'application/json', '', `${this.data.token}`, (res) => {
+    app.util.request('GET', `/v1/rrd-wx-app/order/list/${app.data.userId}?start=0&limit=${this.data.limit}`, 'application/json', '', `${app.data.token}`, (res) => {
       if (res.data.data.res_list.length !== 0) {
         res.data.data.res_list.forEach((item) => {
           item.created_at = app.util.formatTime(new Date(item.created_at))
@@ -109,7 +109,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    app.util.request('GET', `/v1/rrd-wx-app/order/list/${this.data.userId}?start=${this.data.ordrList.length}&limit=${this.data.limit}`, 'application/json', '', `${this.data.token}`, (res) => {
+    app.util.request('GET', `/v1/rrd-wx-app/order/list/${app.data.userId}?start=${this.data.ordrList.length}&limit=${this.data.limit}`, 'application/json', '', `${app.data.token}`, (res) => {
       if (res.data.data.res_list.length !== 0) {
         res.data.data.res_list.forEach((item) => {
           item.created_at = app.util.formatTime(new Date(item.created_at))

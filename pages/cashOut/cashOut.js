@@ -24,7 +24,7 @@ Page({
   },
   affirm(e) {
     let data = {
-      user_id: this.data.userId,
+      user_id: app.data.userId,
       amount: this.data.value
     }
     if (this.data.value <= 0) {
@@ -54,7 +54,7 @@ Page({
         complete: () => { }
       })
     } else {
-      app.util.request('POST', `/v1/rrd-wx-app/partner/withdraw`, 'application/x-www-form-urlencoded', data, `${this.data.token}`, (res) => {
+      app.util.request('POST', `/v1/rrd-wx-app/partner/withdraw`, 'application/x-www-form-urlencoded', data, `${app.data.token}`, (res) => {
         if (res.data.code === "200") {
           wx.showToast({
             title: "提取成功",
@@ -93,8 +93,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.data.userId = wx.getStorageSync('userId')
-    this.data.token = wx.getStorageSync('token')
+    app.data.userId = wx.getStorageSync('userId')
+    app.data.token = wx.getStorageSync('token')
     this.setData({
       tips: `本次最多可提出${options.balance}元`,
       balance: options.balance

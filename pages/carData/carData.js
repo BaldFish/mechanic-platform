@@ -35,9 +35,9 @@ Page({
       series: app.data.series,
       carData: carData
     })
-    this.data.userId = wx.getStorageSync('userId')
-    this.data.token = wx.getStorageSync('token')
-    this.data.address = wx.getStorageSync('address')
+    app.data.userId = wx.getStorageSync('userId')
+    app.data.token = wx.getStorageSync('token')
+    app.data.address = wx.getStorageSync('address')
     //获取用户积分余额
     this.getPointsBalance()
   },
@@ -64,7 +64,7 @@ Page({
   },
   //获取用户积分余额
   getPointsBalance() {
-    app.util.request('GET', `/v1/rrd-wx-app/user/points/balance/${this.data.address}`, 'application/json', '', `${this.data.token}`, (res) => {
+    app.util.request('GET', `/v1/rrd-wx-app/user/points/balance/${app.data.address}`, 'application/json', '', `${app.data.token}`, (res) => {
       this.setData({
         pointsBalance: res.data.data.balance
       })
@@ -73,7 +73,7 @@ Page({
   //去支付
   toPay(e){
     let data = {
-      user_id: this.data.userId,
+      user_id: app.data.userId,
       points_amount: "",
       manual_id: this.data.manual_id
     }
@@ -82,7 +82,7 @@ Page({
     } else {
       data.points_amount = this.data.pointsBalance >= 500 ? 500 : this.data.pointsBalance
     }
-    app.util.request('POST', `/v1/rrd-wx-app/order`, 'application/x-www-form-urlencoded', data, `${this.data.token}`, (res) => {
+    app.util.request('POST', `/v1/rrd-wx-app/order`, 'application/x-www-form-urlencoded', data, `${app.data.token}`, (res) => {
       //关闭modal
       this.closeModal(e);
       if (!res.data.data){

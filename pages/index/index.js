@@ -149,12 +149,9 @@ Page({
               wx.setStorageSync("userId", data.session_info.user_id);
               wx.setStorageSync("token", data.session_info.token);
               wx.setStorageSync("address", data.session_info.address);
-              this.data.userId = data.session_info.user_id
-              this.data.token = data.session_info.token
-              this.data.address = data.session_info.address
-              app.data.userId = data.session_info.user_id
-              app.data.token = data.session_info.token
-              app.data.address = data.session_info.address
+              app.data.userId = wx.getStorageSync("userId");
+              app.data.token = wx.getStorageSync("token");
+              app.data.address = wx.getStorageSync("address");
             }
           })
         } else {
@@ -209,10 +206,10 @@ Page({
       });
     } else {
       let data = {
-        user_id: this.data.userId,
+        user_id: app.data.userId,
         phone: "+86" + this.data.inputValue
       }
-      app.util.request('POST', `/v1/rrd-wx-app/partner`, 'application/x-www-form-urlencoded', data, `${this.data.token}`, (res) => {
+      app.util.request('POST', `/v1/rrd-wx-app/partner`, 'application/x-www-form-urlencoded', data, `${app.data.token}`, (res) => {
         //关闭modal
         this.closeModal(e);
         wx.showToast({
@@ -244,12 +241,9 @@ Page({
             wx.setStorageSync("userId", data.session_info.user_id);
             wx.setStorageSync("token", data.session_info.token);
             wx.setStorageSync("address", data.session_info.address);
-            this.data.userId = data.session_info.user_id
-            this.data.token = data.session_info.token
-            this.data.address = data.session_info.address
-            app.data.userId = data.session_info.user_id
-            app.data.token = data.session_info.token
-            app.data.address = data.session_info.address
+            app.data.userId = wx.getStorageSync("userId");
+            app.data.token = wx.getStorageSync("token");
+            app.data.address = wx.getStorageSync("address");
             this.setData({
               isBindPhone: false
             });
@@ -304,6 +298,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    app.data.userId = wx.getStorageSync('userId')
+    app.data.token = wx.getStorageSync('token')
     this.getBannerList();
     this.login();
   },

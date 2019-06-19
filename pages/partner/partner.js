@@ -43,10 +43,10 @@ Page({
       });
     } else {
       let data = {
-        user_id: this.data.userId,
+        user_id: app.data.userId,
         phone:"+86"+this.data.inputValue
       }
-      app.util.request('POST', `/v1/rrd-wx-app/partner`, 'application/x-www-form-urlencoded', data, `${this.data.token}`, (res) => {
+      app.util.request('POST', `/v1/rrd-wx-app/partner`, 'application/x-www-form-urlencoded', data, `${app.data.token}`, (res) => {
         wx.showToast({
           title: res.data.message,
           icon: 'none',
@@ -64,8 +64,8 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
   onLoad: function (options) {
-    this.data.userId = wx.getStorageSync('userId')
-    this.data.token = wx.getStorageSync('token')
+    app.data.userId = wx.getStorageSync('userId')
+    app.data.token = wx.getStorageSync('token')
   },
 
 	/**
