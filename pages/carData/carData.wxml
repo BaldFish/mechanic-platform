@@ -5,7 +5,8 @@
     <view class="info_wrap" hover-class="none" hover-stop-propagation="false">
       <view class="demio" hover-class="none" hover-stop-propagation="false">{{brand}}—{{series}}</view>
       <view class="title" hover-class="none" hover-stop-propagation="false">{{item.typeName}}</view>
-      <view class="pay_btn" hover-class="none" hover-stop-propagation="false" bindtap='openModal'>
+      <view class="pay_btn" hover-class="none" hover-stop-propagation="false" 
+      data-manual_id="{{item.manual_id}}" bindtap='openModal'>
         <text class="num" selectable="false" space="false" decode="false">花费50元</text>
         (可积分抵扣)
         <text class="look" selectable="false" space="false" decode="false">查看详情</text>
@@ -21,7 +22,8 @@
     <view class="info_wrap" hover-class="none" hover-stop-propagation="false">
       <view class="demio" hover-class="none" hover-stop-propagation="false">{{brand}}—{{series}}</view>
       <view class="title" hover-class="none" hover-stop-propagation="false">{{item.typeName}}</view>
-      <view class="pay_btn" hover-class="none" hover-stop-propagation="false" bindtap='openModal'>
+      <view class="pay_btn" hover-class="none" hover-stop-propagation="false" 
+      data-manual_id="{{item.manual_id}}" bindtap='openModal'>
         <text class="num" selectable="false" space="false" decode="false">花费50元</text>
         (可积分抵扣)
         <text class="look" selectable="false" space="false" decode="false">查看详情</text>
@@ -43,21 +45,21 @@
         <text>50</text>
         <text>元</text>
       </view>
-      <radio-group class='radio-group'>
+      <radio-group class='radio-group' bindchange="radioChange">
         <label>
-          <radio value='1'></radio>
-          <view>元积分余额10</view>
-          <text>使用积分抵扣10元</text>
+          <radio value='1' checked='true'></radio>
+          <view>元积分余额{{pointsBalance}}</view>
+          <text>使用积分抵扣{{pointsBalance/10}}元</text>
         </label>
         <label>
           <radio value='2'></radio>
           <view>微信支付</view>
         </label>
       </radio-group>
-      <view class='notice'>
-        支付 <text>40</text> 元 + 元积分抵扣 <text>10</text> 元
+      <view class='notice' wx:if="{{seleted==1}}">
+        支付 <text>{{pointsBalance/10>=50?0:(500-pointsBalance)/10}}</text> 元 + 元积分抵扣 <text>{{pointsBalance/10>=50?50:pointsBalance/10}}</text> 元
       </view>
-      <view class='modal-btn' bindtap='closeModal'>支付</view>
+      <view class='modal-btn' bindtap='toPay'>支付</view>
     </scroll-view>
   </view>
 </modal-cmp>

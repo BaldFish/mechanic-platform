@@ -10,6 +10,7 @@ Page({
     limit: 6,
     userId: "",
     token: "",
+    address: "",
     isBindPhone: false,
     searchValue: "",
     imgUrls: [{
@@ -147,10 +148,13 @@ Page({
             } else {
               wx.setStorageSync("userId", data.session_info.user_id);
               wx.setStorageSync("token", data.session_info.token);
+              wx.setStorageSync("address", data.session_info.address);
               this.data.userId = data.session_info.user_id
               this.data.token = data.session_info.token
+              this.data.address = data.session_info.address
               app.data.userId = data.session_info.user_id
               app.data.token = data.session_info.token
+              app.data.address = data.session_info.address
             }
           })
         } else {
@@ -239,10 +243,13 @@ Page({
             let data = res.data.data;
             wx.setStorageSync("userId", data.session_info.user_id);
             wx.setStorageSync("token", data.session_info.token);
+            wx.setStorageSync("address", data.session_info.address);
             this.data.userId = data.session_info.user_id
             this.data.token = data.session_info.token
+            this.data.address = data.session_info.address
             app.data.userId = data.session_info.user_id
             app.data.token = data.session_info.token
+            app.data.address = data.session_info.address
             this.setData({
               isBindPhone: false
             });
