@@ -1,8 +1,6 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/read/read",
-    
     "pages/order/order",
     "pages/personalCenter/personalCenter",
     "pages/search/search",
@@ -13,7 +11,8 @@
     "pages/carSeries/carSeries",
     "pages/carType/carType",
     "pages/cashOut/cashOut",
-    "pages/myAsset/myAsset"
+    "pages/myAsset/myAsset",
+    "pages/read/read"
     
   ],
   "window": {
