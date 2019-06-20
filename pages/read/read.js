@@ -17,21 +17,21 @@ Page({
   },
   getReadData() {
     app.util.request('GET', `/v1/rrd-wx-app/car/doc/pages?manual_id=${app.data.manualId}&user_id=${app.data.userId}`, 'application/json', '', app.data.token, (res) => {
+      let jumpNum = this.data.jumpNum
       this.setData({
         baseUrl: res.data.data.base_url,
         catalogueList:res.data.data.list,
         readList: res.data.data.pages,
-        url: res.data.data.base_url + res.data.data.pages[this.data.jumpNum]
+        url: res.data.data.base_url + res.data.data.pages[jumpNum]
       })
     })
   },
   pageUp(e) {
     if (0 < this.data.jumpNum) {
+      let jumpNum = this.data.jumpNum - 1
       this.setData({
-        jumpNum: this.data.jumpNum - 1,
-      })
-      this.setData({
-        url: this.data.baseUrl + this.data.readList[this.data.jumpNum]
+        jumpNum: jumpNum,
+        url: this.data.baseUrl + this.data.readList[jumpNum]
       })
     } else { 
       wx.showToast({
@@ -55,11 +55,10 @@ Page({
   },
   pageDown(e) { 
     if (this.data.jumpNum < this.data.readList.length - 1) {
+      let jumpNum = this.data.jumpNum + 1
       this.setData({
-        jumpNum: this.data.jumpNum +1,
-      })
-      this.setData({
-        url: this.data.baseUrl + this.data.readList[this.data.jumpNum]
+        jumpNum: jumpNum,
+        url: this.data.baseUrl + this.data.readList[jumpNum]
       })
     } else { 
       wx.showToast({
@@ -118,13 +117,13 @@ Page({
  * 目录点击事件
  */
   jumpMt(e) {
-    let jumpNum = e.currentTarget.dataset.id.slice(5);
+    let jumpNum = Number(e.currentTarget.dataset.id.slice(5));
     this.setData({
       jumpNum: jumpNum,
       catalogue: false,
       catalogueTabs: true,
       read: true,
-      url: this.data.baseUrl + this.data.readList[this.data.jumpNum]
+      url: this.data.baseUrl + this.data.readList[jumpNum]
     });
   },
   /**
