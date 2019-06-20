@@ -13,7 +13,7 @@
   </view>
   <view class="record_wrap" hover-class="none" hover-stop-propagation="false">
     <view class="tabs_wrap" hover-class="none" hover-stop-propagation="false">
-      <view class="tab" hover-class="none" hover-stop-propagation="false" wx:for="{{tabs}}" wx:key="*this" data-index="{{index}}" bindtap='tabs'>
+      <view class="tab" hover-class="none" hover-stop-propagation="false" wx:for="{{tabs}}" wx:key="index" data-index="{{index}}" bindtap='tabs'>
         <image class="tab_img" src="{{nowIndex===index?item.url_dj:item.url_mr}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
         <view class="tab_text {{nowIndex===index?'active':''}}" selectable="false" space="false" decode="false">
           {{item.text}}
