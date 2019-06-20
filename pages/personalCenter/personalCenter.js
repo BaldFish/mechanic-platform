@@ -57,8 +57,6 @@ Page({
   onLoad: function (options) {
     app.data.userId = wx.getStorageSync('userId');
     app.data.token = wx.getStorageSync('token');
-    this.getUserInfo();
-    
   },
 
   /**
@@ -72,7 +70,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getUserInfo();
   },
 
   /**
