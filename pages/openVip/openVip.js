@@ -95,10 +95,8 @@ Page({
             'signType': res.data.data.prepay_info.signType,
             'paySign': res.data.data.prepay_info.paySign,
             'success': function (res) {
-              console.log(res)
             },
             'fail': function (res) {
-              console.log(res, "fail")
               if (res.errMsg == 'requestPayment:fail cancel') {
                 //取消开通vip
                 let data = {

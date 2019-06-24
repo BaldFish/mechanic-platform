@@ -48,8 +48,8 @@
       <radio-group class='radio-group' bindchange="radioChange">
         <label>
           <radio value='1' checked='true'></radio>
-          <view>元积分余额{{pointsBalance}}</view>
-          <text>使用积分抵扣{{pointsBalance/10}}元</text>
+          <view>积分余额{{pointsBalance}}</view>
+          <text>本次积分最多可以抵扣{{pointsBalance>=500?50:pointsBalance/10}}元</text>
         </label>
         <label>
           <radio value='2'></radio>

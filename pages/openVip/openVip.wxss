@@ -126,7 +126,7 @@ radio .wx-radio-input.wx-radio-input-checked::before{
   font-size: 24rpx;
 	color: #000000;
   text-align: left;
-  margin-left: 90rpx;
+  margin-left: 70rpx;
 }
 .radio-group label{
   width:478rpx;

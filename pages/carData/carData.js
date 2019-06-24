@@ -122,10 +122,8 @@ Page({
               'signType': res.data.data.prepay_info.signType,
               'paySign': res.data.data.prepay_info.paySign,
               'success': function (res) {
-                console.log(res, "success")
               },
               'fail': function (res) {
-                console.log(res, "fail")
                 if (res.errMsg == 'requestPayment:fail cancel') {
                   //取消订单
                   let data = {
@@ -137,7 +135,6 @@ Page({
                 }
               },
               'complete': function (res) {
-                console.log(res, "complete")
               }
             })
         }
