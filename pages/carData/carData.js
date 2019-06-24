@@ -57,13 +57,6 @@ Page({
     this.setData({
       showModal: false
     })
-    //取消订单
-    let data = {
-      order_id: this.data.order_id
-    }
-    app.util.request('POST', `/v1/rrd-wx-app/order/cancel`, 'application/x-www-form-urlencoded', data, `${app.data.token}`, (res) => {
-      console.log(res)
-    })
   },
   //radio选择
   radioChange: function (e) {
@@ -93,14 +86,21 @@ Page({
       data.points_amount = this.data.pointsBalance >= 500 ? 500 : this.data.pointsBalance
     }
     app.util.request('POST', `/v1/rrd-wx-app/order`, 'application/x-www-form-urlencoded', data, `${app.data.token}`, (res) => {
-      this.setData({
-        order_id: res.data.data.raw.order_id
-      })
       //关闭modal
       this.closeModal(e);
       if (!res.data.data){
-        console.log("积分支付成功！")
+        wx.showToast({
+          title: '积分支付成功！',
+          icon: 'none',
+          image: '',
+          duration: 2000,
+          mask: false,
+          success: (result) => { },
+          fail: () => { },
+          complete: () => { }
+        })
       } else {
+        let order_id = res.data.data.raw.order_id
         //调起支付
         wx.requestPayment(
           {
@@ -110,10 +110,23 @@ Page({
             'signType': res.data.data.prepay_info.signType,
             'paySign': res.data.data.prepay_info.paySign,
             'success': function (res) {
-              console.log(res)
+              console.log(res,"success")
             },
-            'fail': function (res) { },
-            'complete': function (res) { }
+            'fail': function (res) {
+              console.log(res, "fail")
+              if(res.errMsg == 'requestPayment:fail cancel'){
+                //取消订单
+                let data = {
+                  order_id: order_id
+                }
+                app.util.request('POST', `/v1/rrd-wx-app/order/cancel`, 'application/x-www-form-urlencoded', data, `${app.data.token}`, (res) => {
+                  console.log(res)
+                })
+              }
+             },
+            'complete': function (res) {
+              console.log(res, "complete")
+             }
           })
       }
     })

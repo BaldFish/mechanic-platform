@@ -78,7 +78,9 @@
 <modal-cmp show="{{showModal}}">
   <view class='modal-content'>
     <scroll-view class='main-content'>
-      <image src='/images/close.png' class='close-modal' bindtap='closeModal'></image>
+      <view class='img-box' bindtap='closeModal'>
+        <image src='/images/close.png' class='close-modal'></image>
+      </view>
       <view class='phone-box'>
         <text>手机号：</text>
         <input placeholder="请输入手机号" bindinput="getValue" value='{{inputValue}}' auto-focus/>

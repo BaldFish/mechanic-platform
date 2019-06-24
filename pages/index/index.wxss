@@ -172,13 +172,17 @@
   border:none;
 }
 
-.close-modal{
-  width: 26rpx;
-	height: 26rpx;
-  margin: 20rpx 30rpx 0 0;
+.img-box{
+  width: 56rpx;
+	height: 66rpx;
   float: right;
   position: relative;
   top: -56rpx
+}
+.close-modal{
+  width: 26rpx;
+	height: 26rpx;
+  margin: 10rpx 10rpx 0 0
 }
 .phone-box{
   margin-left: 48rpx;
