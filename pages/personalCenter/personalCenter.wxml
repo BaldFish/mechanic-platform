@@ -28,8 +28,8 @@
     <view class="list" hover-class="none" hover-stop-propagation="false">
       <view class="left_wrap" hover-class="none" hover-stop-propagation="false">
         <view class="left_text">
-          我的元积分
-          <text class="num">{{userInfo.points_value}}</text>
+          <view class="text">我的元积分</view>
+          <view class="num">{{userInfo.points_value}}</view>
         </view>
       </view>
       <view class="right_wrap" bindtap="turnPage" data-page="1">

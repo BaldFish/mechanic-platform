@@ -11,9 +11,9 @@
     </view>
   </view>
   <view class="readListWrap" hover-class="none" hover-stop-propagation="false" wx:if="{{read}}">
-    <scroll-view class="readList" scroll-y="true" scroll-into-view="{{}}" scroll-with-animation="true" bindscroll="">
-      <view class="img_wrap">
-        <image class="img" src="{{url}}" mode="widthFix" lazy-load="false" binderror="" bindload=""></image>
+    <scroll-view class="readList" scroll-y="true"  scroll-x="true" scroll-into-view="{{}}" scroll-with-animation="true" bindscroll="">
+      <view class="img_wrap"  bindtouchmove="touchmoveCallback" bindtouchstart="touchstartCallback">
+        <image class="img" src="{{url}}" mode="widthFix" lazy-load="false" binderror="" bindload="" style="width: {{ touch.scaleWidth }}px;height: {{ touch.scaleHeight }}px" bindload="bindload"></image>
       </view>
     </scroll-view>
   </view>
