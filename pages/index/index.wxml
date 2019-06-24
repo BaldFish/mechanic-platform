@@ -16,7 +16,7 @@
   <view class='news_wrap'>
     <image class='news_img' src='/images/new.png'></image>
     <view class='news_text'>
-      <text class="favoree">资料受益人</text>
+      <text class="favoree">资料贡献人</text>
       <text class='name'>{{news[0].user_name}}：</text>
       <text class='news'>{{news[0].year+news[0].brand+news[0].series}}</text>
     </view>
@@ -63,7 +63,7 @@
       <block wx:for="{{noticeList}}" wx:key="index">
         <swiper-item class='notice'>
           <image class='notice_img' src='/images/gonggao.png'></image>
-          <text class='notice_name'>资产受益人：</text>
+          <text class='notice_name'>资产贡献人：</text>
           <text class='notice_result'>{{item.name}} 已累积赚取{{item.balance}}元</text>
         </swiper-item>
       </block>
