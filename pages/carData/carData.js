@@ -88,9 +88,9 @@ Page({
     app.util.request('POST', `/v1/rrd-wx-app/order`, 'application/x-www-form-urlencoded', data, `${app.data.token}`, (res) => {
       //关闭modal
       this.closeModal(e);
-      if (!res.data.data){
+      if (res.data.code != "200"){
         wx.showToast({
-          title: '积分支付成功！',
+          title: '支付失败',
           icon: 'none',
           image: '',
           duration: 2000,
@@ -100,34 +100,47 @@ Page({
           complete: () => { }
         })
       } else {
-        let order_id = res.data.data.raw.order_id
-        //调起支付
-        wx.requestPayment(
-          {
-            'timeStamp': res.data.data.prepay_info.timeStamp,
-            'nonceStr': res.data.data.prepay_info.nonceStr,
-            'package': res.data.data.prepay_info.package,
-            'signType': res.data.data.prepay_info.signType,
-            'paySign': res.data.data.prepay_info.paySign,
-            'success': function (res) {
-              console.log(res,"success")
-            },
-            'fail': function (res) {
-              console.log(res, "fail")
-              if(res.errMsg == 'requestPayment:fail cancel'){
-                //取消订单
-                let data = {
-                  order_id: order_id
-                }
-                app.util.request('POST', `/v1/rrd-wx-app/order/cancel`, 'application/x-www-form-urlencoded', data, `${app.data.token}`, (res) => {
-                  console.log(res)
-                })
-              }
-             },
-            'complete': function (res) {
-              console.log(res, "complete")
-             }
+        if (!res.data.data) {
+          wx.showToast({
+            title: '支付成功',
+            icon: 'none',
+            image: '',
+            duration: 2000,
+            mask: false,
+            success: (result) => { },
+            fail: () => { },
+            complete: () => { }
           })
+        } else {
+          let order_id = res.data.data.raw.order_id
+          //调起支付
+          wx.requestPayment(
+            {
+              'timeStamp': res.data.data.prepay_info.timeStamp,
+              'nonceStr': res.data.data.prepay_info.nonceStr,
+              'package': res.data.data.prepay_info.package,
+              'signType': res.data.data.prepay_info.signType,
+              'paySign': res.data.data.prepay_info.paySign,
+              'success': function (res) {
+                console.log(res, "success")
+              },
+              'fail': function (res) {
+                console.log(res, "fail")
+                if (res.errMsg == 'requestPayment:fail cancel') {
+                  //取消订单
+                  let data = {
+                    order_id: order_id
+                  }
+                  app.util.request('POST', `/v1/rrd-wx-app/order/cancel`, 'application/x-www-form-urlencoded', data, `${app.data.token}`, (res) => {
+                    console.log(res)
+                  })
+                }
+              },
+              'complete': function (res) {
+                console.log(res, "complete")
+              }
+            })
+        }
       }
     })
   },
