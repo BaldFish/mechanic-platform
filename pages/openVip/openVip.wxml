@@ -44,7 +44,7 @@
         <label>
           <radio value='1' checked='true'></radio>
           <view>积分余额{{pointsBalance}}</view>
-          <text>使用积分抵扣{{pointsBalance>=1000?100:pointsBalance/10}}元</text>
+          <text>使用积分最多抵扣{{pointsBalance>=1000?100:pointsBalance/10}}元</text>
         </label>
         <label>
           <radio value='2'></radio>
