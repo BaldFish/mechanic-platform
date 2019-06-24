@@ -54,9 +54,13 @@
   line-height: 32rpx;
   margin-right: 15rpx
 }
-.num{
+.left_text .text{
+  display: inline;
+}
+.left_text .num{
   font-size: 16px;
-	color: #386cff;
+  color: #386cff;
+  display: inline;
 }
 .jiantou{
   width: 20rpx;
