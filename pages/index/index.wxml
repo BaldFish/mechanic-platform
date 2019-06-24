@@ -1,6 +1,6 @@
 <!-- index.wxml -->
 <view class="home">
-  <swiper class='swiper'  indicator-dots="true"  autoplay="true"  circular="true">
+  <swiper class='swiper' indicator-dots="true" autoplay="true" circular="true">
     <block wx:for="{{imgUrls}}" wx:key="item.id">
       <swiper-item class='swiper_item'>
         <image src="{{item.url}}" class="slide_image" mode='aspectFit' />
@@ -59,7 +59,7 @@
     </view>
   </view>
   <view class='operation_wrap notice_wrap'>
-    <swiper class='notice_swiper'  vertical="true" interval="5000"  autoplay="true"  circular="true"  display-multiple-items="3">
+    <swiper class='notice_swiper' vertical="true" interval="5000" autoplay="true" circular="true" display-multiple-items="3">
       <block wx:for="{{noticeList}}" wx:key="index">
         <swiper-item class='notice'>
           <image class='notice_img' src='/images/gonggao.png'></image>
@@ -70,7 +70,7 @@
     </swiper>
   </view>
 </view>
-<button bindgetphonenumber="getPhoneNumber"  open-type="getPhoneNumber" class='login_type' type="primary" wx:if="{{isBindPhone}}">
+<button bindgetphonenumber="getPhoneNumber" open-type="getPhoneNumber" class='login_type' type="primary" wx:if="{{isBindPhone}}">
   微信一键登录
 </button>
 
