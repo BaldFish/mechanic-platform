@@ -4,7 +4,7 @@
     <image class="head_bg" src="/images/head_bg.png"></image>
     <view class="num_text" hover-class="none" hover-stop-propagation="false">
       <view class="num" hover-class="none" hover-stop-propagation="false">{{balance}}</view>
-      <view class="text" hover-class="none" hover-stop-propagation="false">元积分</view>
+      <view class="text" hover-class="none" hover-stop-propagation="false">积分</view>
     </view>
   </view>
   <view class="detail_wrap" hover-class="none" hover-stop-propagation="false">

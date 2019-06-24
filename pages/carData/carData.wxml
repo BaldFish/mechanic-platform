@@ -48,7 +48,7 @@
       <radio-group class='radio-group' bindchange="radioChange">
         <label>
           <radio value='1' checked='true'></radio>
-          <view>元积分余额{{pointsBalance}}</view>
+          <view>积分余额{{pointsBalance}}</view>
           <text>使用积分抵扣{{pointsBalance/10}}元</text>
         </label>
         <label>
@@ -57,7 +57,7 @@
         </label>
       </radio-group>
       <view class='notice' wx:if="{{seleted==1}}">
-        支付 <text>{{pointsBalance/10>=50?0:(500-pointsBalance)/10}}</text> 元 + 元积分抵扣 <text>{{pointsBalance/10>=50?50:pointsBalance/10}}</text> 元
+        支付 <text>{{pointsBalance/10>=50?0:(500-pointsBalance)/10}}</text> 元 + 积分抵扣 <text>{{pointsBalance/10>=50?50:pointsBalance/10}}</text> 元
       </view>
       <view class='modal-btn' bindtap='toPay'>支付</view>
     </scroll-view>
