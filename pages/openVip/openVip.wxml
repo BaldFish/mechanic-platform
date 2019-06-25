@@ -35,7 +35,9 @@
 <modal-cmp show="{{showModal}}">
   <view class='modal-content'>
     <scroll-view scroll-y class='main-content'>
-      <image src='/images/close.png' class='close-modal' bindtap='closeModal'></image>
+      <view class='img-box' bindtap='closeModal'>
+        <image src='/images/close.png' class='close-modal'></image>
+      </view>
       <view class='money'>
         <text>499</text>
         <text>元</text>
@@ -44,6 +46,8 @@
         <label>
           <radio value='1' checked='true'></radio>
           <view>积分余额{{pointsBalance}}</view>
+        </label>
+        <label>
           <text>本次积分最多可以抵扣{{pointsBalance>=1000?100:pointsBalance/10}}元</text>
         </label>
         <label>

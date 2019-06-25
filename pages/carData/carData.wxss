@@ -59,13 +59,17 @@
   color: #333333;
 }
 
+.img-box{
+  width: 76rpx;
+	height: 66rpx;
+  float: right;
+  position: relative;
+  top: -36rpx
+}
 .close-modal{
   width: 26rpx;
 	height: 26rpx;
-  margin: 20rpx 30rpx 0 0;
-  float: right;
-  position: relative;
-  top: -40rpx
+  margin: 10rpx 12rpx 0 0
 }
 .main-content .money{
   margin: 56rpx 0 32rpx 90rpx
@@ -120,6 +124,9 @@ radio .wx-radio-input.wx-radio-input-checked::before{
   margin-bottom: 22rpx;
   vertical-align: baseline
 }
+.radio-group label:nth-child(1){
+  margin-bottom: 10rpx;
+}
 .radio-group view{
   margin-left: 16rpx;
   padding-top: 10rpx
@@ -127,7 +134,8 @@ radio .wx-radio-input.wx-radio-input-checked::before{
 .radio-group text{
   font-size: 20rpx;
 	color: #333333;
-  padding: 12rpx
+  padding: 12rpx;
+  margin-left: 48rpx
 }
 .notice{
   font-size: 22rpx;
