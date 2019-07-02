@@ -26,8 +26,8 @@ Page({
     let carData = app.data.carData
     carData.forEach((item) => {
       if (item.type === 5) {
-        item.typeName="维修手册"
-      } else if (item.type === 3) { 
+        item.typeName = "维修手册"
+      } else if (item.type === 3) {
         item.typeName = "电路图"
       }
     })
@@ -74,21 +74,21 @@ Page({
     })
   },
   //去支付
-  toPay(e){
+  toPay(e) {
     let data = {
       user_id: app.data.userId,
       points_amount: "",
       manual_id: this.data.manual_id
     }
     if (this.data.seleted == 2) {
-      data.points_amount =""
+      data.points_amount = ""
     } else {
       data.points_amount = this.data.pointsBalance >= 500 ? 500 : this.data.pointsBalance
     }
     app.util.request('POST', `/v1/rrd-wx-app/order`, 'application/x-www-form-urlencoded', data, `${app.data.token}`, (res) => {
       //关闭modal
       this.closeModal(e);
-      if (res.data.code != "200"){
+      if (res.data.code != "200") {
         wx.showToast({
           title: '支付失败',
           icon: 'none',
@@ -99,45 +99,56 @@ Page({
           fail: () => { },
           complete: () => { }
         })
+      } else if (res.data.data === null) {
+        wx.showToast({
+          title: '支付成功',
+          icon: 'none',
+          image: '',
+          duration: 2000,
+          mask: false,
+          success: (result) => { },
+          fail: () => { },
+          complete: () => {
+            setTimeout(() => {
+              wx.switchTab({
+                url: `/pages/order/order`
+              })
+            }, 2000)
+          }
+        })
       } else {
-        if (!res.data.data) {
-          wx.showToast({
-            title: '支付成功',
-            icon: 'none',
-            image: '',
-            duration: 2000,
-            mask: false,
-            success: (result) => { },
-            fail: () => { },
-            complete: () => { }
-          })
-        } else {
-          let order_id = res.data.data.raw.order_id
-          //调起支付
-          wx.requestPayment(
-            {
-              'timeStamp': res.data.data.prepay_info.timeStamp,
-              'nonceStr': res.data.data.prepay_info.nonceStr,
-              'package': res.data.data.prepay_info.package,
-              'signType': res.data.data.prepay_info.signType,
-              'paySign': res.data.data.prepay_info.paySign,
-              'success': function (res) {
-              },
-              'fail': function (res) {
-                if (res.errMsg == 'requestPayment:fail cancel') {
-                  //取消订单
-                  let data = {
-                    order_id: order_id
-                  }
-                  app.util.request('POST', `/v1/rrd-wx-app/order/cancel`, 'application/x-www-form-urlencoded', data, `${app.data.token}`, (res) => {
-                    console.log(res)
-                  })
-                }
-              },
-              'complete': function (res) {
+        let order_id = res.data.data.raw.order_id
+        //调起支付
+        wx.requestPayment({
+          'timeStamp': res.data.data.prepay_info.timeStamp,
+          'nonceStr': res.data.data.prepay_info.nonceStr,
+          'package': res.data.data.prepay_info.package,
+          'signType': res.data.data.prepay_info.signType,
+          'paySign': res.data.data.prepay_info.paySign,
+          'success': function (res) { },
+          'fail': function (res) {
+            if (res.errMsg == 'requestPayment:fail cancel') {
+              //取消订单
+              let data = {
+                order_id: order_id
               }
-            })
-        }
+              app.util.request('POST', `/v1/rrd-wx-app/order/cancel`, 'application/x-www-form-urlencoded', data, `${app.data.token}`, (res) => {
+                // wx.showToast({
+                //   title: '订单已取消',
+                //   icon: 'none',
+                //   image: '',
+                //   duration: 2000,
+                //   mask: false,
+                //   success: (result) => { },
+                //   fail: () => { },
+                //   complete: () => { }
+                // })
+              })
+            }
+          },
+          'complete': function (res) { }
+        })
+
       }
     })
   },

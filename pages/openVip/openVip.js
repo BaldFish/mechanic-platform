@@ -5,7 +5,7 @@ Page({
 	/**
 	 * 页面的初始数据
 	 */
-	data: {
+  data: {
     open: "false",
     showModal: false, // 显示modal弹窗
     userId: "",
@@ -14,7 +14,7 @@ Page({
     pointsBalance: "0",
     seleted: "1",
     order_id: ""
-	},
+  },
 
 	/**
 	 * 生命周期函数--监听页面加载
@@ -28,7 +28,7 @@ Page({
     app.data.address = wx.getStorageSync('address')
     //获取用户积分余额
     this.getPointsBalance()
-	},
+  },
 
   //打开modal
   openModal(e) {
@@ -87,28 +87,35 @@ Page({
       } else {
         //调起支付
         let order_id = res.data.data.raw.order_id
-        wx.requestPayment(
-          {
-            'timeStamp': res.data.data.prepay_info.timeStamp,
-            'nonceStr': res.data.data.prepay_info.nonceStr,
-            'package': res.data.data.prepay_info.package,
-            'signType': res.data.data.prepay_info.signType,
-            'paySign': res.data.data.prepay_info.paySign,
-            'success': function (res) {
-            },
-            'fail': function (res) {
-              if (res.errMsg == 'requestPayment:fail cancel') {
-                //取消开通vip
-                let data = {
-                  order_id: order_id
-                }
-                app.util.request('POST', `/v1/rrd-wx-app/vip/open/cancel`, 'application/x-www-form-urlencoded', data, `${app.data.token}`, (res) => {
-                  console.log(res)
-                })
+        wx.requestPayment({
+          'timeStamp': res.data.data.prepay_info.timeStamp,
+          'nonceStr': res.data.data.prepay_info.nonceStr,
+          'package': res.data.data.prepay_info.package,
+          'signType': res.data.data.prepay_info.signType,
+          'paySign': res.data.data.prepay_info.paySign,
+          'success': function (res) { },
+          'fail': function (res) {
+            if (res.errMsg == 'requestPayment:fail cancel') {
+              //取消开通vip
+              let data = {
+                order_id: order_id
               }
-            },
-            'complete': function (res) { }
-          })
+              app.util.request('POST', `/v1/rrd-wx-app/vip/open/cancel`, 'application/x-www-form-urlencoded', data, `${app.data.token}`, (res) => {
+                // wx.showToast({
+                //   title: '订单已取消',
+                //   icon: 'none',
+                //   image: '',
+                //   duration: 2000,
+                //   mask: false,
+                //   success: (result) => { },
+                //   fail: () => { },
+                //   complete: () => { }
+                // })
+              })
+            }
+          },
+          'complete': function (res) { }
+        })
       }
     })
   },
@@ -116,48 +123,48 @@ Page({
 	/**
 	 * 生命周期函数--监听页面初次渲染完成
 	 */
-	onReady: function () {
-	},
+  onReady: function () {
+  },
 
 	/**
 	 * 生命周期函数--监听页面显示
 	 */
-	onShow: function () {
+  onShow: function () {
 
-	},
+  },
 
 	/**
 	 * 生命周期函数--监听页面隐藏
 	 */
-	onHide: function () {
+  onHide: function () {
 
-	},
+  },
 
 	/**
 	 * 生命周期函数--监听页面卸载
 	 */
-	onUnload: function () {
+  onUnload: function () {
 
-	},
+  },
 
 	/**
 	 * 页面相关事件处理函数--监听用户下拉动作
 	 */
-	onPullDownRefresh: function () {
+  onPullDownRefresh: function () {
 
-	},
+  },
 
 	/**
 	 * 页面上拉触底事件的处理函数
 	 */
-	onReachBottom: function () {
+  onReachBottom: function () {
 
-	},
+  },
 
 	/**
 	 * 用户点击右上角分享
 	 */
-	onShareAppMessage: function () {
+  onShareAppMessage: function () {
 
-	}
+  }
 })
