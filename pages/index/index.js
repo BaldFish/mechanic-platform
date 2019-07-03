@@ -185,6 +185,9 @@ Page({
   },
   //获取modal中inout输入值
   getValue(e) {
+    if (e.detail.value == 0){
+      e.detail.value = ""
+    }
     this.setData({
       inputValue: e.detail.value
     })
@@ -206,20 +209,7 @@ Page({
       });
     } else if (e.currentTarget.dataset.value.length < 11){
       wx.showToast({
-        title: "请输入11位11手机号",
-        icon: 'none',
-        image: '',
-        duration: 2000,
-        mask: true,
-        success: (result) => {
-
-        },
-        fail: () => { },
-        complete: () => { }
-      });
-    } else if (!/^1[3-9]\d{9}$/.test(e.currentTarget.dataset.value)) {
-      wx.showToast({
-        title: "手机号不正确",
+        title: "请输入11位手机号",
         icon: 'none',
         image: '',
         duration: 2000,
