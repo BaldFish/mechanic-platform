@@ -52,7 +52,12 @@
 }
 .news_text{
   width: 523rpx;
+  height: 130rpx;
   color: #333333;
+}
+.news_swiper_item{
+  display: flex;
+  align-items: center;
 }
 .favoree{
   color: #b5312d;

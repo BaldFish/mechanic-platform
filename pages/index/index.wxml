@@ -15,11 +15,17 @@
   </view>
   <view class='news_wrap'>
     <image class='news_img' src='/images/new.png'></image>
-    <view class='news_text'>
-      <text class="favoree">资料贡献人</text>
-      <text class='name'>{{news[0].user_name}}：</text>
-      <text class='news'>{{news[0].year+news[0].brand+news[0].series}}</text>
-    </view>
+    <swiper class='news_text' indicator-dots="" autoplay="true" circular="true" interval="3000">
+      <block wx:for="{{news}}" wx:key="item.id">
+        <swiper-item class='news_swiper_item'>
+          <view class="" hover-class="none" hover-stop-propagation="false">
+            <text class="favoree" space="nbsp">资料贡献人 </text>
+            <text class='name'>{{item.user_name}}：</text>
+            <text class='news'>{{item.year+item.brand+item.series}}</text>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
   </view>
   <view class='title_wrap'>
     <view class='brand_title'>
@@ -73,8 +79,7 @@
 <button bindgetphonenumber="getPhoneNumber" open-type="getPhoneNumber" class='login_type' type="primary" wx:if="{{isBindPhone}}">
   微信一键登录
 </button>
-
-<!-- modal弹窗-->
+<!-- modal弹窗 -->
 <modal-cmp show="{{showModal}}">
   <view class='modal-content'>
     <scroll-view class='main-content'>
@@ -83,7 +88,7 @@
       </view>
       <view class='phone-box'>
         <text>手机号：</text>
-        <input placeholder="请输入手机号" bindinput="getValue" value='{{inputValue}}' auto-focus/>
+        <input placeholder="请输入手机号" bindinput="getValue" value='{{inputValue}}' auto-focus />
       </view>
       <view class='modal-btn' bindtap='joinPartner' data-value="{{inputValue}}">提交</view>
       <text class='btn-tips'>提交联系方式后，我们会马上与您取得联系</text>

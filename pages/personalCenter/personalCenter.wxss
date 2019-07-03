@@ -17,8 +17,8 @@
 .photo_wrap{
   width: 130rpx;
   height: 130rpx;
-  background-color: #1b1b1b;
-  border: solid 1px #eeeeee;
+  /* background-color: #1b1b1b; */
+  /* border: solid 1px #eeeeee; */
   border-radius: 50%;
 }
 .photo{

@@ -1,7 +1,7 @@
 <view class="personalCenter" hover-class="none" hover-stop-propagation="false">
   <view class="head_wrap" hover-class="none" hover-stop-propagation="false">
     <view class="photo_wrap" hover-class="none" hover-stop-propagation="false">
-      <image class="photo" src="/images/01.png" mode="aspectFit" lazy-load="false" binderror="" bindload=""></image>
+      <image class="photo" src="/images/head.png" mode="aspectFit" lazy-load="false" binderror="" bindload=""></image>
     </view>
     <view class="info_wrap" hover-class="none" hover-stop-propagation="false">
       <view class="info_up" hover-class="none" hover-stop-propagation="false">

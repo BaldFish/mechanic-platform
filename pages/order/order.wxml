@@ -17,6 +17,7 @@
     <view class="integral_wrap">
       实付
       <text class="integral">{{item.cash_amount}}</text>
+      元
       积分抵扣
       <text class="integral">{{item.total_amount-item.cash_amount}}</text>
       元

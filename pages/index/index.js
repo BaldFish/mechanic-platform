@@ -113,7 +113,7 @@ Page({
     })
   },
   getNews() {
-    app.util.request('GET', `/v1/rrd-wx-app/car/latest-update?limit=1`, 'application/json', '', '', (res) => {
+    app.util.request('GET', `/v1/rrd-wx-app/car/latest-update?limit=3`, 'application/json', '', '', (res) => {
       this.setData({
         news: res.data.data
       })

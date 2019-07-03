@@ -100,6 +100,7 @@ Page({
           complete: () => { }
         })
       } else if (res.data.data === null) {
+        app.data.manualId = this.data.manual_id;
         wx.showToast({
           title: '支付成功',
           icon: 'none',
@@ -110,13 +111,14 @@ Page({
           fail: () => { },
           complete: () => {
             setTimeout(() => {
-              wx.switchTab({
-                url: `/pages/order/order`
+              wx.navigateTo({
+                url: `/pages/read/read`
               })
             }, 2000)
           }
         })
       } else {
+        app.data.manualId = this.data.manual_id;
         let order_id = res.data.data.raw.order_id
         //调起支付
         wx.requestPayment({
@@ -146,7 +148,13 @@ Page({
               })
             }
           },
-          'complete': function (res) { }
+          'complete': function (res) { 
+            setTimeout(() => {
+              wx.navigateTo({
+                url: `/pages/read/read`
+              })
+            }, 2000)
+          }
         })
 
       }
