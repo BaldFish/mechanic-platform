@@ -191,7 +191,33 @@ Page({
   },
   //加入合作者
   joinPartner(e) {
-    if (!/^1\d{10}$/.test(e.currentTarget.dataset.value)) {
+    if (e.currentTarget.dataset.value === ""){
+      wx.showToast({
+        title: "请输入11位手机号",
+        icon: 'none',
+        image: '',
+        duration: 2000,
+        mask: true,
+        success: (result) => {
+
+        },
+        fail: () => { },
+        complete: () => { }
+      });
+    } else if (e.currentTarget.dataset.value.length < 11){
+      wx.showToast({
+        title: "请输入11位11手机号",
+        icon: 'none',
+        image: '',
+        duration: 2000,
+        mask: true,
+        success: (result) => {
+
+        },
+        fail: () => { },
+        complete: () => { }
+      });
+    } else if (!/^1[3-9]\d{9}$/.test(e.currentTarget.dataset.value)) {
       wx.showToast({
         title: "手机号不正确",
         icon: 'none',
@@ -213,7 +239,7 @@ Page({
         //关闭modal
         this.closeModal(e);
         wx.showToast({
-          title: res.data.message,
+          title: "提交成功，请稍候",
           icon: 'none',
           image: '',
           duration: 2000,
