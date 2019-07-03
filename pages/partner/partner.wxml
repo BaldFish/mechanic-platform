@@ -15,7 +15,7 @@
     </view>
     <view class="contact_phone" hover-class="none" hover-stop-propagation="false">
       手机号：
-      <input class="phone_input" value="{{inputValue}}" type="text" confirm-type="done" maxlength="11" focus="{{focus}}" bindinput="getValue" bindfocus="" bindblur="" bindconfirm=""></input>
+      <input class="phone_input" value="{{inputValue}}" type="number" confirm-type="done" maxlength="11" focus="{{focus}}" bindinput="getValue" bindfocus="" bindblur="" bindconfirm=""></input>
     </view>
     <view class="submit_btn" hover-class="none" hover-stop-propagation="false" bindtap="joinPartner" data-value="{{inputValue}}">提交</view>
     <view class="contact_tip" hover-class="none" hover-stop-propagation="false">

@@ -22,15 +22,30 @@ Page({
     token: "",
   },
   getValue(e) {
+    if (e.detail.value == 0) {
+      e.detail.value = ""
+    }
     this.setData({
       inputValue: e.detail.value
     })
   },
   joinPartner(e) {
-    console.log(e)
-    if (!/^1\d{10}$/.test(e.currentTarget.dataset.value)) {
+    if (e.currentTarget.dataset.value === "") {
       wx.showToast({
-        title: "手机号不正确",
+        title: "请输入11位手机号",
+        icon: 'none',
+        image: '',
+        duration: 2000,
+        mask: true,
+        success: (result) => {
+
+        },
+        fail: () => { },
+        complete: () => { }
+      });
+    } else if (e.currentTarget.dataset.value.length < 11) {
+      wx.showToast({
+        title: "请输入11位手机号",
         icon: 'none',
         image: '',
         duration: 2000,
@@ -48,7 +63,7 @@ Page({
       }
       app.util.request('POST', `/v1/rrd-wx-app/partner`, 'application/x-www-form-urlencoded', data, `${app.data.token}`, (res) => {
         wx.showToast({
-          title: res.data.message,
+          title: "提交成功，请稍候",
           icon: 'none',
           image: '',
           duration: 2000,
