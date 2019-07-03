@@ -42,7 +42,7 @@ Page({
     app.util.request('GET', `/v1/rrd-wx-app/user/info/${app.data.userId}`, 'application/json', '', `${app.data.token}`, (res) => {
       let userInfo = res.data.data;
       if (userInfo.isvip) {
-        userInfo.day = Math.ceil((userInfo.expire_time - userInfo.server_time) / 86400000);
+        userInfo.day = Math.ceil((userInfo.expire_time - userInfo.server_time) / 86400);
       }
       userInfo.user_phone = userInfo.user_phone.slice(3);
       wx.setStorageSync("address", userInfo.address);
