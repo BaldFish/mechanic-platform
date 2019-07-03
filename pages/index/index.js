@@ -105,6 +105,18 @@ Page({
     showModal: false, // 显示modal弹窗
     inputValue: ""
   },
+  turnUrl(e) {
+    console.log(e.currentTarget.dataset.id)
+    if (e.currentTarget.dataset.id === "2") {
+      wx.navigateTo({
+        url: `/pages/openVip/openVip`
+      })
+    } else if (e.currentTarget.dataset.id === "3") { 
+      wx.navigateTo({
+        url: `/pages/partner/partner`
+      })
+    }
+  },
   getBannerList() {
     app.util.request('GET', `/v1/rrd-wx-app/slider`, 'application/json', '', '', (res) => {
       this.setData({
@@ -185,7 +197,7 @@ Page({
   },
   //获取modal中inout输入值
   getValue(e) {
-    if (e.detail.value == 0){
+    if (e.detail.value == 0) {
       e.detail.value = ""
     }
     this.setData({
@@ -194,7 +206,7 @@ Page({
   },
   //加入合作者
   joinPartner(e) {
-    if (e.currentTarget.dataset.value === ""){
+    if (e.currentTarget.dataset.value === "") {
       wx.showToast({
         title: "请输入11位手机号",
         icon: 'none',
@@ -207,7 +219,7 @@ Page({
         fail: () => { },
         complete: () => { }
       });
-    } else if (e.currentTarget.dataset.value.length < 11){
+    } else if (e.currentTarget.dataset.value.length < 11) {
       wx.showToast({
         title: "请输入11位手机号",
         icon: 'none',
@@ -289,7 +301,7 @@ Page({
           wx.navigateTo({
             url: `/pages/carSeries/carSeries`
           })
-        } else { 
+        } else {
           wx.navigateTo({
             url: `/pages/search/search`
           })

@@ -13,19 +13,19 @@ Page({
     address: "",
     pointsBalance: "0",
     seleted: "1",
-    order_id: ""
+    order_id: "",
+    userInfo: {}
   },
 
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
   onLoad: function (options) {
-    this.setData({
-      open: options.open
-    })
     app.data.userId = wx.getStorageSync('userId')
     app.data.token = wx.getStorageSync('token')
     app.data.address = wx.getStorageSync('address')
+    //获取用户信息
+    this.getUserInfo()
     //获取用户积分余额
     this.getPointsBalance()
   },
@@ -49,6 +49,20 @@ Page({
     let value = e.detail.value;
     this.setData({
       seleted: value
+    })
+  },
+  //获取用户信息
+  getUserInfo() {
+    app.util.request('GET', `/v1/rrd-wx-app/user/info/${app.data.userId}`, 'application/json', '', `${app.data.token}`, (res) => {
+      let userInfo = res.data.data;
+      if (userInfo.isvip) {
+        userInfo.day = Math.ceil((userInfo.expire_time - userInfo.server_time) / 86400);
+      }
+      userInfo.user_phone = userInfo.user_phone.slice(3);
+      wx.setStorageSync("address", userInfo.address);
+      this.setData({
+        userInfo: userInfo
+      })
     })
   },
   //获取用户积分余额

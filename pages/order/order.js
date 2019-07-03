@@ -21,7 +21,7 @@ Page({
   //跳转开通VIP
   turnOpenVip(e) {
     wx.navigateTo({
-      url: `/pages/openVip/openVip?open=false`
+      url: `/pages/openVip/openVip`
     })
   },
   getOrderList() {
