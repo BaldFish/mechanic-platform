@@ -62,6 +62,9 @@ Page({
         phone:"+86"+this.data.inputValue
       }
       app.util.request('POST', `/v1/rrd-wx-app/partner`, 'application/x-www-form-urlencoded', data, `${app.data.token}`, (res) => {
+        this.setData({
+          inputValue: ""
+        })
         wx.showToast({
           title: "提交成功，请稍候",
           icon: 'none',
