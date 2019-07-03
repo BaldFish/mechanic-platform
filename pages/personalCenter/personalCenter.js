@@ -13,7 +13,7 @@ Page({
 
   openVip(e) {
     wx.navigateTo({
-      url: `/pages/openVip/openVip?open=${e.currentTarget.dataset.userinfo.isvip}`
+      url: `/pages/openVip/openVip`
     })
   },
   turnPage(e) {
