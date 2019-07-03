@@ -3,11 +3,17 @@
   <view class="handbook" hover-class="none" hover-stop-propagation="false" wx:for="{{carData}}" wx:if="{{item.type===5}}" wx:key="{{item.manual_id}}">
     <image class="img_bg" src="/images/weixiu.png" mode="" lazy-load="false" binderror="" bindload=""></image>
     <view class="info_wrap" hover-class="none" hover-stop-propagation="false">
-      <view class="demio" hover-class="none" hover-stop-propagation="false">{{brand}}—{{series}}</view>
+      <view class="demio" hover-class="none" hover-stop-propagation="false">
+        {{brand}}—{{series}}
+      </view>
       <view class="title" hover-class="none" hover-stop-propagation="false">{{item.typeName}}</view>
       <view class="pay_btn" hover-class="none" hover-stop-propagation="false" data-manual_id="{{item.manual_id}}" bindtap='openModal'>
-        <text class="num" selectable="false" space="false" decode="false">花费50元</text> (可积分抵扣)
+        <text class="num" selectable="false" space="false" decode="false">花费50元</text>
+        (可积分抵扣)
         <text class="look" selectable="false" space="false" decode="false">查看详情</text>
+      </view>
+      <view class="nowBalance" hover-class="none" hover-stop-propagation="false">
+        当前积分余额：{{pointsBalance}}
       </view>
       <view class="owner_wrap" hover-class="none" hover-stop-propagation="false">
         资料贡献人：
@@ -18,11 +24,17 @@
   <view class="diagram" hover-class="none" hover-stop-propagation="false" wx:for="{{carData}}" wx:if="{{item.type===3}}" wx:key="{{item.manual_id}}">
     <image class="img_bg" src="/images/diantu.png" mode="" lazy-load="false" binderror="" bindload=""></image>
     <view class="info_wrap" hover-class="none" hover-stop-propagation="false">
-      <view class="demio" hover-class="none" hover-stop-propagation="false">{{brand}}—{{series}}</view>
+      <view class="demio" hover-class="none" hover-stop-propagation="false">
+        {{brand}}—{{series}}
+      </view>
       <view class="title" hover-class="none" hover-stop-propagation="false">{{item.typeName}}</view>
       <view class="pay_btn" hover-class="none" hover-stop-propagation="false" data-manual_id="{{item.manual_id}}" bindtap='openModal'>
-        <text class="num" selectable="false" space="false" decode="false">花费50元</text> (可积分抵扣)
+        <text class="num" selectable="false" space="false" decode="false">花费50元</text>
+        (可积分抵扣)
         <text class="look" selectable="false" space="false" decode="false">查看详情</text>
+      </view>
+      <view class="nowBalance" hover-class="none" hover-stop-propagation="false">
+        当前积分余额：{{pointsBalance}}
       </view>
       <view class="owner_wrap" hover-class="none" hover-stop-propagation="false">
         资料贡献人：
@@ -31,8 +43,7 @@
     </view>
   </view>
 </view>
-
-<!-- modal弹窗-->
+<!-- modal弹窗 -->
 <modal-cmp show="{{showModal}}">
   <view class='modal-content'>
     <scroll-view scroll-y class='main-content'>
@@ -58,8 +69,10 @@
       </radio-group>
       <view class='notice' wx:if="{{seleted==1}}">
         支付
-        <text>{{pointsBalance/10>=50?0:(500-pointsBalance)/10}}</text> 元 + 积分抵扣
-        <text>{{pointsBalance/10>=50?50:pointsBalance/10}}</text> 元
+        <text>{{pointsBalance/10>=50?0:(500-pointsBalance)/10}}</text>
+        元 + 积分抵扣
+        <text>{{pointsBalance/10>=50?50:pointsBalance/10}}</text>
+        元
       </view>
       <view class='modal-btn' bindtap='toPay'>支付</view>
     </scroll-view>

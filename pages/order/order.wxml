@@ -29,7 +29,7 @@
     <view class="btn_wrap" wx:if="{{item.can_read}}" bindtap="turnRead" data-value="{{item.manual_id}}">
       <text class="btn_text">查看资料</text>
     </view>
-    <view class="btn_wrap btn_wrap_no" wx:else>
+    <view class="btn_wrap btn_wrap_no" wx:else bindtap="turnOpenVip">
       <text class="btn_text">查看资料</text>
     </view>
   </view>

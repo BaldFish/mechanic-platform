@@ -47,12 +47,17 @@
   font-family: PingFangSC-Regular;
   font-size: 14px;
 }
+.nowBalance{
+  height: 30rpx;
+  line-height: 30rpx;
+  font-size: 12px;
+}
 .owner_wrap{
   font-family: PingFangSC-Light;
   font-size: 12px;
-  line-height: 24px;
+  line-height: 40rpx;
   color: #999999;
-  margin-top: 19rpx;
+  
 }
 .owner{
   font-family: PingFangSC-Medium;

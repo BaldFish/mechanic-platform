@@ -18,29 +18,28 @@ Page({
     })
   },
   input(e) {
-    this.setData({
-      value: e.detail.value
-    })
+    let reg = /^0$|^0\.$|^0\.[0-9]{1,2}$|^[1-9]\d*$|^[1-9]\d*\.$|^[1-9]\d*\.[0-9]{1,2}$/;
+    if (reg.test(e.detail.value)) {
+      this.setData({
+        value: e.detail.value
+      })
+    } else { 
+      this.setData({
+        value: e.detail.value.slice(0, e.detail.value.length - 1)
+      })
+    }
   },
   affirm(e) {
+    let oldValue = this.data.value
+    let newValue = (oldValue.substring(oldValue.length - 1) == '.') ? oldValue.substring(0, oldValue.length - 1) : oldValue;
+    this.setData({
+      value: newValue
+    })
     let data = {
       user_id: app.data.userId,
-      amount: this.data.value
+      amount: newValue
     }
-    if (this.data.value <= 0) {
-      wx.showToast({
-        title: '提取金额需大于0',
-        icon: 'none',
-        image: '',
-        duration: 2000,
-        mask: false,
-        success: (result) => {
-
-        },
-        fail: () => { },
-        complete: () => { }
-      });
-    } else if (this.data.value > this.data.balance) {
+    if (this.data.value > this.data.balance) {
       wx.showToast({
         title: '提取金额不能超出余额',
         icon: 'none',
@@ -48,7 +47,24 @@ Page({
         duration: 2000,
         mask: false,
         success: (result) => {
-
+          this.setData({
+            value: this.data.balance
+          })
+        },
+        fail: () => { },
+        complete: () => { }
+      })
+    } else if (this.data.value <=0) {
+      wx.showToast({
+        title: '提取金额需大于0元',
+        icon: 'none',
+        image: '',
+        duration: 2000,
+        mask: false,
+        success: (result) => {
+          this.setData({
+            value: ''
+          })
         },
         fail: () => { },
         complete: () => { }
@@ -69,7 +85,7 @@ Page({
                 wx.redirectTo({
                   url: "/pages/myAsset/myAsset"
                 })
-              }, 1500); 
+              }, 1500);
             }
           })
 
@@ -80,14 +96,14 @@ Page({
             image: '',
             duration: 2000,
             mask: false,
-            success: (result) => {},
+            success: (result) => { },
             fail: () => { },
             complete: () => { }
           })
         }
       })
     }
-
+    
   },
   /**
    * 生命周期函数--监听页面加载

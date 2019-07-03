@@ -17,7 +17,7 @@ Page({
       "id": "1",
       "updated_at": "2018-11-29T10:33:47+08:00",
       "name": "维修资料",
-      "url": "/images/01.png",
+      "url": "",
       "type": 1
     },],
     news: [{

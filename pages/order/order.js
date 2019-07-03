@@ -18,6 +18,12 @@ Page({
       url: `/pages/read/read`
     })
   },
+  //跳转开通VIP
+  turnOpenVip(e) {
+    wx.navigateTo({
+      url: `/pages/openVip/openVip?open=false`
+    })
+  },
   getOrderList() {
     app.util.request('GET', `/v1/rrd-wx-app/order/list/${app.data.userId}?start=${this.data.start}&limit=${this.data.limit}`, 'application/json', '', `${app.data.token}`, (res) => {
       if (res.data.data.res_list.length !== 0) {
