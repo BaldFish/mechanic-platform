@@ -8,7 +8,7 @@
 }
 .img_bg{
   width: 740rpx;
-  height: 470rpx;
+  height: 520rpx;
 }
 .info_wrap{
   text-align: center;
@@ -48,14 +48,17 @@
   font-size: 14px;
 }
 .nowBalance{
-  height: 30rpx;
-  line-height: 30rpx;
+  height: 76rpx;
+  line-height: 76rpx;
   font-size: 12px;
+}
+.nowBalance_num{
+  color: #386cff;
 }
 .owner_wrap{
   font-family: PingFangSC-Light;
   font-size: 12px;
-  line-height: 40rpx;
+  line-height: 32rpx;
   color: #999999;
   
 }

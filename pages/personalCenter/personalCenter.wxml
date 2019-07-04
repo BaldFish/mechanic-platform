@@ -5,9 +5,7 @@
     </view>
     <view class="info_wrap" hover-class="none" hover-stop-propagation="false">
       <view class="info_up" hover-class="none" hover-stop-propagation="false">
-        <text class="phone" selectable="false" space="false" decode="false">
-          {{userInfo.user_phone}}
-        </text>
+        <view class="phone">{{userInfo.user_phone}}</view>
         <image class="vip_logo" src="/images/VIP_logo.png" mode="aspectFit" lazy-load="false" binderror="" bindload="" wx:if="{{userInfo.isvip}}"></image>
       </view>
       <view class="info_down" hover-class="none" hover-stop-propagation="false" bindtap="openVip" data-userInfo="{{userInfo}}">

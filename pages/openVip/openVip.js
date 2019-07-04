@@ -106,7 +106,37 @@ Page({
           'package': res.data.data.prepay_info.package,
           'signType': res.data.data.prepay_info.signType,
           'paySign': res.data.data.prepay_info.paySign,
-          'success': function (res) { },
+          'success': function (res) { 
+            if (res.errMsg === 'requestPayment:ok') { 
+              wx.showToast({
+                title: '支付成功',
+                icon: 'none',
+                image: '',
+                duration: 1500,
+                mask: false,
+                success: (result) => { 
+                  setTimeout(()=> {
+                    wx.switchTab({
+                      url: `/pages/index/index`
+                    })
+                  },1500)
+                },
+                fail: () => { 
+                  wx.showToast({
+                    title: '支付失败',
+                    icon: 'none',
+                    image: '',
+                    duration: 1500,
+                    mask: false,
+                    success: (result) => { },
+                    fail: () => { },
+                    complete: () => { }
+                  })
+                },
+                complete: () => { }
+              })
+            }
+          },
           'fail': function (res) {
             if (res.errMsg == 'requestPayment:fail cancel') {
               //取消开通vip

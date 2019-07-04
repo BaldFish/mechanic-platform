@@ -13,7 +13,8 @@
         <text class="look" selectable="false" space="false" decode="false">查看详情</text>
       </view>
       <view class="nowBalance" hover-class="none" hover-stop-propagation="false">
-        当前积分余额：{{pointsBalance}}
+        当前积分余额：
+        <text class="nowBalance_num">{{pointsBalance}}</text>
       </view>
       <view class="owner_wrap" hover-class="none" hover-stop-propagation="false">
         资料贡献人：
@@ -34,7 +35,8 @@
         <text class="look" selectable="false" space="false" decode="false">查看详情</text>
       </view>
       <view class="nowBalance" hover-class="none" hover-stop-propagation="false">
-        当前积分余额：{{pointsBalance}}
+        当前积分余额：
+        <text class="nowBalance_num">{{pointsBalance}}</text>
       </view>
       <view class="owner_wrap" hover-class="none" hover-stop-propagation="false">
         资料贡献人：
