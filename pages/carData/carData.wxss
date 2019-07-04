@@ -51,6 +51,7 @@
   height: 76rpx;
   line-height: 76rpx;
   font-size: 12px;
+  color: #999999;
 }
 .nowBalance_num{
   color: #386cff;
