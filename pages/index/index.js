@@ -106,14 +106,27 @@ Page({
     inputValue: ""
   },
   turnUrl(e) {
-    console.log(e.currentTarget.dataset.id)
-    if (e.currentTarget.dataset.id === "2") {
-      wx.navigateTo({
-        url: `/pages/openVip/openVip`
-      })
-    } else if (e.currentTarget.dataset.id === "3") { 
-      wx.navigateTo({
-        url: `/pages/partner/partner`
+    if (app.data.token) {
+      if (e.currentTarget.dataset.id === "2") {
+        wx.navigateTo({
+          url: `/pages/openVip/openVip`
+        })
+      } else if (e.currentTarget.dataset.id === "3") {
+        wx.navigateTo({
+          url: `/pages/partner/partner`
+        })
+      }
+    
+    } else { 
+      wx.showToast({
+        title: '请登录后重试',
+        icon: 'none',
+        image: '',
+        duration: 2000,
+        mask: false,
+        success: (result) => { },
+        fail: () => { },
+        complete: () => { }
       })
     }
   },
@@ -206,52 +219,66 @@ Page({
   },
   //加入合作者
   joinPartner(e) {
-    if (e.currentTarget.dataset.value === "") {
-      wx.showToast({
-        title: "请输入11位手机号",
-        icon: 'none',
-        image: '',
-        duration: 2000,
-        mask: true,
-        success: (result) => {
-
-        },
-        fail: () => { },
-        complete: () => { }
-      });
-    } else if (e.currentTarget.dataset.value.length < 11) {
-      wx.showToast({
-        title: "请输入11位手机号",
-        icon: 'none',
-        image: '',
-        duration: 2000,
-        mask: true,
-        success: (result) => {
-
-        },
-        fail: () => { },
-        complete: () => { }
-      });
-    } else {
-      let data = {
-        user_id: app.data.userId,
-        phone: "+86" + this.data.inputValue
-      }
-      app.util.request('POST', `/v1/rrd-wx-app/partner`, 'application/x-www-form-urlencoded', data, `${app.data.token}`, (res) => {
-        //关闭modal
-        this.closeModal(e);
+    if (app.data.userId) {
+      if (e.currentTarget.dataset.value === "") {
         wx.showToast({
-          title: "提交成功，请稍候",
+          title: "请输入11位手机号",
           icon: 'none',
           image: '',
           duration: 2000,
           mask: true,
-          success: (result) => { },
+          success: (result) => {
+
+          },
           fail: () => { },
           complete: () => { }
         });
+      } else if (e.currentTarget.dataset.value.length < 11) {
+        wx.showToast({
+          title: "请输入11位手机号",
+          icon: 'none',
+          image: '',
+          duration: 2000,
+          mask: true,
+          success: (result) => {
+
+          },
+          fail: () => { },
+          complete: () => { }
+        });
+      } else {
+        let data = {
+          user_id: app.data.userId,
+          phone: "+86" + this.data.inputValue
+        }
+        app.util.request('POST', `/v1/rrd-wx-app/partner`, 'application/x-www-form-urlencoded', data, `${app.data.token}`, (res) => {
+          //关闭modal
+          this.closeModal(e);
+          wx.showToast({
+            title: "提交成功，请稍候",
+            icon: 'none',
+            image: '',
+            duration: 2000,
+            mask: true,
+            success: (result) => { },
+            fail: () => { },
+            complete: () => { }
+          });
+        })
+      }
+    } else { 
+      wx.showToast({
+        title: '请登录后重试',
+        icon: 'none',
+        image: '',
+        duration: 2000,
+        mask: false,
+        success: (result) => { },
+        fail: () => { },
+        complete: () => { }
       })
     }
+    
   },
 
   getPhoneNumber(e) {
