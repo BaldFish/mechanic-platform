@@ -52,6 +52,14 @@ text-align: center;
   color: #666666;
   text-align: center;
 }
+.tq{
+  font-size: 13px;
+  color: #333333;
+}
+.fv{
+  font-size: 13px;
+  color: #333333;
+}
 .vip_logo{
   width: 105rpx;
   height: 42rpx;
