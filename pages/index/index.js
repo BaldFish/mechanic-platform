@@ -106,14 +106,27 @@ Page({
     inputValue: ""
   },
   turnUrl(e) {
-    console.log(e.currentTarget.dataset.id)
-    if (e.currentTarget.dataset.id === "2") {
-      wx.navigateTo({
-        url: `/pages/openVip/openVip`
-      })
-    } else if (e.currentTarget.dataset.id === "3") { 
-      wx.navigateTo({
-        url: `/pages/partner/partner`
+    if (app.data.token) {
+      if (e.currentTarget.dataset.id === "2") {
+        wx.navigateTo({
+          url: `/pages/openVip/openVip`
+        })
+      } else if (e.currentTarget.dataset.id === "3") {
+        wx.navigateTo({
+          url: `/pages/partner/partner`
+        })
+      }
+    
+    } else { 
+      wx.showToast({
+        title: '请登录后重试',
+        icon: 'none',
+        image: '',
+        duration: 2000,
+        mask: false,
+        success: (result) => { },
+        fail: () => { },
+        complete: () => { }
       })
     }
   },
