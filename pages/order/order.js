@@ -18,6 +18,12 @@ Page({
       url: `/pages/read/read`
     })
   },
+  turnHome(e) { 
+    wx.switchTab({
+      url: `/pages/index/index`
+    })
+  }
+  ,
   //跳转开通VIP
   turnOpenVip(e) {
     wx.navigateTo({
@@ -41,7 +47,7 @@ Page({
         })
       } else {
         wx.showToast({
-          title: '没有更多数据',
+          title: '全部订单加载完成',
           icon: 'none',
           duration: 2000
         })

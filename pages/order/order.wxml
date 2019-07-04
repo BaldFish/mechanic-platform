@@ -1,36 +1,46 @@
 <!-- pages/queryHistory/queryHistory.wxml -->
 <view class='order_wrap'>
-  <view class="list_wrap" wx:for="{{ordrList}}" wx:key="item.order_id">
-    <view class="order_num">
-      <text class="text">订单号：{{item.order_id}}</text>
-    </view>
-    <view class="title_wrap">
-      <view class="img_wrap">
-        <image class="title_img" src="{{item.url}}" mode="aspectFit"></image>
+  <view wx:if="{{ordrList.length}}">
+    <view class="list_wrap" wx:for="{{ordrList}}" wx:key="item.order_id">
+      <view class="order_num">
+        <text class="text">订单号：{{item.order_id}}</text>
       </view>
-      <text class="title_text">{{item.typeName}}</text>
-    </view>
-    <view class="time_wrap">
-      订单时间：
-      <text class="time">{{item.created_at}}</text>
-    </view>
-    <view class="integral_wrap">
-      实付
-      <text class="integral">{{item.cash_amount}}</text>
-      元
+      <view class="title_wrap">
+        <view class="img_wrap">
+          <image class="title_img" src="{{item.url}}" mode="aspectFit"></image>
+        </view>
+        <text class="title_text">{{item.typeName}}</text>
+      </view>
+      <view class="time_wrap">
+        订单时间：
+        <text class="time">{{item.created_at}}</text>
+      </view>
+      <view class="integral_wrap">
+        实付
+        <text class="integral">{{item.cash_amount}}</text>
+        元
       积分抵扣
-      <text class="integral">{{item.total_amount-item.cash_amount}}</text>
-      元
+        <text class="integral">{{item.total_amount-item.cash_amount}}</text>
+        元
+      </view>
+      <view class="person_wrap">
+        资料贡献人：
+        <text class="person">{{item.user_name}}</text>
+      </view>
+      <view class="btn_wrap" wx:if="{{item.can_read}}" bindtap="turnRead" data-value="{{item.manual_id}}">
+        <text class="btn_text">查看资料</text>
+      </view>
+      <view class="btn_wrap btn_wrap_no" wx:else bindtap="turnOpenVip">
+        <text class="btn_text">查看资料</text>
+      </view>
     </view>
-    <view class="person_wrap">
-      资料贡献人：
-      <text class="person">{{item.user_name}}</text>
-    </view>
-    <view class="btn_wrap" wx:if="{{item.can_read}}" bindtap="turnRead" data-value="{{item.manual_id}}">
-      <text class="btn_text">查看资料</text>
-    </view>
-    <view class="btn_wrap btn_wrap_no" wx:else bindtap="turnOpenVip">
-      <text class="btn_text">查看资料</text>
+  </view>
+  <view class="list_no_wrap" hover-class="none" hover-stop-propagation="false" wx:else>
+    <view class="list_no" hover-class="none" hover-stop-propagation="false">
+      <view class="list_no_text" hover-class="none" hover-stop-propagation="false">暂无新订单</view>
+      <view class="list_no_btn" hover-class="none" hover-stop-propagation="false" bindtap="turnHome">
+        立即查询
+      </view>
     </view>
   </view>
 </view>

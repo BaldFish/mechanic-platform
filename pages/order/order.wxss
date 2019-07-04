@@ -1,6 +1,11 @@
 /* pages/queryHistory/queryHistory.wxss */
+page{
+  width: 100%;
+  height: 100%;
+}
 .order_wrap{
-	min-height: 100%;
+  min-height: 100%;
+  width: 100%;
 }
 .list_wrap{
   box-sizing: border-box;
@@ -17,6 +22,34 @@
 }
 .list_wrap:last-child{
   margin-bottom: 45rpx;
+}
+.list_no_wrap{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 688rpx;
+  height: 370rpx;
+  margin: 0 auto;
+	background-color: #ffffff;
+	box-shadow: 1px -1px 12px 1px	rgba(0, 0, 0, 0.09);
+  border-radius: 30rpx;
+  padding-left: 30rpx;
+  padding-right: 20rpx;
+  position: relative;
+  margin-top: 45rpx;
+}
+.list_no{
+  text-align: center;
+  font-size: 32rpx;
+  line-height: 60rpx;
+}
+.list_no_text{}
+.list_no_btn{
+  margin-top: 30rpx;
+  background-color: #386cff;
+  border-radius: 30rpx;
+  color: #ffffff
 }
 .order_num{
   padding-top:32rpx;
