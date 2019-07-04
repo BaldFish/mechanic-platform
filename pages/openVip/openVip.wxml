@@ -10,9 +10,9 @@
     </view>
     <view class="des_list_wrap" hover-class="none" hover-stop-propagation="false">
       <view class="des_list list_title" hover-class="none" hover-stop-propagation="false">
-        <view class="" hover-class="none" hover-stop-propagation="false">特权</view>
+        <view class="tq" hover-class="none" hover-stop-propagation="false">特权</view>
         <image class="vip_logo" src="/images/VIP_logo.png" lazy-load="false" binderror="" bindload=""></image>
-        <view class="" hover-class="none" hover-stop-propagation="false">非VIP</view>
+        <view class="fv" hover-class="none" hover-stop-propagation="false">非VIP</view>
       </view>
       <view class="des_list" hover-class="none" hover-stop-propagation="false">
         <view class="" hover-class="none" hover-stop-propagation="false">查询价格</view>
