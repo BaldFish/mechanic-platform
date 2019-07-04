@@ -46,11 +46,11 @@ Page({
           ordrList: res.data.data.res_list
         })
       } else {
-        wx.showToast({
-          title: '全部订单加载完成',
-          icon: 'none',
-          duration: 2000
-        })
+        // wx.showToast({
+        //   title: '全部订单加载完成',
+        //   icon: 'none',
+        //   duration: 2000
+        // })
       }
     })
   },
