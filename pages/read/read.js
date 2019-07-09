@@ -21,7 +21,8 @@ Page({
       baseHeight: null,
       scaleWidth: null,
       scaleHeight: null
-    }
+    },
+    previousPage: "",
   },
   touchstartCallback: function (e) {
     // 单手指缩放开始，也不做任何处理 
@@ -192,6 +193,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      previousPage: options.previousPage
+    })
     app.data.userId = wx.getStorageSync('userId')
     app.data.token = wx.getStorageSync('token')
     this.getReadData()
@@ -221,7 +225,15 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    if (this.data.previousPage === "order") {
+      wx.switchTab({
+        url: `/pages/order/order`
+      })
+    } else if (this.data.previousPage === "carData") {
+      wx.switchTab({
+        url: `/pages/index/index`
+      })
+    }
   },
 
   /**

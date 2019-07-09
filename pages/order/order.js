@@ -15,7 +15,7 @@ Page({
   turnRead(e) {
     app.data.manualId = e.currentTarget.dataset.value;
     wx.navigateTo({
-      url: `/pages/read/read`
+      url: `/pages/read/read?previousPage=order`
     })
   },
   turnHome(e) { 

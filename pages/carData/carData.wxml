@@ -7,10 +7,12 @@
         {{brand}}—{{series}}
       </view>
       <view class="title" hover-class="none" hover-stop-propagation="false">{{item.typeName}}</view>
-      <view class="pay_btn" hover-class="none" hover-stop-propagation="false" data-manual_id="{{item.manual_id}}" bindtap='openModal'>
+      <view class="pay_btn" hover-class="none" hover-stop-propagation="false" data-data="{{item}}" bindtap='openModal'>
+        立即购买
+      </view>
+      <view class="tips_wrap" hover-class="none" hover-stop-propagation="false">
         <text class="num" selectable="false" space="false" decode="false">花费50元</text>
-        (可积分抵扣)
-        <text class="look" selectable="false" space="false" decode="false">查看详情</text>
+        (可积分抵扣10积分=1元）
       </view>
       <view class="nowBalance" hover-class="none" hover-stop-propagation="false">
         当前积分余额：
@@ -29,10 +31,12 @@
         {{brand}}—{{series}}
       </view>
       <view class="title" hover-class="none" hover-stop-propagation="false">{{item.typeName}}</view>
-      <view class="pay_btn" hover-class="none" hover-stop-propagation="false" data-manual_id="{{item.manual_id}}" bindtap='openModal'>
+      <view class="pay_btn" hover-class="none" hover-stop-propagation="false" data-data="{{item}}" bindtap='openModal'>
+        立即购买
+      </view>
+      <view class="tips_wrap" hover-class="none" hover-stop-propagation="false">
         <text class="num" selectable="false" space="false" decode="false">花费50元</text>
-        (可积分抵扣)
-        <text class="look" selectable="false" space="false" decode="false">查看详情</text>
+        (可积分抵扣10积分=1元）
       </view>
       <view class="nowBalance" hover-class="none" hover-stop-propagation="false">
         当前积分余额：
