@@ -16,7 +16,7 @@ Page({
     pointsBalance: "0",
     manual_id: "",
     seleted: "1",
-    order_id: ""
+    order_id: "",
   },
 
 	/**
@@ -45,12 +45,26 @@ Page({
 
   //打开modal
   openModal(e) {
-    this.setData({
-      showModal: true,
-      manual_id: e.currentTarget.dataset.manual_id
-    })
-    //获取用户积分余额
-    this.getPointsBalance()
+    if (e.currentTarget.dataset.data.can_read) {
+      wx.showToast({
+        title: '您已成功支付订单',
+        icon: 'none',
+        image: '',
+        duration: 2000,
+        mask: false,
+        success: (result) => { },
+        fail: () => { },
+        complete: () => { }
+      })
+    } else { 
+      this.setData({
+        showModal: true,
+        manual_id: e.currentTarget.dataset.data.manual_id
+      })
+      //获取用户积分余额
+      this.getPointsBalance()
+    }
+    
   },
   //关闭modal
   closeModal(e) {
@@ -112,7 +126,7 @@ Page({
           complete: () => {
             setTimeout(() => {
               wx.navigateTo({
-                url: `/pages/read/read`
+                url: `/pages/read/read?previousPage=carData`
               })
             }, 2000)
           }
@@ -151,7 +165,7 @@ Page({
           'complete': function (res) { 
             setTimeout(() => {
               wx.navigateTo({
-                url: `/pages/read/read`
+                url: `/pages/read/read?previousPage=carData`
               })
             }, 2000)
           }

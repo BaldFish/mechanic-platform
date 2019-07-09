@@ -8,7 +8,7 @@
 }
 .img_bg{
   width: 740rpx;
-  height: 520rpx;
+  height: 580rpx;
 }
 .info_wrap{
   text-align: center;
@@ -35,17 +35,20 @@
   border-radius: 29rpx;
   margin: 0 auto;
   font-family: PingFangSC-Light;
-  font-size: 12px;
+  font-size: 15px;
   color: #ffffff;
   margin-top: 69rpx;
+}
+.tips_wrap{
+  margin-top: 20rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  color: #0f0f0f;
 }
 .num{
   font-family: PingFangSC-Medium;
   font-size: 16px;
-}
-.look{
-  font-family: PingFangSC-Regular;
-  font-size: 14px;
+  color: #0f0f0f;
 }
 .nowBalance{
   height: 76rpx;
