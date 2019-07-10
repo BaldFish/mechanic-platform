@@ -8,7 +8,7 @@
       </view>
       <view class="title" hover-class="none" hover-stop-propagation="false">{{item.typeName}}</view>
       <view class="pay_btn" hover-class="none" hover-stop-propagation="false" data-data="{{item}}" bindtap='openModal'>
-        立即购买
+        立即查看
       </view>
       <view class="tips_wrap" hover-class="none" hover-stop-propagation="false">
         <text class="num" selectable="false" space="false" decode="false">花费50元</text>
@@ -32,7 +32,7 @@
       </view>
       <view class="title" hover-class="none" hover-stop-propagation="false">{{item.typeName}}</view>
       <view class="pay_btn" hover-class="none" hover-stop-propagation="false" data-data="{{item}}" bindtap='openModal'>
-        立即购买
+        立即查看
       </view>
       <view class="tips_wrap" hover-class="none" hover-stop-propagation="false">
         <text class="num" selectable="false" space="false" decode="false">花费50元</text>
