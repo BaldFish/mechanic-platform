@@ -57,7 +57,8 @@
         <image src='/images/close.png' class='close-modal'></image>
       </view>
       <view class='money'>
-        <text>50</text>
+        <text wx:if="{{seleted==1}}">{{pointsBalance/10>=50?0:(500-pointsBalance)/10}}</text>
+        <text wx:else>50</text>
         <text>元</text>
       </view>
       <radio-group class='radio-group' bindchange="radioChange">
@@ -65,21 +66,21 @@
           <radio value='1' checked='true'></radio>
           <view>积分余额{{pointsBalance}}</view>
         </label>
-        <label>
-          <text>本次积分最多可以抵扣{{pointsBalance>=500?50:pointsBalance/10}}元</text>
+        <label wx:if="{{seleted==1}}">
+          <!-- <text>本次积分最多可以抵扣{{pointsBalance>=500?50:pointsBalance/10}}元</text> -->
+          <view class='notice'>
+            积分抵扣
+            <text>{{pointsBalance/10>=50?50:pointsBalance/10}}</text>
+            元 + 微信支付
+            <text>{{pointsBalance/10>=50?0:(500-pointsBalance)/10}}</text>
+            元
+          </view>
         </label>
         <label>
           <radio value='2'></radio>
           <view>微信支付</view>
         </label>
       </radio-group>
-      <view class='notice' wx:if="{{seleted==1}}">
-        支付
-        <text>{{pointsBalance/10>=50?0:(500-pointsBalance)/10}}</text>
-        元 + 积分抵扣
-        <text>{{pointsBalance/10>=50?50:pointsBalance/10}}</text>
-        元
-      </view>
       <view class='modal-btn' bindtap='toPay'>支付</view>
     </scroll-view>
   </view>
