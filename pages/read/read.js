@@ -102,7 +102,7 @@ Page({
         icon: 'none',
         image: '',
         duration: 1500,
-        mask: false,
+        mask: true,
         success: (result) => { },
         fail: () => { },
         complete: () => { }
@@ -129,7 +129,7 @@ Page({
         icon: 'none',
         image: '',
         duration: 1500,
-        mask: false,
+        mask: true,
         success: (result) => { },
         fail: () => { },
         complete: () => { }
@@ -207,9 +207,9 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
+/**
+ * 生命周期函数--监听页面显示
+ */
   onShow: function () {
 
   },
@@ -218,7 +218,7 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    
   },
 
   /**

@@ -123,7 +123,7 @@ Page({
         icon: 'none',
         image: '',
         duration: 2000,
-        mask: false,
+        mask: true,
         success: (result) => { },
         fail: () => { },
         complete: () => { }
@@ -185,7 +185,7 @@ Page({
             icon: 'none',
             image: '',
             duration: 2000,
-            mask: false,
+            mask: true,
             success: (result) => { },
             fail: () => { },
             complete: () => { }
@@ -272,7 +272,7 @@ Page({
         icon: 'none',
         image: '',
         duration: 2000,
-        mask: false,
+        mask: true,
         success: (result) => { },
         fail: () => { },
         complete: () => { }
@@ -310,7 +310,7 @@ Page({
             icon: 'none',
             image: '',
             duration: 2000,
-            mask: false,
+            mask: true,
             success: (result) => { },
             fail: () => { },
             complete: () => { }
@@ -340,7 +340,7 @@ Page({
         icon: 'none',
         image: '',
         duration: 2000,
-        mask: false,
+        mask: true,
         success: (result) => { },
         fail: () => { },
         complete: () => { }
