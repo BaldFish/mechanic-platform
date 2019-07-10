@@ -94,7 +94,7 @@ Page({
       points_amount: "",
       manual_id: this.data.manual_id
     }
-    if (this.data.seleted == 2) {
+    if (this.data.seleted === "2") {
       data.points_amount = ""
     } else {
       data.points_amount = this.data.pointsBalance >= 500 ? 500 : this.data.pointsBalance
@@ -102,7 +102,7 @@ Page({
     app.util.request('POST', `/v1/rrd-wx-app/order`, 'application/x-www-form-urlencoded', data, `${app.data.token}`, (res) => {
       //关闭modal
       this.closeModal(e);
-      if (res.data.code != "200") {
+      if (res.data.code !== "200") {
         wx.showToast({
           title: '支付失败',
           icon: 'none',
@@ -141,7 +141,13 @@ Page({
           'package': res.data.data.prepay_info.package,
           'signType': res.data.data.prepay_info.signType,
           'paySign': res.data.data.prepay_info.paySign,
-          'success': function (res) { },
+          'success': function (res) { 
+            setTimeout(() => {
+              wx.navigateTo({
+                url: `/pages/read/read?previousPage=carData`
+              })
+            }, 1500)
+          },
           'fail': function (res) {
             if (res.errMsg == 'requestPayment:fail cancel') {
               //取消订单
@@ -162,15 +168,8 @@ Page({
               })
             }
           },
-          'complete': function (res) { 
-            setTimeout(() => {
-              wx.navigateTo({
-                url: `/pages/read/read?previousPage=carData`
-              })
-            }, 2000)
-          }
+          'complete': function (res) { }
         })
-
       }
     })
   },
