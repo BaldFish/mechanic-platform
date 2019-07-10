@@ -59,7 +59,7 @@
       <view class='money'>
         <text wx:if="{{seleted==1}}">{{pointsBalance/10>=50?0:(500-pointsBalance)/10}}</text>
         <text wx:else>50</text>
-        <text>元</text>
+        元
       </view>
       <radio-group class='radio-group' bindchange="radioChange">
         <label>

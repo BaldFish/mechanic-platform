@@ -84,16 +84,15 @@
   margin: 10rpx 12rpx 0 0
 }
 .main-content .money{
-  margin: 56rpx 0 32rpx 90rpx
+  margin: 56rpx 0 32rpx 90rpx;
+  font-size: 30rpx;
+	color: #000000;
 }
 .main-content .money text:nth-child(1){
 	font-size: 72rpx;
 	color: #000000;
 }
-.main-content .money text:nth-child(2){
-	font-size: 30rpx;
-	color: #000000;
-}
+
 /* 修改radio默认样式 */
 radio{
   border-radius: 50%;

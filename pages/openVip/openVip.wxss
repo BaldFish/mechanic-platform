@@ -28,7 +28,7 @@ text-align: center;
   color: #333333;
 }
 .des_list_wrap{
-  width: 530rpx;
+  width: 600rpx;
   margin: 0 auto;
   margin-top: 40rpx; 
 	background-color: #f5f7fb;
@@ -96,16 +96,18 @@ text-align: center;
   margin: 10rpx 12rpx 0 0
 }
 .main-content .money{
-  margin: 56rpx 0 32rpx 90rpx
+  margin: 56rpx 0 32rpx 90rpx;
+  font-size: 30rpx;
+	color: #000000;
 }
 .main-content .money text:nth-child(1){
 	font-size: 72rpx;
 	color: #000000;
 }
-.main-content .money text:nth-child(2){
+/* .main-content .money text:nth-child(2){
 	font-size: 30rpx;
 	color: #000000;
-}
+} */
 /* 修改radio默认样式 */
 radio{
   border-radius: 50%;
@@ -142,25 +144,25 @@ radio .wx-radio-input.wx-radio-input-checked::before{
 }
 .radio-group label{
   width:478rpx;
-  height: 40rpx;
+  height: 44rpx;
   display: flex;
   flex-direction: row;
   margin-bottom: 22rpx;
   vertical-align: baseline
 }
-.radio-group label:nth-child(1){
+/* .radio-group label:nth-child(1){
   margin-bottom: 10rpx;
-}
+} */
 .radio-group view{
   margin-left: 16rpx;
   padding-top: 10rpx
 }
-.radio-group text{
+/* .radio-group text{
   font-size: 20rpx;
 	color: #333333;
   padding: 12rpx;
   margin-left: 48rpx
-}
+} */
 .notice{
   font-size: 22rpx;
 	color: #666666;
