@@ -27,7 +27,7 @@ const request = (method, url, contentType, data, token, callback) => {
     //请求服务端接口
     wx.request({
       method: method,//方式
-      url: 'https://wxmp-api.renrendao.net' + url,//url为地址
+      url: 'https://wxmp-api-test.renrendao.net' + url,//url为地址
       header: {
         "Content-Type": contentType,//处理form表单的请求头
         "cache-control": "no-cache",//处理在回调时反应慢的问题（可不写）
@@ -55,7 +55,7 @@ const request = (method, url, contentType, data, token, callback) => {
     //请求服务端接口
     wx.request({
       method: method,//方式
-      url: 'https://wxmp-api.renrendao.net' + url,//url为地址
+      url: 'https://wxmp-api-test.renrendao.net' + url,//url为地址
       header: {
         "Content-Type": contentType,//处理form表单的请求头
         "cache-control": "no-cache"//处理在回调时反应慢的问题（可不写）
