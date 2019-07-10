@@ -35,7 +35,7 @@
   </view>
 </view>
 <!-- modal弹窗 -->
-<modal-cmp show="{{!showModal}}">
+<modal-cmp show="{{showModal}}">
   <view class='modal-content'>
     <scroll-view scroll-y class='main-content'>
       <view class='img-box' bindtap='closeModal'>
