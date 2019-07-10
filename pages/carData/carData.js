@@ -32,7 +32,7 @@ Page({
       }
     })
     this.setData({
-      brand: app.data.brand,
+      brand: carData[0].brand,
       series: app.data.series,
       carData: carData
     })
