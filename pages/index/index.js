@@ -166,6 +166,9 @@ Page({
           app.util.request('POST', '/v1/rrd-wx-app/user/login', 'application/x-www-form-urlencoded', { code: res.code }, '', (res) => {
             let data = res.data.data;
             if (!data.is_bind_phone) {
+              wx.removeStorage({key: 'userId'})
+              wx.removeStorage({key: 'token'})
+              wx.removeStorage({key: 'address'})
               wx.hideTabBar({});
               this.setData({
                 isBindPhone: true
@@ -197,9 +200,22 @@ Page({
 
   //打开modal
   openModal(e) {
-    this.setData({
-      showModal: true
-    })
+    if (app.data.token) {
+      this.setData({
+        showModal: true
+      })
+    } else { 
+      wx.showToast({
+        title: '请登录后重试',
+        icon: 'none',
+        image: '',
+        duration: 2000,
+        mask: true,
+        success: (result) => { },
+        fail: () => { },
+        complete: () => { }
+      })
+    }
   },
   //关闭modal
   closeModal(e) {
@@ -292,17 +308,28 @@ Page({
           }
           //发起网络请求
           app.util.request('POST', '/v1/rrd-wx-app/user/weixin/phone', 'application/x-www-form-urlencoded', data, '', (res) => {
-            let data = res.data.data;
-            wx.setStorageSync("userId", data.session_info.user_id);
-            wx.setStorageSync("token", data.session_info.token);
-            wx.setStorageSync("address", data.session_info.address);
-            app.data.userId = wx.getStorageSync("userId");
-            app.data.token = wx.getStorageSync("token");
-            app.data.address = wx.getStorageSync("address");
-            this.setData({
-              isBindPhone: false
-            });
-            wx.showTabBar({});
+            if (res.data.code === "10047") {
+              wx.showModal({
+                title: "您好用户",
+                content: '当前手机号已绑定其他微信号，如需协助，请添加客服微信：golo2019',
+                showCancel:false,
+                success: (result) => { },
+                fail: () => { },
+                complete: () => { }
+              })
+            } else {
+              let data = res.data.data;
+              wx.setStorageSync("userId", data.session_info.user_id);
+              wx.setStorageSync("token", data.session_info.token);
+              wx.setStorageSync("address", data.session_info.address);
+              app.data.userId = wx.getStorageSync("userId");
+              app.data.token = wx.getStorageSync("token");
+              app.data.address = wx.getStorageSync("address");
+              this.setData({
+                isBindPhone: false
+              });
+              wx.showTabBar({});
+             }
           })
         } else {
           wx.showToast({
