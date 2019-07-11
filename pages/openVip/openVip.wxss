@@ -33,7 +33,7 @@ text-align: center;
   margin-top: 40rpx; 
 	background-color: #f5f7fb;
   border-radius: 10rpx;
-  padding: 0 35rpx;
+  padding: 0 0rpx;
   box-sizing: border-box;
   padding-bottom:36rpx;
 }
@@ -46,23 +46,40 @@ text-align: center;
 .des_list{
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between ;
   font-size: 11px;
   line-height: 29px;
   color: #666666;
   text-align: center;
 }
+.list1{
+  width: 200rpx;
+  text-align: center;
+}
+.list2{
+  width: 200rpx;
+  text-align: center;
+}
+.list3{
+  width: 200rpx;
+  text-align: center;
+}
 .tq{
   font-size: 13px;
   color: #333333;
-}
-.fv{
-  font-size: 13px;
-  color: #333333;
+  width: 200rpx;
+  text-align: center;
 }
 .vip_logo{
   width: 105rpx;
   height: 42rpx;
+  text-align: center
+}
+.fv{
+  font-size: 13px;
+  color: #333333;
+  width: 200rpx;
+  text-align: center;
 }
 .line1{
   height: 1px;

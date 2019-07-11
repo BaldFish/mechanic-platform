@@ -15,15 +15,15 @@
         <view class="fv" hover-class="none" hover-stop-propagation="false">非VIP</view>
       </view>
       <view class="des_list" hover-class="none" hover-stop-propagation="false">
-        <view class="" hover-class="none" hover-stop-propagation="false">查询价格</view>
-        <view class="">1181个车型可查</view>
-        <view class="" hover-class="none" hover-stop-propagation="false">50元/次/份</view>
+        <view class="list1" hover-class="none" hover-stop-propagation="false">查询价格</view>
+        <view class="list2">1181个车型可查</view>
+        <view class="list3" hover-class="none" hover-stop-propagation="false">50元/次/份</view>
       </view>
       <view class="line1" hover-class="none" hover-stop-propagation="false"></view>
       <view class="des_list" hover-class="none" hover-stop-propagation="false">
-        <view class="" hover-class="none" hover-stop-propagation="false">查询时间</view>
-        <view class="">一年无限次查询</view>
-        <view class="" hover-class="none" hover-stop-propagation="false">开通后7天有效</view>
+        <view class="list1" hover-class="none" hover-stop-propagation="false">查询时间</view>
+        <view class="list2">一年无限次查询</view>
+        <view class="list3" hover-class="none" hover-stop-propagation="false">开通后7天有效</view>
       </view>
     </view>
   </view>
