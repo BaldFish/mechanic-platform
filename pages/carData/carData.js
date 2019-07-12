@@ -46,13 +46,21 @@ Page({
   //打开modal
   openModal(e) {
     if (e.currentTarget.dataset.data.can_read) {
-      wx.showToast({
-        title: '您已成功支付订单',
-        icon: 'none',
-        image: '',
-        duration: 2000,
-        mask: true,
-        success: (result) => { },
+      app.data.manualId = e.currentTarget.dataset.data.manual_id
+      wx.showModal({
+        title: "提示",
+        content: '您已成功支付订单',
+        showCancel: true,
+        confirmText:"查看资料",
+        success: (res) => { 
+          if (res.confirm) {
+            wx.navigateTo({
+              url: `/pages/read/read?previousPage=carData`
+            })
+          } else if (res.cancel) {
+            return
+          }
+        },
         fail: () => { },
         complete: () => { }
       })
