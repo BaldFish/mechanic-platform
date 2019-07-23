@@ -42,8 +42,8 @@
         <image src='/images/close.png' class='close-modal'></image>
       </view>
       <view class='money'>
-        <text wx:if="{{seleted==1}}">{{pointsBalance>=1000?399:(4990-pointsBalance)/10}}</text>
-        <text wx:else>499</text>
+        <text wx:if="{{seleted==1}}">{{pointsBalance>=1000?99:(1990-pointsBalance)/10}}</text>
+        <text wx:else>199</text>
         元
       </view>
       <radio-group class='radio-group' bindchange="radioChange">
@@ -57,7 +57,7 @@
             积分抵扣
             <text>{{pointsBalance>=1000?100:pointsBalance/10}}</text>
             元 + 微信支付
-            <text>{{pointsBalance>=1000?399:(4990-pointsBalance)/10}}</text>
+            <text>{{pointsBalance>=1000?99:(1990-pointsBalance)/10}}</text>
             元
           </view>
         </label>
