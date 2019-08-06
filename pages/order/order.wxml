@@ -1,7 +1,7 @@
 <!-- pages/queryHistory/queryHistory.wxml -->
 <view class='order_wrap'>
-  <view wx:if="{{ordrList.length}}">
-    <view class="list_wrap" wx:for="{{ordrList}}" wx:key="item.order_id">
+  <view wx:if="{{orderList.length}}">
+    <view class="list_wrap" wx:for="{{orderList}}" wx:key="item.order_id">
       <view class="order_num">
         <text class="text">订单号：{{item.order_id}}</text>
       </view>
