@@ -10,7 +10,7 @@ Page({
     limit: 5,
     userId: "",
     token: "",
-    ordrList: [],
+    orderList: [],
   },
   turnRead(e) {
     app.data.manualId = e.currentTarget.dataset.value;
@@ -36,14 +36,14 @@ Page({
         res.data.data.res_list.forEach((item) => {
           item.created_at = app.util.formatTime(new Date(item.created_at))
           switch (item.type) {
-            case 3: item.typeName = "电路图"; item.url = "/images/dianlu2.png"
+            case 3: item.typeName = `${item.brand}${item.series}电路图`;item.url = "/images/dianlu2.png"
               break;
-            case 5: item.typeName = "维修手册"; item.url = "/images/weixiu2.png"
+            case 5: item.typeName = `${item.brand}${item.series}维修手册`;item.url = "/images/weixiu2.png"
               break;
           }
         })
         this.setData({
-          ordrList: res.data.data.res_list
+          orderList: res.data.data.res_list
         })
       } else {
         // wx.showToast({
@@ -101,19 +101,19 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    app.util.request('GET', `/v1/rrd-wx-app/order/list/${app.data.userId}?start=${this.data.ordrList.length}&limit=${this.data.limit}`, 'application/json', '', `${app.data.token}`, (res) => {
+    app.util.request('GET', `/v1/rrd-wx-app/order/list/${app.data.userId}?start=${this.data.orderList.length}&limit=${this.data.limit}`, 'application/json', '', `${app.data.token}`, (res) => {
       if (res.data.data.res_list.length !== 0) {
         res.data.data.res_list.forEach((item) => {
           item.created_at = app.util.formatTime(new Date(item.created_at))
           switch (item.type) {
-            case 3: item.typeName = "电路图"; item.url = "/images/dianlu2.png"
+            case 3: item.typeName = `${item.brand}${item.series}电路图`;item.url = "/images/dianlu2.png"
               break;
-            case 5: item.typeName = "维修手册"; item.url = "/images/weixiu2.png"
+            case 5: item.typeName = `${item.brand}${item.series}维修手册`;item.url = "/images/weixiu2.png"
               break;
           }
         })
         this.setData({
-          ordrList: this.data.ordrList.concat(res.data.data.res_list)
+          orderList: this.data.orderList.concat(res.data.data.res_list)
         })
       } else {
         wx.showToast({
