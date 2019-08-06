@@ -101,6 +101,9 @@ Page({
     app.data.userId = wx.getStorageSync('userId')
     app.data.token = wx.getStorageSync('token')
     app.util.request('GET', `/v1/rrd-wx-app/partner/income/record/${app.data.userId}?start=${this.data.exchangeList.length}&limit=${this.data.limit}`, 'application/json', '', `${app.data.token}`, (res) => {
+      this.setData({
+        balance: res.data.data.balance,
+      })
       if (res.data.data.res_list.length !== 0) {
         res.data.data.res_list.forEach((item) => {
           item.created_at = app.util.formatTime(new Date(item.created_at))
@@ -112,12 +115,14 @@ Page({
           }
         })
         this.setData({
-          balance: res.data.data.balance,
           exchangeList: res.data.data.res_list,
         })
       }
     });
     app.util.request('GET', `/v1/rrd-wx-app/partner/withdraw/record/${app.data.userId}?start=${this.data.withdrawList.length}&limit=${this.data.limit}`, 'application/json', '', `${app.data.token}`, (res) => {
+      this.setData({
+        balance: res.data.data.balance,
+      })
       if (res.data.data.res_list.length !== 0) {
         res.data.data.res_list.forEach((item) => {
           item.created_at = app.util.formatTime(new Date(item.created_at))
@@ -129,7 +134,6 @@ Page({
           }
         })
         this.setData({
-          balance: res.data.data.balance,
           withdrawList: res.data.data.res_list,
         })
       }
