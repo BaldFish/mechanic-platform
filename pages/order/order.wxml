@@ -37,10 +37,11 @@
   </view>
   <view class="list_no_wrap" hover-class="none" hover-stop-propagation="false" wx:else>
     <view class="list_no" hover-class="none" hover-stop-propagation="false">
-      <view class="list_no_text" hover-class="none" hover-stop-propagation="false">暂无新订单</view>
-      <view class="list_no_btn" hover-class="none" hover-stop-propagation="false" bindtap="turnHome">
-        立即查询
-      </view>
+      <image class="" src="/images/kong.png" mode="aspectFit"></image>
+      <view class="">订单列表为空</view>
+    </view>
+    <view class="list_no_btn" hover-class="none" hover-stop-propagation="false" bindtap="turnHome">
+      去首页
     </view>
   </view>
 </view>
